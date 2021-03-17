@@ -1,0 +1,21 @@
+package.json
+package-lock.json
+app/Lib/pixie/scripts.min.js
+app/Lib/videojs.framebyframe.js
+app/Lib/videojs-abloop.js
+ # Visual Studio Code
+.vscode
+storybook/storyLoader.js
+i18n/*
+!i18n/locales
+babel.config.js
+.eslintrc.js
+.eslintrc.typescript.js
+web/webpack/new.web.prod.config.js
+web/webpack/new.web.dev.config.js
+index.ios.js
+index.android.js
+app/config
+app/ui/config
+__tests__/*
+metro.config.js
