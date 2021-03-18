@@ -12,8 +12,11 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "react": "^17.0.1",
+    "react-animated-css": "^1.2.1",
+    "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
+    "react-typist": "^2.0.5",
     "typescript": "^4.1.2",
     "typewriter-effect": "^2.17.0",
     "web-vitals": "^1.0.1"
@@ -44,8 +47,24 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@types/react-typist": "^2.0.1",
     "autoprefixer": "^9.8.6",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-typescript": "^10.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-i18n-json": "^3.1.0",
+    "eslint-plugin-i18next": "https://github.com/edvardchen/eslint-plugin-i18next/archive/v5.0.0-0.tar.gz",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-react-native": "^3.9.1",
     "postcss": "^7.0.35",
+    "prettier": "^2.1.2",
+    "prettier-eslint-cli": "^5.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
   }
 }

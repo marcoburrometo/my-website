@@ -1,0 +1,16 @@
+{
+    // extend your base config so you don't have to redefine your compilerOptions
+    "extends": "./tsconfig.json",
+    "include": [
+      "app/**/*.ts",
+      "app/**/*.tsx",
+      "typings/**/*.ts",
+      // etc
+   
+      "app/**/*.js",
+      "app/**/*.jsx",
+       "app/**/*.json",
+       "i18n/**/*.json",
+       "prod_server.js"
+    ]
+  }
