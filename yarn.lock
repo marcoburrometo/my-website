@@ -9852,6 +9852,11 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-cool-inview@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-1.2.1.tgz#33a8f1b566e3dbaa483896cc12f68ee9f97d59e5"
+  integrity sha512-1k9VxIfbOHZPFpdOgmjBsL1pnDeL2WkzEkbSdQz7F7YjGqm57sL5xIUdG4mHmOLvJ/Odca9sWfZJka1oENkOWg==
+
 react-dark-mode-toggle@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/react-dark-mode-toggle/-/react-dark-mode-toggle-0.2.0.tgz"

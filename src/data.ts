@@ -1,4 +1,5 @@
-import { ExperienceDef } from './Experience';
+import { ExperienceDef } from './Components/Experience/Experience';
+import { SkillDef } from './Components/Skill/Skill';
 
 export const qualities = [
     'Dynamic',
@@ -50,4 +51,19 @@ export const experiences: ExperienceDef[] = [
         place: '',
         technologies: 'React, HTML standards, Bootstrap, Javascript, php, C#.',
     },
+];
+
+export const skills: SkillDef[] = [
+    { description: 'HTML', pct: 100 },
+    { description: 'Javascript/Typescript 💙', pct: 100 },
+    { description: 'css, sass, less, scss', pct: 90 },
+    { description: 'React', pct: 90 },
+    { description: 'React Native', pct: 85 },
+    { description: 'NodeJs, Expressjs', pct: 90 },
+    { description: 'Redux, Redux-saga, Redux-toolkit', pct: 80 },
+    { description: 'SQL', pct: 80 },
+    { description: 'C#', pct: 60 },
+    { description: 'Php', pct: 50 },
+    { description: 'Logic Pro X, Pro Tools', pct: 90 },
+    { description: 'Photoshop', pct: 60 },
 ];

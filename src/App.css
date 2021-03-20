@@ -7,12 +7,20 @@
   position: relative;
 }
 
+.app+footer {
+  opacity: 0;
+}
+
+.app.ready+footer {
+  opacity: 1;
+}
+
 .app.ready {
   opacity: 1;
 }
 
 .theme-toggle {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
   user-select: none;
@@ -52,4 +60,5 @@ footer {
   bottom: 0;
   width: 100%;
   z-index: 0;
+  transition: opacity .5s .5s;
 }

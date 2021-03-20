@@ -1,0 +1,20 @@
+.skill {
+    width: 100%;
+}
+
+.bar {
+    position: relative;
+    background: linear-gradient(90deg, #ff00c1 0%, #0095ff 50%, #00c100 100%);
+}
+
+.dark .bar {
+    background: linear-gradient(90deg, #ff00c1 0%, #0095ff 50%, #00ff00 100%);
+}
+
+.bar-bg {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 0;
+    transition: left 1.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
