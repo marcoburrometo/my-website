@@ -11,6 +11,7 @@ import Experience from './Components/Experience/Experience';
 import { qualities, experiences, skills } from './data';
 import Skill from './Components/Skill/Skill';
 import Image from './Components/HoverImage/Image';
+import useScrollData from './Hooks/useScroll';
 
 const themes = ['red', 'yellow', 'green', 'blue', 'purple', 'indigo', 'pink'];
 
@@ -48,6 +49,9 @@ function App(): JSX.Element {
         setCount(1);
     }, [count]);
 
+    const scrollData = useScrollData();
+    const skewTransform = `skewY(${(scrollData.speed.y / 500) * (scrollData.direction.y === 'up' ? -1 : 1)}deg)`;
+
     const qualitiesEl = qualities.map((q) => (
         <span key={q}>
             <span>{q}</span>
@@ -57,7 +61,14 @@ function App(): JSX.Element {
 
     const header = (
         <div className="flex flex-col justify-center items-center bg-gray-300 dark:bg-gray-800 h-screen">
-            <Canvas pixelRatio={window.devicePixelRatio || 1} camera={{ fov: 75, position: [0, 0, 7] }}>
+            <Canvas
+                pixelRatio={window.devicePixelRatio || 1}
+                camera={{ fov: 75, position: [0, 0, 7] }}
+                resize={{
+                    scroll: false,
+                    debounce: 400,
+                }}
+            >
                 <Image url="./marco_full.jpg" width={4} />
             </Canvas>
             <div className="mt-8 dark:text-gray-50 text-gray-800 text-4xl font-black">
@@ -134,7 +145,10 @@ function App(): JSX.Element {
 
     return (
         <>
-            <div className={`app bg-gray-100 dark:bg-gray-900 ${ready ? ' ready' : ''}`}>
+            <div
+                className={`app bg-gray-100 dark:bg-gray-900 ${ready ? ' ready' : ''}`}
+                style={{ transform: skewTransform }}
+            >
                 <DarkModeToggle className="theme-toggle" onChange={setIsDarkMode} checked={isDarkMode} size={60} />
                 {header}
                 <p className="text-6xl sm:-ml-12 font-bold p-10 pb-0 md:px-40 mt-10 text-gray-800 dark:text-gray-200">

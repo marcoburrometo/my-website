@@ -26,7 +26,6 @@ function Image({ url, width, ...props }: Props): JSX.Element {
             <circleGeometry attach="geometry" args={[width, 1000]} />
             <animated.shaderMaterial
                 attach="material"
-                transparent
                 args={[HoverImageShader]}
                 uniforms-imgtexture-value={texture}
                 uniforms-hover-value={hoverValue}
