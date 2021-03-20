@@ -6,9 +6,11 @@ import DarkModeToggle from 'react-dark-mode-toggle';
 import './App.css';
 import './effects.css';
 import Typist from 'react-typist';
+import { Canvas } from 'react-three-fiber';
 import Experience from './Components/Experience/Experience';
 import { qualities, experiences, skills } from './data';
 import Skill from './Components/Skill/Skill';
+import Image from './Components/HoverImage/Image';
 
 const themes = ['red', 'yellow', 'green', 'blue', 'purple', 'indigo', 'pink'];
 
@@ -55,7 +57,9 @@ function App(): JSX.Element {
 
     const header = (
         <div className="flex flex-col justify-center items-center bg-gray-300 dark:bg-gray-800 h-screen">
-            <img alt="marco" className="h-40 w-40 rounded-full" src="/marco.jpg" />
+            <Canvas pixelRatio={window.devicePixelRatio || 1} camera={{ fov: 75, position: [0, 0, 7] }}>
+                <Image url="./marco_full.jpg" width={4} />
+            </Canvas>
             <div className="mt-8 dark:text-gray-50 text-gray-800 text-4xl font-black">
                 {'Marco Burrometo'.split('').map((l, i) => (
                     <span
@@ -90,7 +94,10 @@ function App(): JSX.Element {
             <span className="text-md font-normal mt-8 dark:text-gray-400 text-gray-500">
                 Just a passionate person based in Italy.
             </span>
-            <span className="mt-28 cursor-pointer">
+            <span className="text-xs mt-28 mr-16 transform -rotate-90 dark:text-gray-400 text-gray-500">
+                Scroll down
+            </span>
+            <span className="cursor-pointer mt-2">
                 <svg
                     className={`hardware-acceleration animate-bounce fill-current transform origin-center ml-6 justify-center items-center ${textColor}`}
                     width="60"
@@ -155,7 +162,10 @@ function App(): JSX.Element {
                 </div>
             </div>
             <footer className={`${bgColor} p-20 md:px-40 px-8 flex flex-col justify-center items-center`}>
-                <img alt="marco" className="h-40 w-40 rounded-full" src="/marco.jpg" />
+                {/* <img alt="marco" className="h-40 w-40 rounded-full" src="/marco.jpg" /> */}
+                <Canvas pixelRatio={window.devicePixelRatio || 1} camera={{ fov: 75, position: [0, 0, 7] }}>
+                    <Image url="./marco_full.jpg" width={5} />
+                </Canvas>
                 <p className="text-xl font-bold p-10 pb-0 md:px-40 text-white text-center">Curious?</p>
                 <a
                     href="mailto:marco.burrometo@gmail.com"

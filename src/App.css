@@ -5,6 +5,7 @@
   width: 100vw;
   z-index: 1;
   position: relative;
+  overflow: auto;
 }
 
 .app+footer {
@@ -25,6 +26,7 @@
   right: 10px;
   user-select: none;
   outline: none !important;
+  z-index: 1000;
 }
 
 .text-green-500 {
