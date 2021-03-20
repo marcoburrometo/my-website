@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-W273HBN');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,13 +20,13 @@
     content="Marco Burrometo Portfolio, I am a full-stack Web and software developer from Italy" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <meta name="keywords"
-    content="Marco Burrometo Portfolio Web developer Software full stack framework angular react programmer italy freelance">
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    content="Marco Burrometo Portfolio Web developer Software full stack web framework angular react react native redux AR programmer italy freelance">
+  <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <title>Marco Burrometo - Software developer</title>
   <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (localStorage.theme === 'dark' || localStorage.theme === '' || !('theme' in localStorage)) {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')

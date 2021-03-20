@@ -15,8 +15,7 @@ const themes = ['red', 'yellow', 'green', 'blue', 'purple', 'indigo', 'pink'];
 function App(): JSX.Element {
     const [ready, setReady] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(
-        localStorage.theme === 'dark' ||
-            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
+        localStorage.theme === 'dark' || localStorage.theme === '' || !('theme' in localStorage),
     );
     const [color, setColor] = useState(themes[Math.floor(Math.random() * themes.length)]);
     const [count, setCount] = useState(1);
@@ -30,7 +29,7 @@ function App(): JSX.Element {
             localStorage.theme = 'dark';
         } else {
             document.documentElement.classList.remove('dark');
-            localStorage.theme = '';
+            localStorage.theme = 'light';
         }
     }, [isDarkMode]);
 
@@ -39,7 +38,7 @@ function App(): JSX.Element {
             setReady(true);
             setInterval(() => {
                 setColor(themes[Math.floor(Math.random() * themes.length)]);
-            }, 10 * 1000);
+            }, 30 * 1000);
         }, 200);
     }, []);
 
@@ -150,6 +149,7 @@ function App(): JSX.Element {
                             {skills.map((e, i) => (
                                 <Skill key={e.description} {...e} delay={i * 50} />
                             ))}
+                            <p className="text-gray-700 dark:text-gray-400 text-xs mt-3">...and still learning</p>
                         </div>
                     </div>
                 </div>

@@ -59,6 +59,7 @@ export const skills: SkillDef[] = [
     { description: 'css, sass, less, scss', pct: 90 },
     { description: 'React', pct: 90 },
     { description: 'React Native', pct: 85 },
+    { description: 'Augmented Reality with Viro, Unity', pct: 70 },
     { description: 'NodeJs, Expressjs', pct: 90 },
     { description: 'Redux, Redux-saga, Redux-toolkit', pct: 80 },
     { description: 'SQL', pct: 80 },
