@@ -1,11 +1,12 @@
 .app {
   opacity: 0;
-  transition: opacity .5s, transform .25s;
+  transition: opacity .5s, transform .2s;
   min-height: 100vh;
   width: 100vw;
   z-index: 1;
   position: relative;
   overflow: auto;
+  will-change: transform, opacity;
 }
 
 .app+footer {
@@ -63,4 +64,16 @@ footer {
   width: 100%;
   z-index: 0;
   transition: opacity .5s .5s;
+}
+
+.dark body {
+  background-color: rgb(17, 24, 39);
+}
+
+body {
+  background-color: rgb(243, 244, 246);
+}
+
+canvas {
+  user-select: none;
 }

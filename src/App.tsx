@@ -50,7 +50,9 @@ function App(): JSX.Element {
     }, [count]);
 
     const scrollData = useScrollData();
-    const skewTransform = `skewY(${(scrollData.speed.y / 500) * (scrollData.direction.y === 'up' ? -1 : 1)}deg)`;
+    const skewTransform = `skewY(${
+        Math.min(scrollData.speed.y / 600, 5) * (scrollData.direction.y === 'up' ? -1 : 1)
+    }deg)`;
 
     const qualitiesEl = qualities.map((q) => (
         <span key={q}>
@@ -151,11 +153,11 @@ function App(): JSX.Element {
             >
                 <DarkModeToggle className="theme-toggle" onChange={setIsDarkMode} checked={isDarkMode} size={60} />
                 {header}
-                <p className="text-6xl sm:-ml-12 font-bold p-10 pb-0 md:px-40 mt-10 text-gray-800 dark:text-gray-200">
+                <p className="text-6xl sm:-ml-12 font-bold p-4 md:p-10 pb-0 md:px-40 mt-10 text-gray-800 dark:text-gray-200">
                     Hello.
                 </p>
-                <div className="grid grid-cols-1 p-10 md:px-40 px-8">{presentation}</div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-20 p-10 md:px-40 px-8 mt-20">
+                <div className="grid grid-cols-1 p-5 md:p-10 md:px-40">{presentation}</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-20 p-5 md:p-10 md:px-40 mt-20">
                     <div>
                         <p className="text-2xl sm:-ml-12 font-bold text-gray-700 dark:text-gray-400">
                             Work and experiences.
@@ -183,9 +185,12 @@ function App(): JSX.Element {
                 <p className="text-xl font-bold p-10 pb-0 md:px-40 text-white text-center">Curious?</p>
                 <a
                     href="mailto:marco.burrometo@gmail.com"
-                    className="text-2xl font-bold text-gray-100 text-center effect-underline"
+                    className="text-lg md:text-2xl font-bold text-gray-100 text-center effect-underline"
                 >
                     marco.burrometo@gmail.com
+                </a>
+                <a href="/CV ENG.pdf" target="_blank" className="cv-button px-8 py-2 text-white mt-4">
+                    Get my CV
                 </a>
                 <div className="w-full mt-20 flex flex-col center-justify items-center justify-between text-white">
                     <div className="flex flex-row mb-3">
@@ -254,7 +259,7 @@ function App(): JSX.Element {
                             </svg>
                         </a>
                     </div>
-                    <span className="text-sm">🚀 2021 © Marco Burrometo - VAT. 01214220319</span>
+                    <span className="text-xs md:text-sm">🚀 2021 © Marco Burrometo - VAT. 01214220319</span>
                 </div>
             </footer>
         </>
