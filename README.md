@@ -1,3 +1,5 @@
 # my-website
 
-cool isn't it?
+`npm i`
+
+`npm run start`
