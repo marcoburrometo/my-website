@@ -10,7 +10,6 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:jest/recommended',
         'prettier',
-        'prettier/@typescript-eslint',
     ],
     parser: '@typescript-eslint/parser',
     globals: {
@@ -63,7 +62,8 @@ module.exports = {
         'valid-typeof': 0, // Conflicts with i18next/no-literal-string
         'react/prop-types': [2, { ignore: ['navigation', 'history', 'location', 't'] }],
         '@typescript-eslint/naming-convention': 1,
-        'i18next/no-literal-string': "off",
+        '@typescript-eslint/indent': 'off',
+        'i18next/no-literal-string': 'off',
         'i18n-json/valid-message-syntax': [
             2,
             {

@@ -23,9 +23,15 @@ export const experiences: ExperienceDef[] = [
     },
     {
         period: '01/2020 - Now',
-        description: 'Web playform for smart warehouses.',
+        description: 'Web platform for smart warehouses.',
         place: '@MDS',
         technologies: 'React, redux-toolkit, nodejs, express, Typescript, scss, socket-io.',
+    },
+    {
+        period: '02/2021 - 09/2021',
+        description: 'AR Application WWI.',
+        place: '@Comune di Asiago',
+        technologies: 'React-native, redux-toolkit, Typescript, scss, Viro AR.',
     },
     {
         period: '02/2019 - 12/2020',

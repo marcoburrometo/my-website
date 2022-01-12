@@ -1,9 +1,11 @@
 /* eslint-disable no-multi-assign */
 import React, { useRef, useState } from 'react';
-import { useFrame } from 'react-three-fiber';
+import { useFrame } from '@react-three/fiber';
 import type { Mesh } from 'three';
+import { animated } from '@react-spring/three';
+import ShpereShader from '../../Shaders/sphereShader';
 
-function Box(props: any) {
+function Box(props: any): JSX.Element {
     // This reference will give us direct access to the mesh
     const mesh = useRef<Mesh>();
 
@@ -17,7 +19,7 @@ function Box(props: any) {
     });
 
     return (
-        <mesh
+        <animated.mesh
             {...props}
             ref={mesh}
             scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
@@ -25,9 +27,9 @@ function Box(props: any) {
             onPointerOver={() => setHover(true)}
             onPointerOut={() => setHover(false)}
         >
-            <boxBufferGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-        </mesh>
+            <sphereBufferGeometry args={[1, 100, 100]} />
+            <animated.shaderMaterial attach="material" color={hovered ? 'hotpink' : 'orange'} args={[ShpereShader]} />
+        </animated.mesh>
     );
 }
 

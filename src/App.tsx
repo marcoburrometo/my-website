@@ -6,7 +6,7 @@ import DarkModeToggle from 'react-dark-mode-toggle';
 import './App.css';
 import './effects.css';
 import Typist from 'react-typist';
-import { Canvas } from 'react-three-fiber';
+import { Canvas } from '@react-three/fiber';
 import Experience from './Components/Experience/Experience';
 import { qualities, experiences, skills } from './data';
 import Skill from './Components/Skill/Skill';
@@ -64,7 +64,8 @@ function App(): JSX.Element {
     const header = (
         <div className="flex flex-col justify-center items-center bg-gray-300 dark:bg-gray-800 h-screen">
             <Canvas
-                pixelRatio={window.devicePixelRatio || 1}
+                dpr={window.devicePixelRatio || 1}
+                linear
                 camera={{ fov: 75, position: [0, 0, 7] }}
                 resize={{
                     scroll: false,
@@ -179,7 +180,7 @@ function App(): JSX.Element {
             </div>
             <footer className={`${bgColor} p-20 md:px-40 px-8 flex flex-col justify-center items-center`}>
                 {/* <img alt="marco" className="h-40 w-40 rounded-full" src="/marco.jpg" /> */}
-                <Canvas pixelRatio={window.devicePixelRatio || 1} camera={{ fov: 75, position: [0, 0, 7] }}>
+                <Canvas linear dpr={window.devicePixelRatio || 1} camera={{ fov: 75, position: [0, 0, 7] }}>
                     <Image url="./marco_full.jpg" width={5} />
                 </Canvas>
                 <p className="text-xl font-bold p-10 pb-0 md:px-40 text-white text-center">Curious?</p>
@@ -259,7 +260,9 @@ function App(): JSX.Element {
                             </svg>
                         </a>
                     </div>
-                    <span className="text-xs md:text-sm">🚀 2021 © Marco Burrometo - VAT. 01214220319</span>
+                    <span className="text-xs md:text-sm">
+                        🚀 {new Date().getFullYear()} © Marco Burrometo - VAT. 01214220319
+                    </span>
                 </div>
             </footer>
         </>

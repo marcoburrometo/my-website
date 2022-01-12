@@ -57,8 +57,8 @@ const HoverImageShader = {
            
           color = texture2D(imgtexture, uv);
           // RGBshift
-          color.r = texture2D(imgtexture, uv+(hoverLevel)*0.06).r;
-          color.g = texture2D(imgtexture, uv-(hoverLevel)*0.06).g;
+          color.r = texture2D(imgtexture, uv+(hoverLevel)*0.1).r;
+          color.g = texture2D(imgtexture, uv-(hoverLevel)*0.1).g;
         }
   
         gl_FragColor = mix(vec4(1.,1.,1.,opacity), color, opacity);

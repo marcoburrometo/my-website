@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { TextureLoader } from 'three';
-import { useSpring, animated, config } from 'react-spring/three';
+import { useSpring, animated, config } from '@react-spring/three';
 import HoverImageShader from '../../Shaders/hoverImageShader';
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
 }
 
 function Image({ url, width, ...props }: Props): JSX.Element {
+    const a = animated as any;
     const [hovered, setHover] = useState(false);
 
     const [texture] = useMemo(() => {
@@ -23,13 +24,14 @@ function Image({ url, width, ...props }: Props): JSX.Element {
 
     return (
         <animated.mesh onPointerOver={() => setHover(true)} onPointerOut={() => setHover(false)} {...props}>
-            <circleGeometry attach="geometry" args={[width, 1000]} />
-            <animated.shaderMaterial
+            <a.shaderMaterial
                 attach="material"
+                isMaterial
                 args={[HoverImageShader]}
                 uniforms-imgtexture-value={texture}
                 uniforms-hover-value={hoverValue}
             />
+            <circleGeometry attach="geometry" args={[width, 1000]} />
         </animated.mesh>
     );
 }
