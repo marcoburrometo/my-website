@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as THREE from 'three';
 import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -30,8 +31,14 @@ function Scene({ isDarkMode }: { isDarkMode: boolean }) {
 
 export default function HelloText({ isDarkMode }: { isDarkMode: boolean }): JSX.Element {
     return (
-        // eslint-disable-next-line react-native/no-inline-styles
-        <span style={{ position: 'absolute', overflow: 'hidden', marginTop: -70, marginLeft: -30 }}>
+        <span
+            style={{
+                position: 'absolute',
+                overflow: 'hidden',
+                marginTop: window.innerWidth < 500 ? -90 : -70,
+                marginLeft: -40,
+            }}
+        >
             <Canvas dpr={[1, 2]} orthographic camera={{ zoom: 80 }}>
                 {/* <Canvas dpr={window.devicePixelRatio || 1} camera={{ fov: 75, position: [0, 0, 7] }} orthographic> */}
                 <ambientLight intensity={2} color={isDarkMode ? '#f3f4f6' : '#111827'} />

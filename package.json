@@ -57,7 +57,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/react-typist": "^2.0.3",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^9",
     "eslint": "^7.8.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-typescript": "^10.0.0",
@@ -71,9 +71,9 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "eslint-plugin-react-native": "^3.9.1",
-    "postcss": "^8.4.5",
+    "postcss": "^7",
     "prettier": "^2.5.1",
     "prettier-eslint-cli": "^5.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
