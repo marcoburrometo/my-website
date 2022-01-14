@@ -67,11 +67,11 @@ footer {
 }
 
 .dark body {
-  background-color: rgb(17, 24, 39);
+  background-color: #111827;
 }
 
 body {
-  background-color: rgb(243, 244, 246);
+  background-color: #f3f4f6;
 }
 
 canvas {

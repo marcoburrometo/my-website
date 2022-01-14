@@ -11,7 +11,7 @@ import Experience from './Components/Experience/Experience';
 import { qualities, experiences, skills } from './data';
 import Skill from './Components/Skill/Skill';
 import Image from './Components/HoverImage/Image';
-import useScrollData from './Hooks/useScroll';
+import HelloText from './Components/HelloText/HelloText';
 
 const themes = ['red', 'yellow', 'green', 'blue', 'purple', 'indigo', 'pink'];
 
@@ -48,11 +48,6 @@ function App(): JSX.Element {
     useEffect(() => {
         setCount(1);
     }, [count]);
-
-    const scrollData = useScrollData();
-    const skewTransform = `skewY(${
-        Math.min(scrollData.speed.y / 600, 5) * (scrollData.direction.y === 'up' ? -1 : 1)
-    }deg)`;
 
     const qualitiesEl = qualities.map((q) => (
         <span key={q}>
@@ -140,22 +135,20 @@ function App(): JSX.Element {
                 results. I have fun creating unique things and keeping myself updated on newest technologies..
             </p>
             <p className="text-gray-700 dark:text-gray-400 mt-5">Bass guitar player since I was 15.</p>
-            <p className="text-gray-700 dark:text-gray-400">Vynil addicted. 🎧</p>
+            <p className="text-gray-700 dark:text-gray-400">Vynil and Music addicted. 🎧</p>
             <p className="text-gray-700 dark:text-gray-400">Proud dachshund owner and lover. 🌭</p>
-            <p className="text-gray-700 dark:text-gray-400">Rubber duck debugger. 🐤.</p>
+            <p className="text-gray-700 dark:text-gray-400">Captain and head fisher of a boat. 🚤🎣</p>
+            <p className="text-gray-700 dark:text-gray-400">Rubber duck debugger. 🐤</p>
         </div>
     );
 
     return (
         <>
-            <div
-                className={`app bg-gray-100 dark:bg-gray-900 ${ready ? ' ready' : ''}`}
-                style={{ transform: skewTransform }}
-            >
+            <div className={`app bg-gray-100 dark:bg-gray-900 ${ready ? ' ready' : ''}`}>
                 <DarkModeToggle className="theme-toggle" onChange={setIsDarkMode} checked={isDarkMode} size={60} />
                 {header}
                 <p className="text-6xl sm:-ml-12 font-bold p-4 md:p-10 pb-0 md:px-40 mt-10 text-gray-800 dark:text-gray-200">
-                    Hello.
+                    <HelloText isDarkMode={isDarkMode} />
                 </p>
                 <div className="grid grid-cols-1 p-5 md:p-10 md:px-40">{presentation}</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-20 p-5 md:p-10 md:px-40 mt-20">

@@ -61,7 +61,7 @@ module.exports = {
         'react/jsx-indent-props': [2, 4],
         'valid-typeof': 0, // Conflicts with i18next/no-literal-string
         'react/prop-types': [2, { ignore: ['navigation', 'history', 'location', 't'] }],
-        '@typescript-eslint/naming-convention': 1,
+        '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/indent': 'off',
         'i18next/no-literal-string': 'off',
         'i18n-json/valid-message-syntax': [
