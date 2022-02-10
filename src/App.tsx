@@ -23,7 +23,7 @@ function App(): JSX.Element {
     );
     const [color, setColor] = useState(themes[Math.floor(Math.random() * themes.length)]);
     const [count, setCount] = useState(1);
-
+    const [clicked, setClicked] = useState(false);
     const textColor = `text-${color}-500`;
     const bgColor = `bg-${color}-600`;
 
@@ -146,9 +146,16 @@ function App(): JSX.Element {
     return (
         <>
             <div className={`app bg-gray-100 dark:bg-gray-900 ${ready ? ' ready' : ''}`}>
-                <div className="fluid-canvas-container">
-                    <Fluid />
-                </div>
+                {window.innerWidth > 512 && (
+                    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+                    <div
+                        onClick={() => setClicked(!clicked)}
+                        // eslint-disable-next-line no-constant-condition
+                        className={`fluid-canvas-container${clicked ? ' clicked' : ''}`}
+                    >
+                        <Fluid />
+                    </div>
+                )}
                 <DarkModeToggle className="theme-toggle" onChange={setIsDarkMode} checked={isDarkMode} size={60} />
                 {header}
                 <p className="text-6xl sm:-ml-12 font-bold p-4 md:p-10 pb-0 md:px-40 mt-10 text-gray-800 dark:text-gray-200">

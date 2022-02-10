@@ -82,5 +82,15 @@ canvas {
   position: fixed;
   height: 100%;
   width: 100%;
-  opacity: 0.1;
+  opacity: 0.11;
+}
+
+.fluid-canvas-container.clicked {
+  opacity: 1;
+}
+
+span,
+p,
+.rounded-lg {
+  position: relative;
 }
