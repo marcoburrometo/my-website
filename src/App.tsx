@@ -12,6 +12,7 @@ import { qualities, experiences, skills } from './data';
 import Skill from './Components/Skill/Skill';
 import Image from './Components/HoverImage/Image';
 import HelloText from './Components/HelloText/HelloText';
+import Fluid from './Components/Fluid/Fluid';
 
 const themes = ['red', 'yellow', 'green', 'blue', 'purple', 'indigo', 'pink'];
 
@@ -145,6 +146,9 @@ function App(): JSX.Element {
     return (
         <>
             <div className={`app bg-gray-100 dark:bg-gray-900 ${ready ? ' ready' : ''}`}>
+                <div className="fluid-canvas-container">
+                    <Fluid />
+                </div>
                 <DarkModeToggle className="theme-toggle" onChange={setIsDarkMode} checked={isDarkMode} size={60} />
                 {header}
                 <p className="text-6xl sm:-ml-12 font-bold p-4 md:p-10 pb-0 md:px-40 mt-10 text-gray-800 dark:text-gray-200">

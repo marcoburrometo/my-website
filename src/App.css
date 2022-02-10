@@ -77,3 +77,10 @@ body {
 canvas {
   user-select: none;
 }
+
+.fluid-canvas-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+}
