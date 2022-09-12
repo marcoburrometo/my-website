@@ -30,12 +30,12 @@ let config = {
     DYE_RESOLUTION: 1024,
     CAPTURE_RESOLUTION: 512,
     DENSITY_DISSIPATION: 1, // 1 for gradual dissipation, 0 for no dissipation
-    VELOCITY_DISSIPATION: 1.2,
+    VELOCITY_DISSIPATION: 2,
     PRESSURE: 0.2,
     PRESSURE_ITERATIONS: 20,
-    CURL: 15,
-    SPLAT_RADIUS: 0.15,
-    SPLAT_FORCE: 5000,
+    CURL: 5,
+    SPLAT_RADIUS: 0.12,
+    SPLAT_FORCE: 6000,
     SHADING: true,
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 30,
@@ -1027,6 +1027,7 @@ mycanvas.addEventListener('mousemove', function (e) {
 
 window.addEventListener('mouseup', function () {
     updatePointerUpData(pointers[0]);
+    splatStack.push(parseInt(Math.random() * 20) + 5);
 });
 
 mycanvas.addEventListener('touchstart', function (e) {

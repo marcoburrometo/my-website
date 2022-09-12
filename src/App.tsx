@@ -59,7 +59,7 @@ function App(): JSX.Element {
 
     const header = (
         <div className="flex flex-col justify-center items-center bg-gray-300 dark:bg-gray-800 h-screen">
-            <Canvas
+            {/* <Canvas
                 dpr={window.devicePixelRatio || 1}
                 linear
                 camera={{ fov: 75, position: [0, 0, 7] }}
@@ -69,7 +69,8 @@ function App(): JSX.Element {
                 }}
             >
                 <Image url="./marco_full.jpg" width={4} />
-            </Canvas>
+            </Canvas> */}
+            <img className="img-marco" alt="Marco" src="./marco_full.jpg" />
             <div className="mt-8 dark:text-gray-50 text-gray-800 text-4xl font-black">
                 {'Marco Burrometo'.split('').map((l, i) => (
                     <span
@@ -98,7 +99,7 @@ function App(): JSX.Element {
                     )}
                 </span>
                 <span className="text-lg mt-8 ml-1 dark:text-gray-200 text-gray-600 font-semibold">
-                    software expert.
+                    software expert
                 </span>
             </div>
             <span className="text-md font-normal mt-8 dark:text-gray-400 text-gray-500">
@@ -139,6 +140,7 @@ function App(): JSX.Element {
             <p className="text-gray-700 dark:text-gray-400">Vynil and Music addicted. 🎧</p>
             <p className="text-gray-700 dark:text-gray-400">Proud dachshund owner and lover. 🌭</p>
             <p className="text-gray-700 dark:text-gray-400">Captain and head fisher of a boat. 🚤🎣</p>
+            <p className="text-gray-700 dark:text-gray-400">I try to play tennis. 🎾</p>
             <p className="text-gray-700 dark:text-gray-400">Rubber duck debugger. 🐤</p>
         </div>
     );
