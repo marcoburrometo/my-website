@@ -1,5 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-return-assign */
+/* eslint-disable react/no-unknown-property */
+
 import * as THREE from 'three';
 import React, { useRef, useEffect, useMemo } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';

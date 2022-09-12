@@ -1,4 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/no-unknown-property */
+
 import * as THREE from 'three';
 import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';

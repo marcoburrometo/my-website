@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
-import useInView from 'react-cool-inview';
+import React, { memo } from 'react';
+import { useInView } from 'react-cool-inview';
 import './Skill.css';
 
 export interface SkillDef {
@@ -12,10 +12,10 @@ interface Props extends SkillDef {
     delay: number;
 }
 
-const Skill = ({ description, pct, delay }: Props): JSX.Element => {
-    const { ref, inView } = useInView();
+function Skill({ description, pct, delay }: Props): JSX.Element {
+    const { observe, inView } = useInView();
     return (
-        <div ref={ref as any} className="skill">
+        <div ref={observe} className="skill">
             <div className="description text-gray-800 dark:text-gray-300 text-sm mt-5">{description}</div>
             <div className={`bar h-1 rounded-sm ${inView ? ' show' : ''}`}>
                 <div
@@ -28,5 +28,5 @@ const Skill = ({ description, pct, delay }: Props): JSX.Element => {
             </div>
         </div>
     );
-};
-export default Skill;
+}
+export default memo(Skill);

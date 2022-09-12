@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+
 import React, { useState, useMemo } from 'react';
 import { TextureLoader } from 'three';
 import { useSpring, animated, config } from '@react-spring/three';
