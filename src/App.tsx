@@ -5,7 +5,7 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import DarkModeToggle from 'react-dark-mode-toggle';
-import Typist from 'react-typist';
+import Typist from 'react-typist-component';
 import { Canvas } from '@react-three/fiber';
 import Experience, { ExperienceDef } from './Components/Experience/Experience';
 import { qualities } from './data';
@@ -65,7 +65,9 @@ function App(): JSX.Element {
             qualities.map((q) => (
                 <span key={q}>
                     <span>{q}</span>
-                    <Typist.Backspace count={q.length} delay={100 * q.length} />
+                    <Typist.Delay ms={1000} />
+                    <Typist.Backspace count={q.length} />
+                    <Typist.Delay ms={300} />
                 </span>
             )),
         [],
@@ -101,11 +103,10 @@ function App(): JSX.Element {
                     <span className="text-lg mt-8 dark:text-gray-200 text-gray-600 font-semibold">
                         {count ? (
                             <Typist
-                                cursor={{
-                                    element: (<span className={textColor}> | </span>) as any,
-                                }}
+                                cursor={<span className={textColor}> | </span>}
                                 onTypingDone={() => setCount(0)}
-                                avgTypingDelay={50}
+                                backspaceDelay={50}
+                                typingDelay={() => 40 + 100 * Math.random()}
                             >
                                 {qualitiesEl}
                             </Typist>
@@ -216,7 +217,16 @@ function App(): JSX.Element {
                 <Canvas linear dpr={window.devicePixelRatio || 1} camera={{ fov: 75, position: [0, 0, 7] }}>
                     <Image url="./marco_full.jpg" width={5} />
                 </Canvas>
-                <p className="text-xl font-bold p-10 pb-0 md:px-40 text-white text-center">Curious?</p>
+                <p className="text-xl font-bold p-10 pb-0 md:px-40 text-white text-center">
+                    Curious?{' '}
+                    <Typist backspaceDelay={50} loop typingDelay={() => 40 + 100 * Math.random()}>
+                        Write me an email
+                        <Typist.Delay ms={5000} />
+                        <Typist.Backspace count={'Write me an email'.length} />
+                        <Typist.Delay ms={1000} />
+                    </Typist>
+                </p>
+
                 <a
                     href="mailto:marco.burrometo@gmail.com"
                     className="text-lg md:text-2xl font-bold text-gray-100 text-center effect-underline"
