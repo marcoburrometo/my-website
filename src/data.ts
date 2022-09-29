@@ -25,7 +25,7 @@ export const experiences: ExperienceDef[] = [
         period: '03/2022 - Now',
         description:
             'Lead a team of 5 people, taking care of the infrastructural part of a sport news application (iOS/android) with news articles, photos and video galleries, live matches, dynamic notifications, whitelabel (2 applications with the same code source) and complex adv management. ~ 150k daily users, good reviews.',
-        place: '@Sentry',
+        place: '@Heply',
         technologies: 'React-native, redux-toolkit, Typescript, storybook.',
     },
     {

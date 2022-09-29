@@ -7,9 +7,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import DarkModeToggle from 'react-dark-mode-toggle';
 import Typist from 'react-typist';
 import { Canvas } from '@react-three/fiber';
-import Experience from './Components/Experience/Experience';
-import { qualities, experiences, skills } from './data';
-import Skill from './Components/Skill/Skill';
+import Experience, { ExperienceDef } from './Components/Experience/Experience';
+import { qualities } from './data';
+import Skill, { SkillDef } from './Components/Skill/Skill';
 import Image from './Components/HoverImage/Image';
 import HelloText from './Components/HelloText/HelloText';
 import Fluid from './Components/Fluid/Fluid';
@@ -26,6 +26,8 @@ function App(): JSX.Element {
     const [color, setColor] = useState(themes[Math.floor(Math.random() * themes.length)]);
     const [count, setCount] = useState(1);
     const [clicked, setClicked] = useState(false);
+    const [experiences, setExperiences] = useState<ExperienceDef[]>([]);
+    const [skills, setSkills] = useState<SkillDef[]>([]);
     const textColor = `text-${color}-500`;
     const bgColor = `bg-${color}-600`;
 
@@ -46,6 +48,12 @@ function App(): JSX.Element {
                 setColor(themes[Math.floor(Math.random() * themes.length)]);
             }, 30 * 1000);
         }, 200);
+        fetch('./data/skills.json')
+            .then((res) => res.json())
+            .then((data) => setSkills(data));
+        fetch('./data/experiences.json')
+            .then((res) => res.json())
+            .then((data) => setExperiences(data));
     }, []);
 
     useEffect(() => {
@@ -157,6 +165,13 @@ function App(): JSX.Element {
         [],
     );
 
+    if (!skills.length || !experiences.length) {
+        return (
+            <div>
+                <p className="text-xl font-bold p-20 pb-0 md:px-40 text-white text-center">Loading...</p>
+            </div>
+        );
+    }
     return (
         <>
             <div className={`app bg-gray-100 dark:bg-gray-900 ${ready ? ' ready' : ''}`}>

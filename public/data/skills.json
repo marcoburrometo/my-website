@@ -1,0 +1,58 @@
+[
+    {
+      "description": "HTML",
+      "pct": 100
+    },
+    {
+      "description": "Javascript/Typescript 💙",
+      "pct": 100
+    },
+    {
+      "description": "React",
+      "pct": 100
+    },
+    {
+      "description": "React Native",
+      "pct": 95
+    },
+    {
+      "description": "css, sass, less, scss",
+      "pct": 95
+    },
+    {
+      "description": "Redux, Redux-saga, Redux-toolkit",
+      "pct": 90
+    },
+    {
+      "description": "NodeJs, Expressjs",
+      "pct": 90
+    },
+    {
+      "description": "Augmented Reality with Viro, Unity",
+      "pct": 80
+    },
+    {
+      "description": "Firebase/firestore",
+      "pct": 70
+    },
+    {
+      "description": "SQL",
+      "pct": 70
+    },
+    {
+      "description": "C#",
+      "pct": 60
+    },
+    {
+      "description": "Php",
+      "pct": 50
+    },
+    {
+      "description": "Logic Pro X, Pro Tools",
+      "pct": 90
+    },
+    {
+      "description": "Photoshop",
+      "pct": 70
+    }
+  ]
