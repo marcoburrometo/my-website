@@ -3,12 +3,14 @@
       "period": "01/2021 - Now",
       "description": "Cross-platform social network tool focused on video editing.",
       "place": "@Levuro AG, Zurich, CH",
-      "technologies": "React, redux-saga, Jest, Typescript, less, storybook."
+      "link": "https://levuro.com",
+      "technologies": "React, redux-saga, Jest, Typescript, less, storybook, nodejs, AWS lambdas."
     },
     {
-      "period": "03/2022 - 01/2022",
+      "period": "03/2022 - 02/2023",
       "description": "Lead a team of 5 people, taking care of the infrastructural part of a sport news application (iOS/android) with news articles, photos and video galleries, live matches, dynamic notifications, whitelabel (2 applications with the same code source) and complex adv management. ~ 150k daily users, good reviews.",
-      "place": "@Heply",
+      "place": "@Beliven, Udine, IT",
+      "link": "https://beliven.com",
       "technologies": "React-native, redux-toolkit, Typescript, storybook."
     },
     {
@@ -27,6 +29,7 @@
       "period": "02/2019 - 12/2020",
       "description": "Data-visualization Framework; Several web and react-native apps.",
       "place": "@Visup, Gemona del Friuli, IT",
+      "link": "https://visup.co",
       "technologies": "React, React-native, Angular, Typescript, nodejs, scss, sass, redux-toolkit."
     },
     {
@@ -39,6 +42,7 @@
       "period": "05/2012 - 05/2016",
       "description": "IT Guy, several web projects.",
       "place": "@Biotec SRL, Dueville(VI), IT",
+      "link": "https://www.btk.dental/",
       "technologies": "HTML standards, Boostrap, Javascript, php, C#."
     },
     {

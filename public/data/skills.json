@@ -24,16 +24,16 @@
       "pct": 90
     },
     {
-      "description": "NodeJs, Expressjs",
+      "description": "Firebase",
+      "pct": 90
+    },
+    {
+      "description": "NodeJs, ExpressJs, AWS Lambdas",
       "pct": 90
     },
     {
       "description": "Augmented Reality with Viro, Unity",
       "pct": 80
-    },
-    {
-      "description": "Firebase/firestore",
-      "pct": 70
     },
     {
       "description": "SQL",

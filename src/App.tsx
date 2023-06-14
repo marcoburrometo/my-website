@@ -161,6 +161,7 @@ function App(): JSX.Element {
                 <p className="text-gray-700 dark:text-gray-400">Captain and head fisher of a boat. 🚤🎣</p>
                 <p className="text-gray-700 dark:text-gray-400">I try to play tennis. 🎾</p>
                 <p className="text-gray-700 dark:text-gray-400">Rubber duck debugger. 🐤</p>
+                <p className="text-gray-700 dark:text-gray-400">Daddy of Gabriele 🩵 🍼</p>
             </div>
         ),
         [],
