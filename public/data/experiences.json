@@ -1,6 +1,20 @@
 [
     {
-      "period": "01/2021 - Now",
+      "period": "09/2024 - Now",
+      "description": "Differend projects for different clients, mainly focused on automotive and data analytics.",
+      "place": "@Jimmy Technologies, CZ",
+      "link": "https://www.fromjimmy.com/",
+      "technologies": "React, react-native, nextjs, Jest, Playwright, Typescript, nodejs, Google cloud platform."
+    },
+    {
+      "period": "01/2024 - 09/2024",
+      "description": "Cross-platform social network tool focused on video editing.",
+      "place": "@Elty di DaVinci Salute, CH",
+      "link": "https://elty.it/",
+      "technologies": "React, react-native, nextjs, graphql, Jest, Typescript, nodejs."
+    },
+    {
+      "period": "01/2021 - 07/2024",
       "description": "Cross-platform social network tool focused on video editing.",
       "place": "@Levuro AG, Zurich, CH",
       "link": "https://levuro.com",

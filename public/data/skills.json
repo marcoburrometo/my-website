@@ -20,15 +20,15 @@
       "pct": 95
     },
     {
-      "description": "Redux, Redux-saga, Redux-toolkit",
+      "description": "Redux, Redux-toolkit, Redux-saga",
       "pct": 90
     },
     {
-      "description": "Firebase",
+      "description": "Firebase/Google cloud platform",
       "pct": 90
     },
     {
-      "description": "NodeJs, ExpressJs, AWS Lambdas",
+      "description": "NodeJs, ExpressJs, AWS Lambdas, Google cloud functions",
       "pct": 90
     },
     {
@@ -42,10 +42,6 @@
     {
       "description": "C#",
       "pct": 60
-    },
-    {
-      "description": "Php",
-      "pct": 50
     },
     {
       "description": "Logic Pro X, Pro Tools",
