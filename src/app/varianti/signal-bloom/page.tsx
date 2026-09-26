@@ -34,20 +34,6 @@ export default function SignalBloomVariantPage() {
   return (
     <div className={styles.page}>
       <main className={styles.shell}>
-        <header className={styles.topbar}>
-          <div className={styles.brand}>
-            <span className={styles.brandMark}>MB</span>
-            <span>Marco Burrometo</span>
-          </div>
-          <p className={styles.availability}><span aria-hidden="true" /> Northern Italy</p>
-          <div className={styles.actions}>
-            <a className={styles.download} download="marco-burrometo-cv.pdf" href={cvPdfHref}>
-              Download CV <span aria-hidden="true">↓</span>
-            </a>
-            <ThemeToggle />
-          </div>
-        </header>
-
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Software engineering / Product development</p>
@@ -56,6 +42,12 @@ export default function SignalBloomVariantPage() {
               <span>Senior Software Engineer</span>
             </div>
             <p className={styles.lead}>{aboutParagraphs[3]}</p>
+            <div className={styles.actions}>
+              <a className={styles.download} download="marco-burrometo-cv.pdf" href={cvPdfHref}>
+                Download CV <span aria-hidden="true">↓</span>
+              </a>
+              <ThemeToggle />
+            </div>
             <nav aria-label="Social profiles" className={styles.socials}>
               {socials.map((social) => (
                 <a

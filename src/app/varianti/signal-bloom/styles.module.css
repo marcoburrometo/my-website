@@ -34,56 +34,9 @@
     padding: 1.25rem 0 3rem;
 }
 
-.topbar {
-    display: flex;
-    min-height: 3rem;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.brand,
-.actions,
-.availability {
-    display: flex;
-    align-items: center;
-}
-
-.brand {
-    gap: 0.65rem;
-    font-size: 0.84rem;
-    font-weight: 700;
-}
-
-.brandMark {
-    display: grid;
-    width: 2rem;
-    aspect-ratio: 1;
-    place-items: center;
-    border-radius: 5px;
-    background: var(--bloom-text);
-    color: var(--bloom-acid);
-    font-family: var(--font-body), sans-serif;
-    font-size: 0.68rem;
-    font-weight: 800;
-}
-
-.availability {
-    gap: 0.45rem;
-    color: var(--bloom-muted);
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-}
-
-.availability span {
-    width: 0.48rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: #20a478;
-}
-
 .actions {
+    display: flex;
+    align-items: center;
     gap: 0.65rem;
 }
 
@@ -113,7 +66,7 @@
     grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
     align-items: center;
     gap: clamp(2rem, 5vw, 5rem);
-    padding: 4rem 0 4.5rem;
+    padding: 1.5rem 0 4.5rem;
 }
 
 .heroCopy {
@@ -218,6 +171,8 @@
 .portrait {
     border: 1px solid var(--bloom-line);
     border-radius: 8px;
+    object-fit: cover;
+    object-position: center 30%;
 }
 
 .portraitFrame figcaption {
@@ -574,14 +529,10 @@
         padding-top: 0.7rem;
     }
 
-    .availability {
-        display: none;
-    }
-
     .hero {
         grid-template-columns: 1fr;
         gap: 1.8rem;
-        padding: 3rem 0 2.5rem;
+        padding: 1.5rem 0 2.5rem;
     }
 
     .hero h1 {
@@ -615,10 +566,6 @@
 }
 
 @media (max-width: 440px) {
-    .topbar {
-        flex-wrap: wrap;
-    }
-
     .actions {
         gap: 0.35rem;
     }

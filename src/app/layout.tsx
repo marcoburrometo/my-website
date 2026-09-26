@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Syne } from "next/font/google";
+import { AnalyticsConsent } from "@/components/firebase-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 import { socials } from "@/data/profile";
 import { siteUrl } from "@/data/seo";
@@ -94,6 +95,7 @@ export default function RootLayout({
         />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
+          <AnalyticsConsent />
         </ThemeProvider>
       </body>
     </html>

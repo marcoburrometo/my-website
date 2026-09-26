@@ -28,3 +28,7 @@ DEFAULT_CV_VARIANT=antigravity
 Valori supportati: `hypercard`, `editorial-pop`, `mono-terminal`, `antigravity`, `signal-bloom`. Se la variabile manca o contiene un valore non valido, la root mostra la homepage standard.
 
 Copia `.env.example` in `.env.local` e modifica il valore per lo sviluppo locale. In produzione imposta la variabile nell'ambiente del server; viene letta a ogni richiesta.
+
+## Google Analytics
+
+Set `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` to the GA4 Measurement ID in `.env.local` and your deployment environment. Analytics loads only after the visitor opts in; Next.js route changes are tracked automatically. Consent can be changed later with **Privacy settings**.
