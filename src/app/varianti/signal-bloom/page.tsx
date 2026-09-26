@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { randomInt } from "node:crypto";
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import experiences from "@/data/experiences.json";
 import skills from "@/data/skills.json";
@@ -28,11 +30,14 @@ type SkillGroup = {
 const typedExperiences = experiences as Experience[];
 const typedSkillGroups = skills as SkillGroup[];
 
-export default function SignalBloomVariantPage() {
+export default async function SignalBloomVariantPage() {
+  await connection();
+
+  const palette = randomInt(2) === 0 ? "fuchsia" : "violet";
   const year = new Date().getFullYear();
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} data-color-theme={palette}>
       <main className={styles.shell}>
         <section className={styles.hero}>
           <div className={styles.heroCopy}>

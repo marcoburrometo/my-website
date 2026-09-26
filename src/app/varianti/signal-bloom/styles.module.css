@@ -5,16 +5,25 @@
     --bloom-muted: #53666c;
     --bloom-line: rgba(23, 37, 43, 0.17);
     --bloom-acid: #d9ff3f;
-    --bloom-blue: #3546e8;
+    --bloom-accent: #b51fa8;
+    --bloom-grid: rgba(181, 31, 168, 0.055);
+    --bloom-notes-bg: #b51fa8;
     --bloom-coral: #fb694b;
+    --bloom-on-accent: #ffffff;
     min-height: 100vh;
     overflow: clip;
     background-color: var(--bloom-bg);
     background-image:
-        linear-gradient(rgba(53, 70, 232, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(53, 70, 232, 0.035) 1px, transparent 1px);
+        linear-gradient(var(--bloom-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bloom-grid) 1px, transparent 1px);
     background-size: 36px 36px;
     color: var(--bloom-text);
+}
+
+.page[data-color-theme="violet"] {
+    --bloom-accent: #4640b7;
+    --bloom-grid: rgba(70, 64, 183, 0.045);
+    --bloom-notes-bg: #4640b7;
 }
 
 :global(.dark) .page {
@@ -24,8 +33,17 @@
     --bloom-muted: #bac8c7;
     --bloom-line: rgba(203, 224, 216, 0.2);
     --bloom-acid: #d9ff3f;
-    --bloom-blue: #8a95ff;
+    --bloom-accent: #f04bdd;
+    --bloom-grid: rgba(240, 75, 221, 0.055);
+    --bloom-notes-bg: #70245f;
     --bloom-coral: #ff896b;
+    --bloom-on-accent: #17252b;
+}
+
+:global(.dark) .page[data-color-theme="violet"] {
+    --bloom-accent: #7d83ed;
+    --bloom-grid: rgba(125, 131, 237, 0.045);
+    --bloom-notes-bg: #34386f;
 }
 
 .shell {
@@ -56,15 +74,15 @@
 }
 
 .download:hover {
-    border-color: var(--bloom-blue);
-    background: var(--bloom-blue);
-    color: white;
+    border-color: var(--bloom-accent);
+    background: var(--bloom-accent);
+    color: var(--bloom-on-accent);
 }
 
 .hero {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
     align-items: center;
     gap: clamp(2rem, 5vw, 5rem);
     padding: 1.5rem 0 4.5rem;
@@ -73,12 +91,13 @@
 .heroCopy {
     position: relative;
     z-index: 1;
+    container-type: inline-size;
 }
 
 .eyebrow,
 .sectionIndex,
 .period {
-    color: var(--bloom-blue);
+    color: var(--bloom-accent);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.68rem;
     font-weight: 700;
@@ -90,16 +109,19 @@
     display: grid;
     margin-top: 1rem;
     font-family: var(--font-display), sans-serif;
-    font-size: clamp(3rem, 15vw, 6.5rem);
+    font-size: clamp(1.8rem, 11cqi, 6.5rem);
     font-weight: 800;
     line-height: 0.86;
-    overflow-wrap: anywhere;
+}
+
+.hero h1>span {
+    white-space: nowrap;
 }
 
 .surname {
     position: relative;
     z-index: 0;
-    color: var(--bloom-blue);
+    color: var(--bloom-accent);
 }
 
 .roleLine {
@@ -149,7 +171,7 @@
 
 .socials a span {
     margin-left: 0.2rem;
-    color: var(--bloom-blue);
+    color: var(--bloom-accent);
 }
 
 .portraitFrame {
@@ -218,7 +240,7 @@
     gap: 1rem 2rem;
     border-radius: 8px;
     padding: 1.5rem;
-    background: var(--bloom-blue);
+    background: var(--bloom-notes-bg);
     color: white;
 }
 
@@ -238,7 +260,7 @@
 }
 
 .notesSection .sectionIndex span {
-    color: rgba(255, 255, 255, 0.76);
+    color: #ffffff;
 }
 
 .notesContent h2,
@@ -350,7 +372,7 @@
 
 .technologies {
     margin-top: 0.55rem;
-    color: var(--bloom-blue);
+    color: var(--bloom-accent);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.68rem;
     line-height: 1.5;
@@ -443,7 +465,7 @@
     }
 
     .socials a:hover {
-        color: var(--bloom-blue);
+        color: var(--bloom-accent);
         transform: translateY(-2px);
     }
 
@@ -463,7 +485,7 @@
     }
 
     .skillTags span:hover {
-        border-color: var(--bloom-blue);
+        border-color: var(--bloom-accent);
         background: var(--bloom-acid);
         color: #17252b;
         transform: translateY(-2px);
