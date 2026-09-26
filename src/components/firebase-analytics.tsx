@@ -1,7 +1,8 @@
 "use client";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { trackLinkClick } from "./analytics-events";
 import styles from "./firebase-analytics.module.css";
 
 type Consent = "granted" | "denied" | null;
@@ -45,6 +46,19 @@ function storeConsent(consent: Exclude<Consent, null>) {
 export function AnalyticsConsent() {
   const consent = useSyncExternalStore(subscribeConsent, getConsentSnapshot, () => null);
   const [preferencesOpen, setPreferencesOpen] = useState(false);
+
+  useEffect(() => {
+    if (consent !== "granted") return;
+
+    function handleDocumentClick(event: MouseEvent) {
+      if (!(event.target instanceof Element)) return;
+      const anchor = event.target.closest("a");
+      if (anchor instanceof HTMLAnchorElement) trackLinkClick(anchor);
+    }
+
+    document.addEventListener("click", handleDocumentClick);
+    return () => document.removeEventListener("click", handleDocumentClick);
+  }, [consent]);
 
   if (!measurementId) return null;
 

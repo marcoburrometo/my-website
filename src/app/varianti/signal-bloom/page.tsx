@@ -73,7 +73,7 @@ export default function SignalBloomVariantPage() {
             />
             <figcaption><span>Marco Burrometo</span><span>Northern Italy</span></figcaption>
           </figure>
-          <span aria-hidden="true" className={styles.heroIndex}>01</span>
+          {/* <span aria-hidden="true" className={styles.heroIndex}>01</span> */}
         </section>
 
         <section aria-labelledby="about-heading" className={styles.notesSection}>
