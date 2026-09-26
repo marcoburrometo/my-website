@@ -36,6 +36,7 @@
   text-transform: uppercase;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
+  overflow-wrap: anywhere;
 }
 
 .skillGroups {
@@ -64,6 +65,7 @@
   border-radius: 999px;
   padding: 0.35rem 0.55rem;
   font-size: 0.68rem;
+  overflow-wrap: anywhere;
 }
 
 .timeline {
@@ -77,6 +79,7 @@
   border-radius: 18px;
   border: 1px solid var(--line);
   padding: 0.9rem;
+  overflow-wrap: anywhere;
 }
 
 .projectLink {

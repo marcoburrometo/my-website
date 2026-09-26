@@ -114,6 +114,7 @@
 .manifestHeader {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.75rem;
 }
@@ -173,6 +174,7 @@
   text-transform: uppercase;
   letter-spacing: 0.13em;
   padding: 0.42rem 0.7rem;
+  overflow-wrap: anywhere;
 }
 
 .downloadBadge {
@@ -183,6 +185,7 @@
   font-size: 0.67rem;
   font-weight: 700;
   padding: 0.42rem 0.7rem;
+  overflow-wrap: anywhere;
 }
 
 .skillGroups {
@@ -211,6 +214,7 @@
   border-radius: 999px;
   padding: 0.3rem 0.5rem;
   font-size: 0.66rem;
+  overflow-wrap: anywhere;
 }
 
 .expList {
@@ -224,6 +228,7 @@
   border: 1px dashed var(--ag-line);
   border-radius: 12px;
   padding: 0.6rem;
+  overflow-wrap: anywhere;
 }
 
 .projectLink {
