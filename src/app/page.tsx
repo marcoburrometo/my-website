@@ -45,10 +45,10 @@ export default async function Home() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="relative min-h-screen overflow-hidden pb-12">
+    <div className="relative min-h-screen overflow-x-hidden pb-12">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_15%,rgba(43,255,224,0.2)_0,transparent_35%),radial-gradient(circle_at_85%_20%,rgba(255,42,109,0.22)_0,transparent_38%),radial-gradient(circle_at_50%_80%,rgba(174,255,0,0.18)_0,transparent_40%)]" />
 
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 pt-6 md:px-8">
+      <header className="mx-auto flex w-full max-w-6xl items-start justify-between gap-3 px-5 pt-6 sm:items-center md:px-8">
         <p className="font-display text-lg font-semibold tracking-wide md:text-xl">
           Marco Burrometo
         </p>
@@ -56,12 +56,12 @@ export default async function Home() {
       </header>
 
       <main className="mx-auto grid w-full max-w-6xl gap-8 px-5 pt-5 md:gap-10 md:px-8 md:pt-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <section className="glass-panel space-y-8 p-6 md:p-9">
+        <section className="glass-panel min-w-0 space-y-8 p-6 md:p-9">
           <div className="space-y-4 animate-rise">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-(--accent-neon)">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.28em] text-(--accent-neon)">
               Frontend Engineer · Product Mindset
             </p>
-            <h1 className="font-display text-4xl leading-[1.02] md:text-6xl">
+            <h1 className="font-display text-3xl leading-[1.02] break-words sm:text-4xl md:text-6xl">
               Building digital products that feel alive.
             </h1>
             <p className="max-w-2xl text-sm leading-relaxed text-(--text-soft) md:text-base">
@@ -102,7 +102,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <aside className="space-y-8">
+        <aside className="min-w-0 space-y-8">
           <section className="glass-panel p-6 md:p-8 animate-rise-delay-1">
             <div className="relative mb-5 aspect-4/3 overflow-hidden rounded-3xl border border-(--line)">
               <Image
@@ -125,7 +125,7 @@ export default async function Home() {
             <div className="mt-5 space-y-5">
               {typedSkillGroups.map((group) => (
                 <div key={group.category}>
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-(--accent-hot)">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.16em] text-(--accent-hot)">
                     {group.category}
                   </h3>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -157,9 +157,9 @@ export default async function Home() {
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-(--accent-neon)">
                   {exp.period}
                 </p>
-                <p className="mt-2 text-base font-semibold">{exp.place || "Freelance Projects"}</p>
+                <p className="mt-2 text-base font-semibold break-words">{exp.place || "Freelance Projects"}</p>
                 <p className="mt-2 text-sm text-(--text-soft)">{exp.description}</p>
-                <p className="mt-3 text-xs text-(--accent-lime)">{exp.technologies}</p>
+                <p className="mt-3 text-xs break-words text-(--accent-lime)">{exp.technologies}</p>
                 {exp.link ? (
                   <a
                     className="mt-3 inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-(--accent-hot) hover:text-(--accent-neon)"
@@ -176,7 +176,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <footer className="mx-auto mt-8 w-full max-w-6xl px-5 pb-4 text-center text-xs text-(--text-soft) md:px-8 md:text-sm">
+      <footer className="mx-auto mt-8 w-full max-w-6xl break-words px-5 pb-4 text-center text-xs text-(--text-soft) md:px-8 md:text-sm">
         {footerText.replace("{year}", String(year))}
       </footer>
     </div>

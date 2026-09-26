@@ -44,7 +44,7 @@ const variants = [
 export default function VariantiIndexPage() {
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-5 py-10 md:px-8">
-      <h1 className="font-display text-4xl md:text-6xl">Varianti Design CV</h1>
+      <h1 className="font-display text-3xl sm:text-4xl md:text-6xl">Varianti Design CV</h1>
       <p className="mt-3 max-w-2xl text-[var(--text-soft)]">
         Ho preparato 5 versioni alternative in sotto-cartelle. Aprile e dimmi
         quale direzione vuoi portare in produzione.
@@ -57,7 +57,7 @@ export default function VariantiIndexPage() {
             href={`/varianti/${variant.slug}`}
             key={variant.slug}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent-neon)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.18em] text-[var(--accent-neon)]">
               {variant.slug}
             </p>
             <h2 className="mt-2 font-display text-2xl">{variant.name}</h2>

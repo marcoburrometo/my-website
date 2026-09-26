@@ -39,6 +39,7 @@
 .topbar {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1rem;
@@ -144,6 +145,7 @@
   font-family: var(--mono-code-font);
   font-size: 0.68rem;
   transition: border-color 160ms ease, color 160ms ease;
+  overflow-wrap: anywhere;
 }
 
 .socials a:hover {
