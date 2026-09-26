@@ -33,6 +33,12 @@ const variants = [
     description:
       "Canvas interattivo al passaggio del mouse, con effetto particelle dinamiche.",
   },
+  {
+    slug: "signal-bloom",
+    name: "Signal Bloom",
+    description:
+      "Art direction editoriale con ritratto in primo piano e accenti lime, cobalto e corallo.",
+  },
 ] as const;
 
 export default function VariantiIndexPage() {
@@ -40,11 +46,11 @@ export default function VariantiIndexPage() {
     <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-5 py-10 md:px-8">
       <h1 className="font-display text-4xl md:text-6xl">Varianti Design CV</h1>
       <p className="mt-3 max-w-2xl text-[var(--text-soft)]">
-        Ho preparato 4 versioni alternative in sotto-cartelle. Aprile e dimmi
+        Ho preparato 5 versioni alternative in sotto-cartelle. Aprile e dimmi
         quale direzione vuoi portare in produzione.
       </p>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {variants.map((variant) => (
           <Link
             className="glass-panel rounded-3xl p-5 transition-transform duration-300 hover:-translate-y-1"

@@ -30,6 +30,7 @@ export default async function Home() {
     "editorial-pop": () => import("./varianti/editorial-pop/page"),
     "mono-terminal": () => import("./varianti/mono-terminal/page"),
     antigravity: () => import("./varianti/antigravity/page"),
+    "signal-bloom": () => import("./varianti/signal-bloom/page"),
   };
   const defaultVariant = process.env.DEFAULT_CV_VARIANT;
   const loadDefaultVariant = defaultVariant
