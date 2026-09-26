@@ -61,6 +61,7 @@
   border-radius: 999px;
   padding: 0.3rem 0.5rem;
   font-size: 0.68rem;
+  overflow-wrap: anywhere;
 }
 
 .experienceSection {
@@ -79,6 +80,7 @@
   border-radius: 16px;
   padding: 0.8rem;
   background: var(--surface);
+  overflow-wrap: anywhere;
 }
 
 .projectLink {
@@ -105,6 +107,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 900px) {
