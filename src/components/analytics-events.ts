@@ -23,7 +23,11 @@ export function trackLinkClick(anchor: HTMLAnchorElement) {
   const fileName = anchor.getAttribute("download");
 
   if (fileName) {
-    trackAnalyticsEvent("cv_download", { file_name: fileName, link_url: linkUrl });
+    trackAnalyticsEvent("cv_download", {
+      file_name: fileName,
+      link_text: anchor.textContent?.trim() ?? "Download CV",
+      link_url: linkUrl,
+    });
     return;
   }
 
@@ -36,6 +40,26 @@ export function trackLinkClick(anchor: HTMLAnchorElement) {
   }
 
   const destination = new URL(linkUrl);
+  const label = anchor.dataset.gaLabel ?? anchor.textContent?.trim() ?? "";
+
+  if (anchor.dataset.gaEvent === "social_click") {
+    trackAnalyticsEvent("social_click", {
+      link_domain: destination.hostname,
+      link_url: linkUrl,
+      social_network: label,
+    });
+    return;
+  }
+
+  if (anchor.dataset.gaEvent === "project_click") {
+    trackAnalyticsEvent("project_click", {
+      link_domain: destination.hostname,
+      link_url: linkUrl,
+      project_name: label,
+    });
+    return;
+  }
+
   if (destination.origin !== window.location.origin) {
     trackAnalyticsEvent("outbound_click", {
       link_domain: destination.hostname,

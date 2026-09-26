@@ -65,7 +65,7 @@ export default function MonoTerminalVariantPage() {
             </div>
             <div className={styles.socials}>
               {socials.map((social) => (
-                <a href={social.href} key={social.label} target="_blank" rel="noreferrer">
+                <a data-ga-event="social_click" data-ga-label={social.label} href={social.href} key={social.label} target="_blank" rel="noreferrer">
                   {social.label}
                 </a>
               ))}
@@ -118,7 +118,7 @@ export default function MonoTerminalVariantPage() {
                     <p className={styles.description}>{exp.description}</p>
                     <p className={styles.technologies}>{exp.technologies}</p>
                     {exp.link ? (
-                      <a className={styles.projectLink} href={exp.link} target="_blank" rel="noreferrer">
+                      <a className={styles.projectLink} data-ga-event="project_click" data-ga-label={exp.place || "Freelance Projects"} href={exp.link} target="_blank" rel="noreferrer">
                         Open project <span aria-hidden="true">↗</span>
                       </a>
                     ) : null}

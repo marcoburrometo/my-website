@@ -67,7 +67,7 @@ export default function EditorialPopVariantPage() {
             </div>
             <div className={styles.linkBar}>
               {socials.map((social) => (
-                <a className={styles.link} href={social.href} key={social.label} target="_blank" rel="noreferrer">
+                <a className={styles.link} data-ga-event="social_click" data-ga-label={social.label} href={social.href} key={social.label} target="_blank" rel="noreferrer">
                   {social.label}
                 </a>
               ))}
@@ -104,7 +104,7 @@ export default function EditorialPopVariantPage() {
                 <p className="mt-2 text-sm text-[var(--text-soft)]">{exp.description}</p>
                 <p className="mt-2 text-xs text-[var(--accent-neon)]">{exp.technologies}</p>
                 {exp.link ? (
-                  <a className={styles.projectLink} href={exp.link} target="_blank" rel="noreferrer">
+                  <a className={styles.projectLink} data-ga-event="project_click" data-ga-label={exp.place || "Freelance Projects"} href={exp.link} target="_blank" rel="noreferrer">
                     Project site <span aria-hidden="true">↗</span>
                   </a>
                 ) : null}

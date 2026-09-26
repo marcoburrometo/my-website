@@ -51,6 +51,8 @@ export default function SignalBloomVariantPage() {
             <nav aria-label="Social profiles" className={styles.socials}>
               {socials.map((social) => (
                 <a
+                  data-ga-event="social_click"
+                  data-ga-label={social.label}
                   href={social.href}
                   key={social.label}
                   rel={social.href.startsWith("https://") ? "noreferrer" : undefined}
@@ -121,7 +123,7 @@ export default function SignalBloomVariantPage() {
                   <p>{experience.description}</p>
                   <p className={styles.technologies}>{experience.technologies}</p>
                   {experience.link ? (
-                    <a href={experience.link} rel="noreferrer" target="_blank">
+                    <a data-ga-event="project_click" data-ga-label={experience.place || "Freelance Projects"} href={experience.link} rel="noreferrer" target="_blank">
                       Visit project <span aria-hidden="true">↗</span>
                     </a>
                   ) : null}

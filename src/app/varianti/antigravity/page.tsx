@@ -72,7 +72,7 @@ export default function AntigravityVariantPage() {
             </div>
             <div className={styles.badges}>
               {socials.map((social) => (
-                <a className={styles.badge} href={social.href} key={social.label} target="_blank" rel="noreferrer">
+                <a className={styles.badge} data-ga-event="social_click" data-ga-label={social.label} href={social.href} key={social.label} target="_blank" rel="noreferrer">
                   {social.label}
                 </a>
               ))}
@@ -108,7 +108,7 @@ export default function AntigravityVariantPage() {
                   <p className="mt-1 text-sm text-(--ag-text-soft)">{exp.description}</p>
                   <p className="mt-2 text-xs text-(--ag-accent)">{exp.technologies}</p>
                   {exp.link ? (
-                    <a className={styles.projectLink} href={exp.link} target="_blank" rel="noreferrer">
+                    <a className={styles.projectLink} data-ga-event="project_click" data-ga-label={exp.place || "Freelance Projects"} href={exp.link} target="_blank" rel="noreferrer">
                       Project site <span aria-hidden="true">↗</span>
                     </a>
                   ) : null}

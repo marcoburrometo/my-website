@@ -54,7 +54,7 @@ export default function HypercardVariantPage() {
             </div>
             <div className="mt-4">
               {socials.map((social) => (
-                <a className={styles.badge} href={social.href} key={social.label} target="_blank" rel="noreferrer">
+                <a className={styles.badge} data-ga-event="social_click" data-ga-label={social.label} href={social.href} key={social.label} target="_blank" rel="noreferrer">
                   {social.label}
                 </a>
               ))}
@@ -99,7 +99,7 @@ export default function HypercardVariantPage() {
               <p className="mt-2 text-sm text-[var(--text-soft)]">{exp.description}</p>
               <p className="mt-2 text-xs text-[var(--accent-lime)]">{exp.technologies}</p>
               {exp.link ? (
-                <a className={styles.projectLink} href={exp.link} target="_blank" rel="noreferrer">
+                <a className={styles.projectLink} data-ga-event="project_click" data-ga-label={exp.place || "Freelance Projects"} href={exp.link} target="_blank" rel="noreferrer">
                   Project site <span aria-hidden="true">↗</span>
                 </a>
               ) : null}

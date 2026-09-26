@@ -85,6 +85,8 @@ export default async function Home() {
             {socials.map((social) => (
               <a
                 className="group rounded-full border border-(--line) bg-(--surface) px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:border-(--accent-neon) hover:text-(--accent-neon)"
+                data-ga-event="social_click"
+                data-ga-label={social.label}
                 href={social.href}
                 key={social.label}
                 rel="noreferrer"
@@ -163,6 +165,8 @@ export default async function Home() {
                 {exp.link ? (
                   <a
                     className="mt-3 inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-(--accent-hot) hover:text-(--accent-neon)"
+                    data-ga-event="project_click"
+                    data-ga-label={exp.place || "Freelance Projects"}
                     href={exp.link}
                     rel="noreferrer"
                     target="_blank"
