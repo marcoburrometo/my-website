@@ -1,9 +1,16 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import experiences from "@/data/experiences.json";
 import skills from "@/data/skills.json";
 import { aboutParagraphs, cvPdfHref, footerText, socials } from "@/data/profile";
 import { ThemeToggle } from "@/components/theme-toggle";
 import styles from "./styles.module.css";
+
+export const metadata: Metadata = {
+  title: "Editorial Pop CV preview",
+  alternates: { canonical: "/" },
+  robots: { index: false, follow: true },
+};
 
 type Experience = {
   period: string;
@@ -33,7 +40,11 @@ export default function EditorialPopVariantPage() {
 
         <section className={styles.blockGrid}>
           <article className={styles.block}>
-            <h2 className="font-display text-2xl">Manifesto</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-hot)]">
+              Senior Frontend Developer
+            </p>
+            <h1 className="mt-1 font-display text-3xl">Marco Burrometo</h1>
+            <h2 className="mt-3 font-display text-2xl">Manifesto</h2>
             <div className="mt-3 grid gap-2">
               {aboutParagraphs.slice(0, 6).map((line) => (
                 <p className="text-sm" key={line}>

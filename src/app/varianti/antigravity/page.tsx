@@ -1,10 +1,17 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import experiences from "@/data/experiences.json";
 import skills from "@/data/skills.json";
 import { aboutParagraphs, cvPdfHref, footerText, socials } from "@/data/profile";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { MouseParticles } from "./mouse-particles";
 import styles from "./styles.module.css";
+
+export const metadata: Metadata = {
+  title: "Antigravity CV preview",
+  alternates: { canonical: "/" },
+  robots: { index: false, follow: true },
+};
 
 type Experience = {
   period: string;
@@ -35,7 +42,13 @@ export default function AntigravityVariantPage() {
         <section className={styles.grid}>
           <article className={`${styles.card} ${styles.manifestCard}`}>
             <div className={styles.manifestHeader}>
-              <h2 className="font-display text-2xl">Manifest</h2>
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-(--ag-accent)">
+                  Senior Frontend Developer
+                </p>
+                <h1 className="mt-1 font-display text-3xl">Marco Burrometo</h1>
+                <h2 className="mt-2 font-display text-2xl">Manifest</h2>
+              </div>
               <ThemeToggle />
             </div>
             <div className={styles.manifestLayout}>

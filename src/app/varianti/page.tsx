@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CV design variants",
+  description: "Alternative visual previews of Marco Burrometo's CV.",
+  alternates: { canonical: "/" },
+  robots: { index: false, follow: true },
+};
 
 const variants = [
   {

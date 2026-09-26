@@ -1,9 +1,16 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import experiences from "@/data/experiences.json";
 import skills from "@/data/skills.json";
 import { aboutParagraphs, cvPdfHref, footerText, socials } from "@/data/profile";
 import { ThemeToggle } from "@/components/theme-toggle";
 import styles from "./styles.module.css";
+
+export const metadata: Metadata = {
+  title: "Hypercard CV preview",
+  alternates: { canonical: "/" },
+  robots: { index: false, follow: true },
+};
 
 type Experience = {
   period: string;
@@ -33,7 +40,11 @@ export default function HypercardVariantPage() {
 
         <section className={styles.grid}>
           <article className={styles.panel}>
-            <h2 className="font-display text-2xl">About</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-hot)]">
+              Senior Frontend Developer
+            </p>
+            <h1 className="mt-1 font-display text-3xl">Marco Burrometo</h1>
+            <h2 className="mt-4 font-display text-2xl">About</h2>
             <div className="mt-3 grid gap-2 md:grid-cols-2">
               {aboutParagraphs.map((line) => (
                 <p className="text-sm text-[var(--text-soft)]" key={line}>

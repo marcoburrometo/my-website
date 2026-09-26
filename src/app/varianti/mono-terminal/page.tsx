@@ -1,9 +1,16 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import experiences from "@/data/experiences.json";
 import skills from "@/data/skills.json";
 import { aboutParagraphs, cvPdfHref, footerText, socials } from "@/data/profile";
 import { ThemeToggle } from "@/components/theme-toggle";
 import styles from "./styles.module.css";
+
+export const metadata: Metadata = {
+  title: "Mono Terminal CV preview",
+  alternates: { canonical: "/" },
+  robots: { index: false, follow: true },
+};
 
 type Experience = {
   period: string;
