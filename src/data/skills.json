@@ -14,8 +14,10 @@
     "category": "Frameworks & libraries",
     "items": [
       "Next.js",
+      "Angular",
       "Expo",
       "NestJS",
+      "Strapi",
       "GraphQL",
       "Redux",
       "Redux Toolkit",
@@ -23,7 +25,6 @@
       "Zustand",
       "Lit HTML",
       "Web Components",
-      "Angular",
       "RxJS",
       "D3.js",
       "Viro AR"
@@ -44,6 +45,14 @@
       "C#",
       "PHP (Slim)",
       "Socket.IO"
+    ]
+  },
+  {
+    "category": "AI & adoption",
+    "items": [
+      "AI early adoption (PWC)",
+      "Company-wide AI adoption (Facile.it)",
+      "Anthropic AI certificates"
     ]
   }
 ]

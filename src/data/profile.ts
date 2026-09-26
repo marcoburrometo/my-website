@@ -9,7 +9,7 @@ export const aboutParagraphs = [
   "Captain and head fisher of a boat.",
   "I try to play tennis.",
   "Rubber duck debugger.",
-  "Daddy of Gabriele."
+  "Daddy of Gabriele & Camilla."
 ] as const;
 
 export const socials = [

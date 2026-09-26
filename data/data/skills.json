@@ -46,5 +46,13 @@
       "PHP (Slim)",
       "Socket.IO"
     ]
+  },
+  {
+    "category": "AI & adoption",
+    "items": [
+      "AI early adoption (PWC)",
+      "Company-wide AI adoption (Facile.it)",
+      "Anthropic AI certificates"
+    ]
   }
 ]

@@ -1,10 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { connection } from "next/server";
-import HypercardVariantPage from "./varianti/hypercard/page";
-import EditorialPopVariantPage from "./varianti/editorial-pop/page";
-import MonoTerminalVariantPage from "./varianti/mono-terminal/page";
-import AntigravityVariantPage from "./varianti/antigravity/page";
 import experiences from "@/data/experiences.json";
 import { aboutParagraphs, footerText, socials } from "@/data/profile";
 import skills from "@/data/skills.json";
@@ -29,18 +25,19 @@ const typedSkillGroups = skills as SkillGroup[];
 export default async function Home() {
   await connection();
 
-  const defaultVariantPages = {
-    hypercard: HypercardVariantPage,
-    "editorial-pop": EditorialPopVariantPage,
-    "mono-terminal": MonoTerminalVariantPage,
-    antigravity: AntigravityVariantPage,
+  const defaultVariantLoaders = {
+    hypercard: () => import("./varianti/hypercard/page"),
+    "editorial-pop": () => import("./varianti/editorial-pop/page"),
+    "mono-terminal": () => import("./varianti/mono-terminal/page"),
+    antigravity: () => import("./varianti/antigravity/page"),
   };
   const defaultVariant = process.env.DEFAULT_CV_VARIANT;
-  const SelectedVariant = defaultVariant
-    ? defaultVariantPages[defaultVariant as keyof typeof defaultVariantPages]
+  const loadDefaultVariant = defaultVariant
+    ? defaultVariantLoaders[defaultVariant as keyof typeof defaultVariantLoaders]
     : undefined;
 
-  if (SelectedVariant) {
+  if (loadDefaultVariant) {
+    const { default: SelectedVariant } = await loadDefaultVariant();
     return <SelectedVariant />;
   }
 
