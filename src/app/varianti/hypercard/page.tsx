@@ -13,13 +13,13 @@ type Experience = {
   technologies: string;
 };
 
-type Skill = {
-  description: string;
-  pct: number;
+type SkillGroup = {
+  category: string;
+  items: string[];
 };
 
 const typedExperiences = experiences as Experience[];
-const typedSkills = skills as Skill[];
+const typedSkillGroups = skills as SkillGroup[];
 
 export default function HypercardVariantPage() {
   const year = new Date().getFullYear();
@@ -27,7 +27,7 @@ export default function HypercardVariantPage() {
   return (
     <div className={styles.page}>
       <main className={styles.frame}>
-        <div className="mb-4 flex justify-end">
+        <div className="mb-4 flex items-center justify-end gap-2">
           <ThemeToggle />
         </div>
 
@@ -65,17 +65,18 @@ export default function HypercardVariantPage() {
               />
             </div>
             <h2 className="mt-3 font-display text-2xl">Skills</h2>
-            {typedSkills.slice(0, 8).map((skill) => (
-              <div className={styles.skillRow} key={skill.description}>
-                <div className="flex items-center justify-between text-xs">
-                  <span>{skill.description}</span>
-                  <strong>{skill.pct}%</strong>
-                </div>
-                <div className={styles.track}>
-                  <div className={styles.fill} style={{ width: `${skill.pct}%` }} />
-                </div>
-              </div>
-            ))}
+            <div className={styles.skillGroups}>
+              {typedSkillGroups.map((group) => (
+                <section className={styles.skillGroup} key={group.category}>
+                  <h3>{group.category}</h3>
+                  <div className={styles.skillTags}>
+                    {group.items.map((item) => (
+                      <span className={styles.skillTag} key={item}>{item}</span>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
           </article>
         </section>
 
@@ -86,6 +87,11 @@ export default function HypercardVariantPage() {
               <p className="mt-1 font-semibold">{exp.place || "Freelance Projects"}</p>
               <p className="mt-2 text-sm text-[var(--text-soft)]">{exp.description}</p>
               <p className="mt-2 text-xs text-[var(--accent-lime)]">{exp.technologies}</p>
+              {exp.link ? (
+                <a className={styles.projectLink} href={exp.link} target="_blank" rel="noreferrer">
+                  Project site <span aria-hidden="true">↗</span>
+                </a>
+              ) : null}
             </article>
           ))}
         </section>

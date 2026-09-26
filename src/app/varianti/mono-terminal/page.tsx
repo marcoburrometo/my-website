@@ -13,13 +13,13 @@ type Experience = {
   technologies: string;
 };
 
-type Skill = {
-  description: string;
-  pct: number;
+type SkillGroup = {
+  category: string;
+  items: string[];
 };
 
 const typedExperiences = experiences as Experience[];
-const typedSkills = skills as Skill[];
+const typedSkillGroups = skills as SkillGroup[];
 
 export default function MonoTerminalVariantPage() {
   const year = new Date().getFullYear();
@@ -83,17 +83,16 @@ export default function MonoTerminalVariantPage() {
               <p className={styles.eyebrow}>01 / TOOLKIT</p>
               <h2>Skills</h2>
             </header>
-            <div className={styles.skillList}>
-              {typedSkills.map((skill, index) => (
-                <div className={styles.skill} key={skill.description}>
-                  <div className={styles.skillLabel}>
-                    <span><i>{String(index + 1).padStart(2, "0")}</i>{skill.description}</span>
-                    <strong>{skill.pct}%</strong>
+            <div className={styles.skillGroups}>
+              {typedSkillGroups.map((group) => (
+                <section className={styles.skillGroup} key={group.category}>
+                  <h3>{group.category}</h3>
+                  <div className={styles.skillTags}>
+                    {group.items.map((item) => (
+                      <span className={styles.skillTag} key={item}>{item}</span>
+                    ))}
                   </div>
-                  <div className={styles.track}>
-                    <div className={styles.fill} style={{ width: `${skill.pct}%` }} />
-                  </div>
-                </div>
+                </section>
               ))}
             </div>
           </section>

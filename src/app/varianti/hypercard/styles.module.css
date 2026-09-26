@@ -38,21 +38,32 @@
   margin-bottom: 0.5rem;
 }
 
-.skillRow {
+.skillGroups {
+  display: grid;
+  gap: 1rem;
   margin-top: 0.75rem;
 }
 
-.track {
-  margin-top: 0.35rem;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--line);
+.skillGroup h3 {
+  color: var(--accent-hot);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.fill {
-  height: 7px;
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+}
+
+.skillTag {
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent-hot), var(--accent-neon), var(--accent-lime));
+  padding: 0.35rem 0.55rem;
+  font-size: 0.68rem;
 }
 
 .timeline {
@@ -66,6 +77,15 @@
   border-radius: 18px;
   border: 1px solid var(--line);
   padding: 0.9rem;
+}
+
+.projectLink {
+  display: inline-flex;
+  gap: 0.3rem;
+  margin-top: 0.65rem;
+  color: var(--accent-hot);
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 @media (max-width: 900px) {

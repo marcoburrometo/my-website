@@ -18,13 +18,13 @@ type Experience = {
   technologies: string;
 };
 
-type Skill = {
-  description: string;
-  pct: number;
+type SkillGroup = {
+  category: string;
+  items: string[];
 };
 
 const typedExperiences = experiences as Experience[];
-const typedSkills = skills as Skill[];
+const typedSkillGroups = skills as SkillGroup[];
 
 export default async function Home() {
   await connection();
@@ -123,21 +123,22 @@ export default async function Home() {
           </section>
 
           <section className="glass-panel p-6 md:p-8 animate-rise-delay-2">
-            <h2 className="font-display text-2xl">Skills Radar</h2>
-            <div className="mt-5 space-y-4">
-              {typedSkills.map((skill) => (
-                <div key={skill.description}>
-                  <div className="mb-2 flex items-center justify-between gap-4 text-sm">
-                    <span>{skill.description}</span>
-                    <span className="font-semibold text-(--accent-hot)">
-                      {skill.pct}%
-                    </span>
-                  </div>
-                  <div className="h-2 rounded-full bg-(--line)">
-                    <div
-                      className="h-2 rounded-full bg-[linear-gradient(90deg,var(--accent-hot),var(--accent-neon),var(--accent-lime))]"
-                      style={{ width: `${skill.pct}%` }}
-                    />
+            <h2 className="font-display text-2xl">Tech Stack</h2>
+            <div className="mt-5 space-y-5">
+              {typedSkillGroups.map((group) => (
+                <div key={group.category}>
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-(--accent-hot)">
+                    {group.category}
+                  </h3>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        className="rounded-full border border-(--line) bg-(--surface-soft) px-3 py-1.5 text-xs"
+                        key={item}
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}

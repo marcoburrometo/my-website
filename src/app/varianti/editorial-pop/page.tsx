@@ -13,13 +13,13 @@ type Experience = {
   technologies: string;
 };
 
-type Skill = {
-  description: string;
-  pct: number;
+type SkillGroup = {
+  category: string;
+  items: string[];
 };
 
 const typedExperiences = experiences as Experience[];
-const typedSkills = skills as Skill[];
+const typedSkillGroups = skills as SkillGroup[];
 
 export default function EditorialPopVariantPage() {
   const year = new Date().getFullYear();
@@ -67,30 +67,39 @@ export default function EditorialPopVariantPage() {
           </article>
         </section>
 
-        <section className={styles.blockGrid}>
-          <article className={styles.block}>
-            <h2 className="font-display text-2xl">Core Skills</h2>
-            <div className="mt-3 grid gap-2">
-              {typedSkills.slice(0, 10).map((skill) => (
-                <p className="text-sm" key={skill.description}>
-                  <strong>{skill.pct}%</strong> · {skill.description}
-                </p>
-              ))}
-            </div>
-          </article>
-
-          <article className={styles.block}>
-            <h2 className="font-display text-2xl">Experience Cuts</h2>
-            <div className={styles.exp}>
-              {typedExperiences.slice(0, 5).map((exp, index) => (
-                <div className={styles.expCard} key={`${exp.period}-${index}`}>
-                  <p className="text-xs uppercase tracking-[0.13em] text-[var(--accent-hot)]">{exp.period}</p>
-                  <p className="mt-1 font-semibold">{exp.place || "Freelance Projects"}</p>
-                  <p className="mt-2 text-sm text-[var(--text-soft)]">{exp.description}</p>
+        <section className={styles.stackSection}>
+          <h2 className="font-display text-2xl">Tech Stack</h2>
+          <div className={styles.skillGroups}>
+            {typedSkillGroups.map((group) => (
+              <article className={styles.skillGroup} key={group.category}>
+                <h3>{group.category}</h3>
+                <div className={styles.skillTags}>
+                  {group.items.map((item) => (
+                    <span className={styles.skillTag} key={item}>{item}</span>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </article>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.experienceSection}>
+          <h2 className="font-display text-2xl">Experience</h2>
+          <div className={styles.exp}>
+            {typedExperiences.map((exp, index) => (
+              <article className={styles.expCard} key={`${exp.period}-${index}`}>
+                <p className="text-xs uppercase tracking-[0.13em] text-[var(--accent-hot)]">{exp.period}</p>
+                <p className="mt-1 font-semibold">{exp.place || "Freelance Projects"}</p>
+                <p className="mt-2 text-sm text-[var(--text-soft)]">{exp.description}</p>
+                <p className="mt-2 text-xs text-[var(--accent-neon)]">{exp.technologies}</p>
+                {exp.link ? (
+                  <a className={styles.projectLink} href={exp.link} target="_blank" rel="noreferrer">
+                    Project site <span aria-hidden="true">↗</span>
+                  </a>
+                ) : null}
+              </article>
+            ))}
+          </div>
         </section>
 
         <footer className="mt-6 text-center text-xs text-[var(--text-soft)] md:text-sm">

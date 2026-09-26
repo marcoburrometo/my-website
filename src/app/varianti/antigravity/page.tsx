@@ -14,13 +14,13 @@ type Experience = {
   technologies: string;
 };
 
-type Skill = {
-  description: string;
-  pct: number;
+type SkillGroup = {
+  category: string;
+  items: string[];
 };
 
 const typedExperiences = experiences as Experience[];
-const typedSkills = skills as Skill[];
+const typedSkillGroups = skills as SkillGroup[];
 
 export default function AntigravityVariantPage() {
   const year = new Date().getFullYear();
@@ -70,18 +70,17 @@ export default function AntigravityVariantPage() {
           </article>
 
           <article className={styles.card}>
-            <h2 className="font-display text-2xl">Skills</h2>
-            <div className={styles.skills}>
-              {typedSkills.slice(0, 10).map((skill) => (
-                <div key={skill.description}>
-                  <div className="flex items-center justify-between text-xs">
-                    <span>{skill.description}</span>
-                    <strong>{skill.pct}%</strong>
+            <h2 className="font-display text-2xl">Tech Stack</h2>
+            <div className={styles.skillGroups}>
+              {typedSkillGroups.map((group) => (
+                <section className={styles.skillGroup} key={group.category}>
+                  <h3>{group.category}</h3>
+                  <div className={styles.skillTags}>
+                    {group.items.map((item) => (
+                      <span className={styles.skillTag} key={item}>{item}</span>
+                    ))}
                   </div>
-                  <div className={styles.track}>
-                    <div className={styles.fill} style={{ width: `${skill.pct}%` }} />
-                  </div>
-                </div>
+                </section>
               ))}
             </div>
           </article>
@@ -94,6 +93,12 @@ export default function AntigravityVariantPage() {
                   <p className="text-xs uppercase tracking-[0.14em] text-(--ag-accent)">{exp.period}</p>
                   <p className="mt-1 text-sm font-semibold">{exp.place || "Freelance Projects"}</p>
                   <p className="mt-1 text-sm text-(--ag-text-soft)">{exp.description}</p>
+                  <p className="mt-2 text-xs text-(--ag-accent)">{exp.technologies}</p>
+                  {exp.link ? (
+                    <a className={styles.projectLink} href={exp.link} target="_blank" rel="noreferrer">
+                      Project site <span aria-hidden="true">↗</span>
+                    </a>
+                  ) : null}
                 </div>
               ))}
             </div>
