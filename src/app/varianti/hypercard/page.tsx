@@ -1,0 +1,99 @@
+import Image from "next/image";
+import experiences from "@/data/experiences.json";
+import skills from "@/data/skills.json";
+import { aboutParagraphs, cvPdfHref, footerText, socials } from "@/data/profile";
+import { ThemeToggle } from "@/components/theme-toggle";
+import styles from "./styles.module.css";
+
+type Experience = {
+  period: string;
+  description: string;
+  place: string;
+  link?: string;
+  technologies: string;
+};
+
+type Skill = {
+  description: string;
+  pct: number;
+};
+
+const typedExperiences = experiences as Experience[];
+const typedSkills = skills as Skill[];
+
+export default function HypercardVariantPage() {
+  const year = new Date().getFullYear();
+
+  return (
+    <div className={styles.page}>
+      <main className={styles.frame}>
+        <div className="mb-4 flex justify-end">
+          <ThemeToggle />
+        </div>
+
+        <section className={styles.grid}>
+          <article className={styles.panel}>
+            <h2 className="font-display text-2xl">About</h2>
+            <div className="mt-3 grid gap-2 md:grid-cols-2">
+              {aboutParagraphs.map((line) => (
+                <p className="text-sm text-[var(--text-soft)]" key={line}>
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="mt-4">
+              {socials.map((social) => (
+                <a className={styles.badge} href={social.href} key={social.label} target="_blank" rel="noreferrer">
+                  {social.label}
+                </a>
+              ))}
+              <a className={styles.badge} download="marco-burrometo-cv.pdf" href={cvPdfHref}>
+                Download CV
+              </a>
+            </div>
+          </article>
+
+          <article className={styles.panel}>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                alt="Marco Burrometo"
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 480px"
+                src="/media/marco_full.jpg"
+                className="object-cover"
+              />
+            </div>
+            <h2 className="mt-3 font-display text-2xl">Skills</h2>
+            {typedSkills.slice(0, 8).map((skill) => (
+              <div className={styles.skillRow} key={skill.description}>
+                <div className="flex items-center justify-between text-xs">
+                  <span>{skill.description}</span>
+                  <strong>{skill.pct}%</strong>
+                </div>
+                <div className={styles.track}>
+                  <div className={styles.fill} style={{ width: `${skill.pct}%` }} />
+                </div>
+              </div>
+            ))}
+          </article>
+        </section>
+
+        <section className={styles.timeline}>
+          {typedExperiences.map((exp, index) => (
+            <article className={styles.item} key={`${exp.period}-${index}`}>
+              <p className="text-xs uppercase tracking-[0.14em] text-[var(--accent-neon)]">{exp.period}</p>
+              <p className="mt-1 font-semibold">{exp.place || "Freelance Projects"}</p>
+              <p className="mt-2 text-sm text-[var(--text-soft)]">{exp.description}</p>
+              <p className="mt-2 text-xs text-[var(--accent-lime)]">{exp.technologies}</p>
+            </article>
+          ))}
+        </section>
+
+        <footer className="mt-6 text-center text-xs text-[var(--text-soft)] md:text-sm">
+          {footerText.replace("{year}", String(year))}
+        </footer>
+      </main>
+    </div>
+  );
+}

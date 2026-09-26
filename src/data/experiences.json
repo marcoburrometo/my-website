@@ -1,12 +1,5 @@
 [
   {
-    "period": "11/2024 - Now",
-    "description": "Senior developer for PWC USA: developed the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
-    "place": "@Jimmy Technologies · PWC USA",
-    "link": "https://www.fromjimmy.com/",
-    "technologies": "React, Next.js, Node.js, NestJS."
-  },
-  {
     "period": "01/2026 - Now",
     "description": "Full-stack developer on a 7-person team for Italy's leading energy comparison website, with millions of weekly visits. Focused on monitoring user flows, resolving issues, delivering features under A/B tests, end-to-end testing, and company-wide AI adoption.",
     "place": "@Facile.it",
@@ -19,6 +12,13 @@
     "place": "@BimboMap",
     "link": "https://bimbomap.it",
     "technologies": "React Native (Expo), Firestore, Firebase Functions, RevenueCat, Next.js, Tailwind CSS."
+  },
+  {
+    "period": "11/2024 - Now",
+    "description": "Senior developer for PWC USA: developed the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
+    "place": "@Jimmy Technologies · PWC USA",
+    "link": "https://www.fromjimmy.com/",
+    "technologies": "React, Next.js, Node.js, NestJS."
   },
   {
     "period": "11/2024 - Now",

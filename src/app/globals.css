@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fefc;
+  --foreground: #0f172a;
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-soft: rgba(255, 255, 255, 0.56);
+  --line: rgba(15, 23, 42, 0.16);
+  --text-soft: rgba(15, 23, 42, 0.78);
+  --accent-neon: #00f5d4;
+  --accent-hot: #ff006e;
+  --accent-lime: #beff1b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+}
+
+.dark {
+  --background: #070b17;
+  --foreground: #e8f2ff;
+  --surface: rgba(7, 11, 23, 0.7);
+  --surface-soft: rgba(10, 17, 34, 0.65);
+  --line: rgba(136, 160, 199, 0.2);
+  --text-soft: rgba(222, 235, 255, 0.78);
+  --accent-neon: #00ffcc;
+  --accent-hot: #ff2a6d;
+  --accent-lime: #c7ff33;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.glass-panel {
+  border-radius: 1.6rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.16);
+}
+
+.animate-rise {
+  animation: rise 640ms ease-out both;
+}
+
+.animate-rise-delay-1 {
+  animation: rise 760ms ease-out both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise 920ms ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
