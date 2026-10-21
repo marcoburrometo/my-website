@@ -1,6 +1,6 @@
 [
   {
-    "period": "01/2026 - Now",
+    "period": "01/2026 - 10/2026",
     "description": "Full-stack developer on a 7-person team for Italy's leading energy comparison website, with millions of weekly visits. Focused on monitoring user flows, resolving issues, delivering features under A/B tests, end-to-end testing, and company-wide AI adoption.",
     "place": "@Facile.it",
     "link": "https://www.facile.it/",
@@ -14,7 +14,7 @@
     "technologies": "React Native (Expo), Firestore, Firebase Functions, RevenueCat, Next.js, Tailwind CSS."
   },
   {
-    "period": "11/2024 - Now",
+    "period": "11/2024 - 10/2026",
     "description": "Senior developer for PWC USA: developed the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
     "place": "@Jimmy Technologies · PWC USA",
     "link": "https://www.fromjimmy.com/",

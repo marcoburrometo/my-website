@@ -1,47 +1,57 @@
 .notice {
     position: fixed;
     z-index: 80;
-    bottom: 4.75rem;
-    left: 1rem;
-    display: grid;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: max(1rem, env(safe-area-inset-left));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     width: min(34rem, calc(100vw - 2rem));
-    gap: 0.8rem;
+    gap: 0.5rem 1rem;
     border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
     background: var(--surface);
     color: var(--foreground);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(18px);
+}
+
+.notice>div:first-child {
+    display: flex;
+    align-items: baseline;
+    flex: 1 1 15rem;
+    gap: 0.5rem;
 }
 
 .notice h2 {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .notice p {
-    margin-top: 0.25rem;
     color: var(--text-soft);
-    font-size: 0.76rem;
-    line-height: 1.45;
+    font-size: 0.875rem;
+    line-height: 1.5;
 }
 
 .actions {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
+    flex: 0 0 auto;
 }
 
 .actions button,
 .settings {
-    min-height: 2.5rem;
+    min-height: 2.75rem;
     border: 1px solid var(--line);
     border-radius: 6px;
     padding: 0.55rem 0.75rem;
     background: var(--surface);
     color: var(--foreground);
-    font-size: 0.72rem;
+    font-size: 0.875rem;
     font-weight: 700;
     cursor: pointer;
 }
@@ -49,7 +59,7 @@
 .actions .accept {
     border-color: var(--accent-neon);
     background: var(--accent-neon);
-    color: #071315;
+    color: var(--foreground);
 }
 
 .actions button:hover,
@@ -68,18 +78,97 @@
     z-index: 70;
     bottom: 0.75rem;
     left: 0.75rem;
-    min-height: 2rem;
-    padding: 0.35rem 0.55rem;
-    backdrop-filter: blur(12px);
-    font-size: 0.65rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+:global(body:has([data-color-theme="fuchsia"])) .notice,
+:global(body:has([data-color-theme="violet"])) .notice {
+    border-color: rgba(23, 37, 43, 0.22);
+    background: #fffef9;
+    color: #17252b;
+}
+
+:global(body:has([data-color-theme="fuchsia"])) .notice p,
+:global(body:has([data-color-theme="violet"])) .notice p {
+    color: #53666c;
+}
+
+:global(body:has([data-color-theme="fuchsia"])) .actions button,
+:global(body:has([data-color-theme="violet"])) .actions button,
+:global(body:has([data-color-theme="fuchsia"])) .settings,
+:global(body:has([data-color-theme="violet"])) .settings {
+    border-color: rgba(23, 37, 43, 0.3);
+    background: #fffef9;
+    color: #17252b;
+}
+
+:global(body:has([data-color-theme="fuchsia"])) .actions .accept {
+    border-color: #b51fa8;
+    background: #b51fa8;
+    color: #ffffff;
+}
+
+:global(body:has([data-color-theme="violet"])) .actions .accept {
+    border-color: #4640b7;
+    background: #4640b7;
+    color: #ffffff;
+}
+
+:global(.dark body:has([data-color-theme="fuchsia"])) .notice,
+:global(.dark body:has([data-color-theme="violet"])) .notice {
+    border-color: rgba(203, 224, 216, 0.26);
+    background: #18232d;
+    color: #edf3e9;
+}
+
+:global(.dark body:has([data-color-theme="fuchsia"])) .notice p,
+:global(.dark body:has([data-color-theme="violet"])) .notice p {
+    color: #bac8c7;
+}
+
+:global(.dark body:has([data-color-theme="fuchsia"])) .actions button,
+:global(.dark body:has([data-color-theme="violet"])) .actions button,
+:global(.dark body:has([data-color-theme="fuchsia"])) .settings,
+:global(.dark body:has([data-color-theme="violet"])) .settings {
+    border-color: rgba(203, 224, 216, 0.3);
+    background: #18232d;
+    color: #edf3e9;
+}
+
+:global(.dark body:has([data-color-theme="fuchsia"])) .actions .accept {
+    border-color: #f04bdd;
+    background: #f04bdd;
+    color: #17252b;
+}
+
+:global(.dark body:has([data-color-theme="violet"])) .actions .accept {
+    border-color: #7d83ed;
+    background: #7d83ed;
+    color: #17252b;
 }
 
 @media (max-width: 480px) {
     .notice {
-        bottom: 4.6rem;
+        align-items: stretch;
+        bottom: max(0.75rem, env(safe-area-inset-bottom));
         left: 0.65rem;
         width: calc(100vw - 1.3rem);
         padding: 0.8rem;
+    }
+
+    .notice>div:first-child,
+    .actions {
+        flex-basis: 100%;
+    }
+
+    .notice>div:first-child {
+        display: block;
+    }
+
+    .notice p {
+        margin-top: 0.25rem;
     }
 
     .actions button {

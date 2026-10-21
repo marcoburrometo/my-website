@@ -71,7 +71,7 @@ export function AnalyticsConsent() {
         <aside aria-labelledby="analytics-consent-title" className={styles.notice} role="region">
           <div>
             <h2 id="analytics-consent-title">Privacy choices</h2>
-            <p>Optional Google Analytics helps me understand site visits. It stays off unless you allow it.</p>
+            <p>Optional Google Analytics stays off until you allow it.</p>
           </div>
           <div className={styles.actions}>
             <button className={styles.decline} onClick={() => { storeConsent("denied"); setPreferencesOpen(false); }} type="button">
