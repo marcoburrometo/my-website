@@ -6,6 +6,7 @@ import experiences from "@/data/experiences.json";
 import skills from "@/data/skills.json";
 import { aboutParagraphs, cvPdfHref, footerText, socials } from "@/data/profile";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { SignalBloomStage } from "./signal-bloom-stage";
 import styles from "./styles.module.css";
 
 export const metadata: Metadata = {
@@ -59,7 +60,7 @@ export default async function SignalBloomVariantPage() {
   return (
     <div className={styles.page} data-color-theme={palette}>
       <main className={styles.shell}>
-        <section className={styles.hero}>
+        <SignalBloomStage className={styles.hero}>
           <div className={styles.heroCopy}>
             <h1><span>Marco</span><span className={styles.surname}>Burrometo</span></h1>
             <div className={styles.roleLine}>
@@ -111,7 +112,7 @@ export default async function SignalBloomVariantPage() {
             />
             <figcaption><span>Marco Burrometo</span><span>Northern Italy</span></figcaption>
           </figure>
-        </section>
+        </SignalBloomStage>
 
         <section aria-labelledby="experience-heading" className={styles.experienceSection}>
           <header className={styles.sectionHeading}>

@@ -20,6 +20,30 @@
     color: var(--bloom-text);
 }
 
+.page::before,
+.page::after {
+    position: fixed;
+    z-index: 10;
+    top: 14vh;
+    right: 0.55rem;
+    width: 1px;
+    height: 72vh;
+    content: "";
+    pointer-events: none;
+}
+
+.page::before {
+    background: var(--bloom-line);
+}
+
+.page::after {
+    width: 2px;
+    background: linear-gradient(var(--bloom-accent), var(--bloom-acid));
+    opacity: 0.24;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
 .page[data-color-theme="violet"] {
     --bloom-accent: #4640b7;
     --bloom-grid: rgba(70, 64, 183, 0.045);
@@ -80,6 +104,12 @@
 }
 
 .hero {
+    --signal-x: 50%;
+    --signal-y: 36%;
+    --signal-opacity: 0;
+    --signal-tilt-x: 0deg;
+    --signal-tilt-y: 0deg;
+    isolation: isolate;
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
@@ -89,6 +119,21 @@
     align-items: center;
     gap: clamp(2rem, 5vw, 5rem);
     padding: 1.5rem 0 4.5rem;
+}
+
+.hero::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 24rem 18rem at var(--signal-x) var(--signal-y),
+        color-mix(in srgb, var(--bloom-accent) 16%, transparent),
+        transparent 72%
+    );
+    content: "";
+    opacity: var(--signal-opacity);
+    pointer-events: none;
+    transition: opacity 260ms ease;
 }
 
 .heroCopy {
@@ -230,9 +275,9 @@
         radial-gradient(circle at 50% 86%, var(--bloom-accent) 0 0.3rem, transparent 0.32rem),
         radial-gradient(circle at 14% 50%, var(--bloom-accent) 0 0.3rem, transparent 0.32rem);
     content: "";
-    opacity: 0;
+    opacity: 0.82;
     pointer-events: none;
-    transform: scale(0.4) rotate(-25deg);
+    transform: scale(0.82);
 }
 
 .portrait {
@@ -240,6 +285,11 @@
     border-radius: 8px;
     object-fit: cover;
     object-position: center 30%;
+    transform:
+        perspective(900px)
+        rotateX(var(--signal-tilt-y, 0deg))
+        rotateY(var(--signal-tilt-x, 0deg));
+    transform-style: preserve-3d;
 }
 
 .portraitFrame figcaption {
@@ -517,6 +567,13 @@
         filter 240ms ease;
 }
 
+.portrait {
+    transition:
+        clip-path 900ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 900ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .download:focus-visible,
 .socials a:focus-visible,
 .experienceBody a:focus-visible,
@@ -531,16 +588,20 @@
 
 @media (prefers-reduced-motion: no-preference) {
     .portrait {
-        animation: bloom-photo-open 720ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both;
+        animation: bloom-photo-open 900ms cubic-bezier(0.16, 1, 0.3, 1) 100ms backwards;
     }
 
     .portraitFrame::after {
-        animation: bloom-mark-open 420ms cubic-bezier(0.16, 1, 0.3, 1) 540ms both;
+        animation: bloom-mark-open 500ms cubic-bezier(0.16, 1, 0.3, 1) 640ms backwards;
     }
 
     .portraitFrame:hover .portrait {
         filter: saturate(1.12) contrast(1.03);
-        transform: scale(1.018);
+        transform:
+            perspective(900px)
+            rotateX(var(--signal-tilt-y, 0deg))
+            rotateY(var(--signal-tilt-x, 0deg))
+            scale(1.018);
     }
 
     .portraitFrame::after {
@@ -589,13 +650,21 @@
 
 @keyframes bloom-photo-open {
     from {
-        clip-path: inset(0 0 100% 0 round 8px);
-        filter: saturate(0.7);
+        clip-path: inset(0 50% 0 50% round 8px);
+        filter: blur(8px) saturate(0.45);
+        transform:
+            perspective(900px)
+            rotateX(4deg)
+            scale(1.06);
     }
 
     to {
         clip-path: inset(0 round 8px);
         filter: saturate(1);
+        transform:
+            perspective(900px)
+            rotateX(0)
+            scale(1);
     }
 }
 
@@ -612,9 +681,46 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .hero::before {
+        display: none;
+    }
+
+    .portrait {
+        clip-path: none;
+        filter: none;
+        transform: none;
+    }
+
     .portraitFrame::after {
         opacity: 0.82;
         transform: scale(0.82);
+    }
+}
+
+@supports (animation-timeline: scroll()) {
+    .page::after {
+        animation: bloom-page-progress linear both;
+        animation-timeline: scroll(root block);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page::after {
+        animation: none;
+        opacity: 0.24;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes bloom-page-progress {
+    from {
+        transform: scaleY(0);
+        opacity: 0.95;
+    }
+
+    to {
+        transform: scaleY(1);
+        opacity: 0.95;
     }
 }
 
@@ -627,6 +733,12 @@
 }
 
 @media (max-width: 760px) {
+    .page::before,
+    .page::after {
+        right: 0.2rem;
+        width: 1px;
+    }
+
     .shell {
         width: min(100% - 1.5rem, 42rem);
         padding-top: 0.7rem;
