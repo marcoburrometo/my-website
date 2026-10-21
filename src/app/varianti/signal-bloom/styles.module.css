@@ -215,6 +215,26 @@
     content: "";
 }
 
+.portraitFrame::after {
+    position: absolute;
+    z-index: 1;
+    top: -0.55rem;
+    right: -0.55rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 50% 50%, var(--bloom-acid) 0 0.2rem, transparent 0.22rem),
+        radial-gradient(circle at 50% 14%, var(--bloom-accent) 0 0.3rem, transparent 0.32rem),
+        radial-gradient(circle at 86% 50%, var(--bloom-accent) 0 0.3rem, transparent 0.32rem),
+        radial-gradient(circle at 50% 86%, var(--bloom-accent) 0 0.3rem, transparent 0.32rem),
+        radial-gradient(circle at 14% 50%, var(--bloom-accent) 0 0.3rem, transparent 0.32rem);
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.4) rotate(-25deg);
+}
+
 .portrait {
     border: 1px solid var(--bloom-line);
     border-radius: 8px;
@@ -523,8 +543,20 @@
         transform: scale(1.018);
     }
 
+    .portraitFrame::after {
+        transition:
+            opacity 180ms ease,
+            transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
     .portraitFrame:hover::before {
         transform: translate(0.35rem, -0.35rem) rotate(-1deg);
+    }
+
+    .portraitFrame:hover::after,
+    .portraitFrame:active::after {
+        opacity: 1;
+        transform: scale(1) rotate(0);
     }
 
     .download:hover {
