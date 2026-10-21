@@ -4,6 +4,21 @@ Curriculum web realizzato con Next.js App Router, TypeScript e Tailwind CSS.
 
 ## Avvio
 
+Il progetto richiede Node.js 20.9 o superiore. Con
+[nvm](https://github.com/nvm-sh/nvm) è possibile usare la versione indicata dal
+repository:
+
+```bash
+nvm install
+nvm use
+corepack enable
+```
+
+`npm` è il package manager canonico del progetto; la versione è indicata in
+`package.json` e `package-lock.json` deve essere mantenuto aggiornato. Dopo
+`corepack enable`, Yarn è disponibile per gli strumenti che lo richiedono e
+usa `node_modules` come linker.
+
 ```bash
 npm install
 npm run dev
