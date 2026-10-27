@@ -49,7 +49,6 @@ export default function TelevideoVariantPage() {
     <div className={styles.page} lang="en">
       <main className={styles.screen}>
         <header className={styles.topbar}>
-          <span className={styles.edition}>PERSONAL EDITION</span>
           <ThemeToggle locale="en" />
         </header>
 
