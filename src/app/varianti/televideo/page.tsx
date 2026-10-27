@@ -61,11 +61,6 @@ export default function TelevideoVariantPage() {
             prodotti web e mobile con attenzione a esperienza, performance e
             risultati.
           </p>
-          <div className={styles.about}>
-            {aboutParagraphs.slice(0, 3).map((paragraph, index) => (
-              <p key={`${index}-${paragraph}`}>{paragraph}</p>
-            ))}
-          </div>
           <nav aria-label="Contatti e profili" className={styles.links}>
             {socials.map((social) => (
               <a
@@ -85,9 +80,21 @@ export default function TelevideoVariantPage() {
           </nav>
         </section>
 
+        <section aria-labelledby="about-title" className={styles.section}>
+          <header className={styles.sectionBar}>
+            <span>402</span>
+            <h2 id="about-title">ABOUT ME</h2>
+          </header>
+          <div className={`${styles.about} ${styles.aboutContent}`}>
+            {aboutParagraphs.slice(0, 3).map((paragraph, index) => (
+              <p key={`${index}-${paragraph}`}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+
         <section aria-labelledby="skills-title" className={styles.section}>
           <header className={`${styles.sectionBar} ${styles.greenBar}`}>
-            <span>402</span>
+            <span>403</span>
             <h2 id="skills-title">COMPETENZE</h2>
           </header>
           <div className={styles.skills}>
@@ -102,7 +109,7 @@ export default function TelevideoVariantPage() {
 
         <section aria-labelledby="experience-title" className={styles.section}>
           <header className={`${styles.sectionBar} ${styles.redBar}`}>
-            <span>403</span>
+            <span>404</span>
             <h2 id="experience-title">ESPERIENZE</h2>
           </header>
           <div className={styles.experiences}>
