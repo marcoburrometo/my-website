@@ -1,0 +1,277 @@
+.page {
+  min-height: 100vh;
+  padding: 1.25rem 0 2.5rem;
+  background: #00008b;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.screen {
+  width: min(860px, calc(100% - 2rem));
+  margin: 0 auto;
+  border: 2px solid #fff;
+  background: #000;
+  box-shadow: 0 0 0 4px #00008b, 0 0 0 6px #fff;
+}
+
+.topbar {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background: #0000aa;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.brandMark {
+  display: grid;
+  width: 2rem;
+  height: 1.5rem;
+  place-items: center;
+  background: #ff0;
+  color: #000;
+  font-size: 0.8rem;
+}
+
+.edition {
+  color: #0ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.channelBar,
+.sectionBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.45rem 1rem;
+  background: #00f;
+  color: #ff0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.channelBar span:last-child {
+  margin-left: auto;
+}
+
+.profile {
+  position: relative;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.pageNumber {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background: #ff0;
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.kicker,
+.period {
+  color: #0ff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.profile h1 {
+  margin-top: 0.6rem;
+  color: #ff0;
+  font-size: clamp(1.7rem, 6vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.intro {
+  max-width: 46rem;
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.about {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  color: #ddd;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1.25rem;
+  color: #0ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.links a,
+.projectLink,
+.footer a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.links a:hover,
+.projectLink:hover,
+.footer a:hover {
+  color: #ff0;
+}
+
+.section {
+  border-top: 1px solid #fff;
+}
+
+.sectionBar {
+  justify-content: flex-start;
+  color: #fff;
+}
+
+.sectionBar h2 {
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.greenBar {
+  background: #008000;
+}
+
+.redBar {
+  background: #f00;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+  padding: 1.25rem 1rem;
+}
+
+.skillGroup h3,
+.experience h3 {
+  color: #ff0;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.skillGroup p {
+  margin-top: 0.35rem;
+  color: #fff;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.experiences {
+  display: grid;
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px dashed #888;
+}
+
+.experience:last-child {
+  border-bottom: 0;
+}
+
+.period {
+  line-height: 1.5;
+}
+
+.description,
+.technologies {
+  margin-top: 0.4rem;
+  color: #ddd;
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.technologies {
+  color: #0ff;
+}
+
+.projectLink {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0f0;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #0000aa;
+  color: #ddd;
+  font-size: 0.7rem;
+}
+
+.footer a {
+  color: #0ff;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 0.75rem 0;
+  }
+
+  .screen {
+    width: calc(100% - 1.25rem);
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    padding-inline: 0.65rem;
+  }
+
+  .edition {
+    order: 1;
+    width: 100%;
+  }
+
+  .profile {
+    padding: 2.25rem 0.8rem 1rem;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding-inline: 0.8rem;
+  }
+
+  .experience {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding-inline: 0.8rem;
+  }
+}

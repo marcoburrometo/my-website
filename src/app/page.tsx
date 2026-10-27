@@ -31,6 +31,7 @@ export default async function Home() {
     "mono-terminal": () => import("./varianti/mono-terminal/page"),
     antigravity: () => import("./varianti/antigravity/page"),
     "signal-bloom": () => import("./varianti/signal-bloom/page"),
+    televideo: () => import("./varianti/televideo/page"),
   };
   const defaultVariant = process.env.DEFAULT_CV_VARIANT;
   const loadDefaultVariant = defaultVariant
