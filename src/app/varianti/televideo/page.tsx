@@ -27,6 +27,20 @@ type SkillGroup = {
 
 const typedExperiences = experiences as Experience[];
 const typedSkillGroups = skills as SkillGroup[];
+const televideoFrameworks = new Set([
+  "Next.js",
+  "Expo",
+  "NestJS",
+  "GraphQL",
+  "Redux",
+  "Zustand",
+  "D3.js",
+]);
+const televideoSkillGroups = typedSkillGroups.map((group) =>
+  group.category === "Frameworks & libraries"
+    ? { ...group, items: group.items.filter((item) => televideoFrameworks.has(item)) }
+    : group,
+);
 
 export default function TelevideoVariantPage() {
   const year = new Date().getFullYear();
@@ -98,7 +112,7 @@ export default function TelevideoVariantPage() {
             <h2 id="skills-title">COMPETENZE</h2>
           </header>
           <div className={styles.skills}>
-            {typedSkillGroups.map((group) => (
+            {televideoSkillGroups.map((group) => (
               <div className={styles.skillGroup} key={group.category}>
                 <h3>{group.category}</h3>
                 <p>{group.items.join("  ·  ")}</p>
