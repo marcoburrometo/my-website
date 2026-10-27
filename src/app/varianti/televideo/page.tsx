@@ -46,36 +46,32 @@ export default function TelevideoVariantPage() {
   const year = new Date().getFullYear();
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} lang="en">
       <main className={styles.screen}>
         <header className={styles.topbar}>
-          <Link className={styles.brand} href="/varianti">
-            <span className={styles.brandMark}>RAI</span>
-            <span>TELEVIDEO</span>
-          </Link>
-          <span className={styles.edition}>EDIZIONE PERSONALE</span>
-          <ThemeToggle />
+          <span className={styles.edition}>PERSONAL EDITION</span>
+          <ThemeToggle locale="en" />
         </header>
 
         <div className={styles.channelBar}>
           <span>CV</span>
-          <span>PROFILO PROFESSIONALE</span>
+          <span>PROFESSIONAL PROFILE</span>
           <span>2026</span>
         </div>
 
         <section aria-labelledby="profile-title" className={styles.profile}>
           <div className={styles.pageNumber}>
             <span>401</span>
-            <span>PROFILO</span>
+            <span>PROFILE</span>
           </div>
-          <p className={styles.kicker}>SVILUPPATORE FRONTEND · PRODUCT MINDSET</p>
+          <p className={styles.kicker}>FRONTEND DEVELOPER · PRODUCT MINDSET</p>
           <h1 id="profile-title">MARCO BURROMETO</h1>
           <p className={styles.intro}>
-            Senior frontend developer in Northern Italy. Progetto e realizzo
-            prodotti web e mobile con attenzione a esperienza, performance e
-            risultati.
+            Senior frontend developer in Northern Italy. I design and build web
+            and mobile products with a focus on user experience, performance, and
+            results.
           </p>
-          <nav aria-label="Contatti e profili" className={styles.links}>
+          <nav aria-label="Contact and profiles" className={styles.links}>
             {socials.map((social) => (
               <a
                 data-ga-event="social_click"
@@ -89,7 +85,7 @@ export default function TelevideoVariantPage() {
               </a>
             ))}
             <a download="marco-burrometo-cv.pdf" href={cvPdfHref}>
-              SCARICA CV
+              DOWNLOAD CV
             </a>
           </nav>
         </section>
@@ -109,7 +105,7 @@ export default function TelevideoVariantPage() {
         <section aria-labelledby="skills-title" className={styles.section}>
           <header className={`${styles.sectionBar} ${styles.greenBar}`}>
             <span>403</span>
-            <h2 id="skills-title">COMPETENZE</h2>
+            <h2 id="skills-title">SKILLS</h2>
           </header>
           <div className={styles.skills}>
             {televideoSkillGroups.map((group) => (
@@ -128,7 +124,7 @@ export default function TelevideoVariantPage() {
         <section aria-labelledby="experience-title" className={styles.section}>
           <header className={`${styles.sectionBar} ${styles.redBar}`}>
             <span>404</span>
-            <h2 id="experience-title">ESPERIENZE</h2>
+            <h2 id="experience-title">EXPERIENCE</h2>
           </header>
           <div className={styles.experiences}>
             {typedExperiences.map((experience, index) => (
@@ -147,7 +143,7 @@ export default function TelevideoVariantPage() {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      APRI PROGETTO &gt;&gt;
+                      VIEW PROJECT &gt;&gt;
                     </a>
                   ) : null}
                 </div>
@@ -158,7 +154,7 @@ export default function TelevideoVariantPage() {
 
         <footer className={styles.footer}>
           <span>{footerText.replace("{year}", String(year))}</span>
-          <Link href="/varianti">ALTRE VARIANTI</Link>
+          <Link href="/varianti">OTHER VARIANTS</Link>
         </footer>
       </main>
     </div>
