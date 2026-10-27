@@ -115,7 +115,11 @@ export default function TelevideoVariantPage() {
             {televideoSkillGroups.map((group) => (
               <div className={styles.skillGroup} key={group.category}>
                 <h3>{group.category}</h3>
-                <p>{group.items.join("  ·  ")}</p>
+                <ul className={styles.skillItems}>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
