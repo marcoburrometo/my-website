@@ -1,6 +1,13 @@
 .page {
   min-height: 100vh;
-  padding: 1.25rem 0 2.5rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  padding: 1.5rem 0 3rem;
   background: #00008b;
   color: #fff;
   font-family: "Courier New", Courier, monospace;
@@ -18,46 +25,21 @@
   display: flex;
   min-height: 3.5rem;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.5rem 1rem;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
   background: #0000aa;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-
-.brandMark {
-  display: grid;
-  width: 2rem;
-  height: 1.5rem;
-  place-items: center;
-  background: #ff0;
-  color: #000;
-  font-size: 0.8rem;
-}
-
-.edition {
-  color: #0ff;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
 }
 
 .channelBar,
 .sectionBar {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.45rem 1rem;
+  gap: var(--space-4);
+  padding: 0.6rem var(--space-5);
   background: #00f;
   color: #ff0;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -68,16 +50,16 @@
 
 .profile {
   position: relative;
-  padding: 2rem 1.5rem 1.5rem;
+  padding: 2.5rem 1.75rem 1.75rem;
 }
 
 .pageNumber {
   position: absolute;
   top: 0;
-  right: 1rem;
+  right: var(--space-5);
   display: flex;
-  gap: 0.5rem;
-  padding: 0.35rem 0.5rem;
+  gap: var(--space-2);
+  padding: 0.45rem 0.65rem;
   background: #ff0;
   color: #000;
   font-size: 0.72rem;
@@ -93,7 +75,7 @@
 }
 
 .profile h1 {
-  margin-top: 0.6rem;
+  margin-top: var(--space-3);
   color: #ff0;
   font-size: clamp(1.7rem, 6vw, 3rem);
   font-weight: 900;
@@ -101,28 +83,34 @@
 }
 
 .intro {
-  max-width: 46rem;
-  margin-top: 1rem;
+  max-width: 72ch;
+  margin-top: var(--space-5);
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
 }
 
 .about {
   display: grid;
-  gap: 0.6rem;
-  margin-top: 1rem;
-  color: #ddd;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  gap: var(--space-3);
+  max-width: 72ch;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
+}
+
+.aboutContent {
+  padding: var(--space-5) var(--space-5) var(--space-6);
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  margin-top: 1.25rem;
+  gap: var(--space-2) var(--space-3);
+  margin-top: var(--space-6);
   color: #0ff;
   font-size: 0.78rem;
   font-weight: 700;
@@ -131,14 +119,33 @@
 .links a,
 .projectLink,
 .footer a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  padding: 0.3rem 0.45rem;
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease,
+    text-decoration-color 140ms ease;
 }
 
-.links a:hover,
-.projectLink:hover,
-.footer a:hover {
-  color: #ff0;
+.links a:focus-visible,
+.projectLink:focus-visible,
+.footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .links a:hover,
+  .projectLink:hover,
+  .footer a:hover {
+    background: #ff0;
+    color: #000;
+    text-decoration-color: #000;
+  }
 }
 
 .section {
@@ -151,8 +158,9 @@
 }
 
 .sectionBar h2 {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 900;
+  line-height: 1.25;
 }
 
 .greenBar {
@@ -165,23 +173,58 @@
 
 .skills {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 1.5rem;
-  padding: 1.25rem 1rem;
+  padding-inline: var(--space-5);
+}
+
+.skillGroup {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-6);
+  padding-block: var(--space-5);
+}
+
+.skillGroup + .skillGroup {
+  border-top: 1px dashed #888;
 }
 
 .skillGroup h3,
 .experience h3 {
   color: #ff0;
-  font-size: 0.83rem;
+  font-size: 0.9rem;
   font-weight: 700;
+  line-height: 1.4;
 }
 
-.skillGroup p {
-  margin-top: 0.35rem;
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   color: #fff;
-  font-size: 0.78rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+.skillItems li {
+  position: relative;
+  max-width: 100%;
+  padding-left: var(--space-3);
+  overflow-wrap: anywhere;
+}
+
+.skillItems li::before {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: var(--space-1);
+  height: var(--space-1);
+  background: #0ff;
+  content: "";
 }
 
 .experiences {
@@ -191,8 +234,9 @@
 .experience {
   display: grid;
   grid-template-columns: 8.5rem minmax(0, 1fr);
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--space-5);
+  align-items: start;
+  padding: var(--space-5);
   border-bottom: 1px dashed #888;
 }
 
@@ -202,23 +246,27 @@
 
 .period {
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;
 }
 
 .description,
 .technologies {
-  margin-top: 0.4rem;
-  color: #ddd;
-  font-size: 0.8rem;
-  line-height: 1.55;
+  margin-top: var(--space-2);
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
 }
 
 .technologies {
+  margin-top: var(--space-3);
   color: #0ff;
+  font-size: 0.85rem;
+  letter-spacing: 0.015em;
 }
 
 .projectLink {
-  display: inline-block;
-  margin-top: 0.5rem;
+  margin-top: var(--space-3);
   color: #0f0;
   font-size: 0.75rem;
   font-weight: 700;
@@ -228,11 +276,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
   background: #0000aa;
   color: #ddd;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
 .footer a {
@@ -242,7 +291,7 @@
 
 @media (max-width: 600px) {
   .page {
-    padding: 0.75rem 0;
+    padding: var(--space-3) 0 var(--space-6);
   }
 
   .screen {
@@ -251,27 +300,55 @@
 
   .topbar {
     flex-wrap: wrap;
-    padding-inline: 0.65rem;
-  }
-
-  .edition {
-    order: 1;
-    width: 100%;
+    padding-inline: var(--space-3);
   }
 
   .profile {
-    padding: 2.25rem 0.8rem 1rem;
+    padding: 2.5rem var(--space-4) var(--space-5);
+  }
+
+  .pageNumber {
+    right: var(--space-3);
+  }
+
+  .aboutContent {
+    padding: var(--space-4);
   }
 
   .skills {
+    padding-inline: var(--space-4);
+  }
+
+  .skillGroup {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
-    padding-inline: 0.8rem;
+    gap: var(--space-3);
+  }
+
+  .links {
+    gap: var(--space-1) var(--space-2);
+  }
+
+  .links a,
+  .projectLink,
+  .footer a {
+    min-height: 2.5rem;
   }
 
   .experience {
     grid-template-columns: 1fr;
-    gap: 0.4rem;
-    padding-inline: 0.8rem;
+    gap: var(--space-2);
+    padding: var(--space-4);
+  }
+
+  .footer {
+    padding-inline: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .links a,
+  .projectLink,
+  .footer a {
+    transition-duration: 0.01ms;
   }
 }

@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 import { trackAnalyticsEvent } from "./analytics-events";
 
-export function ThemeToggle() {
+export function ThemeToggle({ locale = "it" }: { locale?: "en" | "it" }) {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(
     () => () => {},
@@ -43,7 +43,11 @@ export function ThemeToggle() {
         setTheme(theme);
         trackAnalyticsEvent("theme_change", { theme });
       }}
-      title={isDark ? "Passa al tema chiaro" : "Passa al tema scuro"}
+      title={
+        locale === "en"
+          ? isDark ? "Switch to light theme" : "Switch to dark theme"
+          : isDark ? "Passa al tema chiaro" : "Passa al tema scuro"
+      }
       type="button"
     >
       <svg aria-hidden="true" className="h-5 w-5" fill="none" viewBox="0 0 24 24">
