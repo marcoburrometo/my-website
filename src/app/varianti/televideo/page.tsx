@@ -66,9 +66,12 @@ export default function TelevideoVariantPage() {
           <p className={styles.kicker}>FRONTEND DEVELOPER · PRODUCT MINDSET</p>
           <h1 id="profile-title">MARCO BURROMETO</h1>
           <p className={styles.intro}>
-            Senior full-stack engineer with a frontend focus, based in Northern
-            Italy. I build web and mobile products that combine intuitive user
-            experiences, strong performance, and measurable impact.
+            Hello, I am a Senior full-stack engineer with a frontend focus, based
+            in Northern Italy. I build web and mobile products that combine
+            intuitive user experiences, strong performance, and measurable
+            impact. Outside work, I’m passionate about music: I play bass guitar,
+            collect vinyl records and vintage hi-fi gear, and captain my boat as
+            its head angler and, most importantly, father of two.
           </p>
           <nav aria-label="Contact and profiles" className={styles.links}>
             {socials.map((social) => (
