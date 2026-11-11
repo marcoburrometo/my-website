@@ -27,6 +27,12 @@ type SkillGroup = {
 
 const typedExperiences = experiences as Experience[];
 const typedSkillGroups = skills as SkillGroup[];
+const televideoAboutParagraphs = [
+  aboutParagraphs[4],
+  aboutParagraphs[6],
+  aboutParagraphs[8],
+  aboutParagraphs[9],
+];
 const televideoFrameworks = new Set([
   "Next.js",
   "Expo",
@@ -63,15 +69,15 @@ export default function TelevideoVariantPage() {
             <span>401</span>
             <span>PROFILE</span>
           </div>
-          <p className={styles.kicker}>FRONTEND DEVELOPER · PRODUCT MINDSET</p>
+          <p className={styles.kicker}>FULL-STACK ENGINEER · FRONTEND FOCUS</p>
           <h1 id="profile-title">MARCO BURROMETO</h1>
           <p className={styles.intro}>
-            Hello, I am a Senior full-stack engineer with a frontend focus, based
-            in Northern Italy. I build web and mobile products that combine
-            intuitive user experiences, strong performance, and measurable
-            impact. Outside work, I’m passionate about music: I play bass guitar,
-            collect vinyl records and vintage hi-fi gear, and captain my boat as
-            its head angler and, most importantly, father of two.
+            I’m a senior full-stack engineer with a frontend focus, based in
+            Northern Italy. I build web and mobile products that feel intuitive,
+            perform well, and deliver measurable results. Off the clock, I’m
+            usually playing bass, collecting vinyl records and vintage hi-fi
+            gear, or out on the boat as captain and chief angler. Above all, I’m
+            a proud dad of two.
           </p>
           <nav aria-label="Contact and profiles" className={styles.links}>
             {socials.map((social) => (
@@ -98,7 +104,7 @@ export default function TelevideoVariantPage() {
             <h2 id="about-title">ABOUT ME</h2>
           </header>
           <div className={`${styles.about} ${styles.aboutContent}`}>
-            {aboutParagraphs.slice(0, 3).map((paragraph, index) => (
+            {televideoAboutParagraphs.map((paragraph, index) => (
               <p key={`${index}-${paragraph}`}>{paragraph}</p>
             ))}
           </div>

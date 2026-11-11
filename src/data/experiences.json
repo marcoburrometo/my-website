@@ -1,94 +1,94 @@
 [
   {
     "period": "01/2026 - 10/2026",
-    "description": "Full-stack developer on a 7-person team for Italy's leading energy comparison website, with millions of weekly visits. Focused on monitoring user flows, resolving issues, delivering features under A/B tests, end-to-end testing, and company-wide AI adoption.",
+    "description": "Full-stack developer on a seven-person team at Italy's leading energy comparison website, with millions of visits each week. Monitored user journeys, resolved issues, delivered features for A/B tests, carried out end-to-end testing, and supported company-wide AI adoption.",
     "place": "@Facile.it",
     "link": "https://www.facile.it/",
     "technologies": "React, Next.js, Playwright."
   },
   {
     "period": "03/2025 - Now",
-    "description": "Personal side project: built a React Native app to find, review, and share baby-friendly places. Includes native widgets, quick actions, enhanced GPS, map clustering, in-app purchases, subscriptions, an admin portal, and a website. Reached 3k users in two weeks and 8k in two months.",
+    "description": "Built BimboMap, a personal React Native project for finding, reviewing, and sharing baby-friendly places. It includes native widgets and quick actions, enhanced GPS features, map clustering, in-app purchases and subscriptions, an admin portal, and a website. Reached 3,000 users in two weeks and 8,000 in two months.",
     "place": "@BimboMap",
     "link": "https://bimbomap.it",
     "technologies": "React Native (Expo), Firestore, Firebase Functions, RevenueCat, Next.js, Tailwind CSS."
   },
   {
     "period": "11/2024 - 10/2026",
-    "description": "Senior developer for PWC USA: developed the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
+    "description": "Senior developer for PwC USA. Built the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
     "place": "@Jimmy Technologies · PWC USA",
     "link": "https://www.fromjimmy.com/",
     "technologies": "React, Next.js, Node.js, NestJS."
   },
   {
     "period": "11/2024 - Now",
-    "description": "Freelance senior developer delivering client projects focused on automotive and data analytics, including full-stack development of a car-commerce platform and Firebase services for mobile push certifications. Google Cloud Developer certified.",
+    "description": "Freelance senior developer delivering client projects in automotive and data analytics. Work includes full-stack development of a car-commerce platform and Firebase services for mobile push certifications. Google Cloud Developer certified.",
     "place": "@Jimmy Technologies, Prague",
     "link": "https://www.fromjimmy.com/",
     "technologies": "React, Next.js, React Native, Strapi, Firebase, Node.js, Google Cloud Platform."
   },
   {
     "period": "12/2024 - 02/2025",
-    "description": "Full-stack development of a web service for booking parking spaces, integrated with a legacy ERP and Strapi.",
+    "description": "Built a full-stack web service for booking parking spaces, integrated with a legacy ERP and Strapi.",
     "place": "@Freelance · Terminal One",
     "link": "https://booking.terminalone.it/",
     "technologies": "React, Next.js, Firebase, Strapi."
   },
   {
     "period": "09/2023 - 11/2024",
-    "description": "Senior freelance developer on an Expo app connecting patients with their family doctor. Built the chat, authentication, and navigation infrastructure, automated deployments and testing, and developed the GraphQL backend. Product serves around one million monthly users.",
+    "description": "Senior freelance developer on an Expo app connecting patients with their family doctor. Built its chat, authentication, and navigation infrastructure; automated deployments and testing; and developed the GraphQL backend. The product serves around one million users each month.",
     "place": "@Davinci Salute, Milan · Elty",
     "link": "https://elty.it/",
     "technologies": "React Native (Expo), TypeScript, React Context, Zustand, Jest, GraphQL, NestJS."
   },
   {
     "period": "01/2021 - 05/2024",
-    "description": "Senior frontend developer for a social media and video-streaming management platform. Organized frontend architecture and developer experience with Storybook, and built the mobile app in React Native while sharing Redux business logic.",
+    "description": "Senior frontend developer for a social media and video-streaming management platform. Worked on frontend architecture and developer experience with Storybook, and built the React Native mobile app while sharing Redux business logic.",
     "place": "@Levuro AG, Zurich",
     "link": "https://levuro.com",
     "technologies": "React, React Native, TypeScript, Less, Redux-Saga, Jest, Storybook."
   },
   {
     "period": "03/2022 - 05/2023",
-    "description": "Head of frontend architecture; led a team of five on iOS and Android sports-news apps with articles, photo and video galleries, live matches, notifications, white-label releases, and advertising management. Bridged native and React Native code and implemented analytics for user flows; around 200k daily users.",
+    "description": "Led frontend architecture and a five-person team building iOS and Android sports-news apps. Features included articles, photo and video galleries, live matches, notifications, white-label releases, and advertising management. Bridged native and React Native code and implemented analytics for user journeys. The apps reached around 200,000 daily users.",
     "place": "@Freelance · Tuttosport / Corriere dello Sport",
     "link": "https://www.tuttosport.com/",
     "technologies": "React Native, TypeScript, Redux Toolkit, Jest."
   },
   {
     "period": "02-05/2022 · 02-04/2023 · 01-03/2024",
-    "description": "Taught 50-hour React courses in 2022 and 2024, and a 30-hour HTML/CSS course in 2023.",
+    "description": "Taught 50-hour React courses in 2022 and 2024, plus a 30-hour HTML and CSS course in 2023.",
     "place": "Teacher",
     "technologies": "React, HTML, CSS."
   },
   {
     "period": "03/2021 - 09/2021",
-    "description": "Led development of an iOS and Android augmented-reality storytelling and gamification app, Pixelismo AR Experience Caduti - Alberi e Soldati.",
+    "description": "Led development of Pixelismo AR Experience Caduti - Alberi e Soldati, an iOS and Android app for augmented-reality storytelling and gamification.",
     "place": "@Freelance · Pixelismo AR Experience",
     "technologies": "React Native, Redux Toolkit, Viro."
   },
   {
     "period": "01/2020 - 12/2021",
-    "description": "Head of development for smart-warehouse software. Built a cloud or Raspberry Pi hybrid solution and a licensing service; used by hundreds of users with more than 1,500 daily movements.",
+    "description": "Led development of smart-warehouse software, building a hybrid cloud and Raspberry Pi solution along with a licensing service. It served hundreds of users and handled more than 1,500 movements per day.",
     "place": "@Smart Warehouse project",
     "technologies": "React, Node.js, TypeScript, Socket.IO."
   },
   {
     "period": "02/2019 - 12/2020",
-    "description": "Built a data-visualization component framework and delivered web and React Native apps. Developed an Industry 4.0 platform, maintained its Node.js and MongoDB backend, and led mobile-app projects.",
+    "description": "Built a data-visualization component framework and delivered web and React Native apps. Also developed an Industry 4.0 platform, maintained its Node.js and MongoDB backend, and led mobile app projects.",
     "place": "@Visup, Gemona del Friuli",
     "link": "https://visup.co",
     "technologies": "Angular, React, React Native, Lit HTML, D3.js, TypeScript, Sass, Node.js, MongoDB."
   },
   {
     "period": "06/2016 - 02/2019",
-    "description": "Analyzed, developed, and optimized cross-device ERP billing solutions. Built a TypeScript virtual-DOM frontend framework and integrated data-driven components, dashboards, widgets, and visualizations.",
+    "description": "Analyzed, built, and optimized cross-device ERP billing solutions. Developed a TypeScript virtual DOM frontend framework and integrated data-driven components, dashboards, widgets, and visualizations.",
     "place": "@Wolters Kluwer, Bassano del Grappa",
     "technologies": "TypeScript, C#, SQL, React, web standards."
   },
   {
     "period": "05/2012 - 06/2016",
-    "description": "Developed web portals for attendance, sales agents, purchasing, marketing SMS, remote plant management, and machine-integrated MES. Built C# services for shipment tracking, machine data, and SMS; maintained MS SQL databases.",
+    "description": "Built web portals for attendance, sales agents, purchasing, marketing SMS, remote plant management, and a machine-integrated MES. Developed C# services for shipment tracking, machine data, and SMS, and maintained MS SQL databases.",
     "place": "@Biotec SRL, Dueville",
     "link": "https://www.btk.dental/",
     "technologies": "HTML5, JavaScript, CSS, PHP (Slim), C#, MS SQL."

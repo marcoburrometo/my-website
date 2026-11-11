@@ -1,15 +1,15 @@
 export const aboutParagraphs = [
-  "I'm Marco Burrometo, nice to meet you!",
-  "Born in 1992. Based in northern Italy. Citizen of the world.",
-  "My greatest passions are Technology and Music.",
-  "I like to put user experience in first place and focus on customer needs to achieve the best results. I have fun creating unique things and keeping myself updated on newest technologies.",
-  "Bass guitar player since I was 15.",
-  "Vinyl and music addicted.",
-  "Proud dachshund owner and lover.",
-  "Captain and head fisher of a boat.",
-  "I try to play tennis.",
+  "I'm Marco Burrometo. Nice to meet you!",
+  "Born in 1992, based in Northern Italy, and a citizen of the world.",
+  "Technology and music are two of my biggest passions.",
+  "I put the people using what I build first. I enjoy turning their needs into thoughtful products, creating things that feel unique, and keeping up with new technology.",
+  "I've played bass guitar since I was 15.",
+  "I'm passionate about music and collect vinyl records.",
+  "Proud dachshund owner and dog lover.",
+  "Captain and chief angler on my boat.",
+  "I try to fit in a game of tennis.",
   "Rubber duck debugger.",
-  "Daddy of Gabriele & Camilla."
+  "Above all, I'm dad to Gabriele and Camilla."
 ] as const;
 
 export const socials = [
