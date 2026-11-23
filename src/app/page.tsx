@@ -33,6 +33,7 @@ export default async function Home() {
     antigravity: () => import("./varianti/antigravity/page"),
     "signal-bloom": () => import("./varianti/signal-bloom/page"),
     televideo: () => import("./varianti/televideo/page"),
+    animejs: () => import("./varianti/animejs/page"),
   };
   const selectedVariant = process.env.DEFAULT_CV_VARIANT ?? "default";
   const loadSelectedVariant =

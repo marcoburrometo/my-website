@@ -16,7 +16,7 @@ Present Marco's profile, skills, work experience, and projects so visitors can u
 
 ## Positioning
 
-The site presents the same professional profile through five distinct CV design variants: Hypercard Neon, Editorial Pop, Mono Terminal, Antigravity Particles, and Signal Bloom. The visual directions can differ, while factual CV content and supporting assets remain consistent.
+The site presents the same professional profile through seven distinct CV design variants: Hypercard Neon, Editorial Pop, Mono Terminal, Antigravity Particles, Signal Bloom, Televideo, and Anime.js Kinetic Editorial. The visual directions can differ, while factual CV content and supporting assets remain consistent.
 
 ## Operating Context
 
@@ -25,7 +25,7 @@ Visitors arrive on the public website, review the profile and career history, fo
 ## Capabilities and Constraints
 
 - The site is a web CV and portfolio built with Next.js, React, TypeScript, and Tailwind CSS.
-- The five variants are available at `/varianti/hypercard`, `/varianti/editorial-pop`, `/varianti/mono-terminal`, `/varianti/antigravity`, and `/varianti/signal-bloom`; `/varianti` lists them.
+- The seven variants are available at `/varianti/hypercard`, `/varianti/editorial-pop`, `/varianti/mono-terminal`, `/varianti/antigravity`, `/varianti/signal-bloom`, `/varianti/televideo`, and `/varianti/animejs`; `/varianti` lists them.
 - `DEFAULT_CV_VARIANT` can select a supported variant for `/`. Set it to `default` (or leave it unset) to show the standard homepage.
 - Variants share factual profile, skills, experience, social links, portrait assets, and the downloadable CV. Keep these facts consistent across variants; preserve each variant as a distinct design direction.
 - Visitors can switch between light and dark themes.

@@ -45,6 +45,12 @@ const variants = [
     description:
       "Una pagina CV ispirata al Televideo: fondo blu, caratteri monospaziati e titoli a colori.",
   },
+  {
+    slug: "animejs",
+    name: "Anime.js Kinetic Editorial",
+    description:
+      "Un CV editoriale cinetico con tipografia ampia, accenti elettrici e una timeline animata allo scroll.",
+  },
 ] as const;
 
 export default function VariantiIndexPage() {
@@ -52,7 +58,7 @@ export default function VariantiIndexPage() {
     <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-5 py-10 md:px-8">
       <h1 className="font-display text-3xl sm:text-4xl md:text-6xl">Varianti Design CV</h1>
       <p className="mt-3 max-w-2xl text-[var(--text-soft)]">
-        Ho preparato 6 versioni alternative in sotto-cartelle. Aprile e dimmi
+        Ho preparato 7 versioni alternative in sotto-cartelle. Aprile e dimmi
         quale direzione vuoi portare in produzione.
       </p>
 
