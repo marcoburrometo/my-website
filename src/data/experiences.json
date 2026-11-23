@@ -1,11 +1,11 @@
 [
   {
-    "period": "01/2026 - 10/2026",
-    "role": "Full-stack developer",
-    "description": "Full-stack developer on a seven-person team at Italy's leading energy comparison website, with millions of visits each week. Monitored user journeys, resolved issues, delivered features for A/B tests, carried out end-to-end testing, and supported company-wide AI adoption.",
-    "place": "@Facile.it",
-    "link": "https://www.facile.it/",
-    "technologies": "React, Next.js, Playwright."
+    "period": "11/2024 - 10/2026",
+    "role": "Senior developer",
+    "description": "Senior developer for PwC USA. Built the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
+    "place": "@Jimmy Technologies · PWC USA",
+    "link": "https://www.fromjimmy.com/",
+    "technologies": "React, Next.js, Node.js, NestJS."
   },
   {
     "period": "03/2025 - Now",
@@ -16,12 +16,12 @@
     "technologies": "React Native (Expo), Firestore, Firebase Functions, RevenueCat, Next.js, Tailwind CSS."
   },
   {
-    "period": "11/2024 - 10/2026",
-    "role": "Senior developer",
-    "description": "Senior developer for PwC USA. Built the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
-    "place": "@Jimmy Technologies · PWC USA",
-    "link": "https://www.fromjimmy.com/",
-    "technologies": "React, Next.js, Node.js, NestJS."
+    "period": "01/2026 - 10/2026",
+    "role": "Full-stack developer",
+    "description": "Full-stack developer on a seven-person team at Italy's leading energy comparison website, with millions of visits each week. Monitored user journeys, resolved issues, delivered features for A/B tests, carried out end-to-end testing, and supported company-wide AI adoption.",
+    "place": "@Facile.it",
+    "link": "https://www.facile.it/",
+    "technologies": "React, Next.js, Playwright."
   },
   {
     "period": "11/2024 - Now",

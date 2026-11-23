@@ -1,0 +1,271 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - banner:
+      - link "MB, Marco Burrometo home" [ref=f3e3] [cursor=pointer]:
+        - /url: /
+        - text: MB
+      - paragraph [ref=f3e4]: ENGINEERING / PORTFOLIO / 2026
+      - button "Select theme" [ref=f3e5]
+    - generic:
+      - generic:
+        - figure:
+          - generic:
+            - img "Portrait of Marco Burrometo"
+        - generic [aria-hidden]:
+          - generic:
+            - generic: Jimmy Technologies · PWC USA
+            - generic: Senior developer
+        - generic [aria-hidden]:
+          - generic:
+            - generic:
+              - generic: PEOPLE
+              - strong: FIRST
+            - generic:
+              - generic: BASS
+              - strong: PLAYER
+            - generic:
+              - generic: VINYL
+              - strong: RECORDS
+            - generic:
+              - generic: BOAT
+              - strong: CAPTAIN
+            - generic:
+              - generic: DAD
+              - strong: OF TWO
+        - generic [aria-hidden]:
+          - generic:
+            - generic: SAY
+            - strong: HI
+    - main "CV presentation, one panel at a time" [ref=f3e8]:
+      - region "Marco Burrometo" [ref=f3e9]:
+        - generic [ref=f3e10]:
+          - heading "Marco Burrometo" [level=1] [ref=f3e11]
+          - generic [ref=f3e12]:
+            - paragraph [ref=f3e13]: Full-Stack Engineer · Frontend Focus
+            - paragraph [ref=f3e14]: I’m a senior full-stack engineer with a frontend focus, based in Northern Italy. I build web and mobile products with a focus on usability and performance.
+            - navigation "Contact and profiles" [ref=f3e15]:
+              - link "Email" [ref=f3e16] [cursor=pointer]:
+                - /url: mailto:marco.burrometo@gmail.com
+              - link "LinkedIn" [ref=f3e17] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/marco-burrometo/
+              - link "Instagram" [ref=f3e18] [cursor=pointer]:
+                - /url: https://www.instagram.com/marcoburrometo/
+              - link "GitHub" [ref=f3e19] [cursor=pointer]:
+                - /url: https://github.com/marcoburrometo
+              - link "Download CV" [ref=f3e20] [cursor=pointer]:
+                - /url: /cv-marco-burrometo.pdf
+      - region "Experiences." [ref=f3e23]:
+        - generic [ref=f3e24]:
+          - heading "Experiences." [level=2] [ref=f3e25]
+          - generic [ref=f3e27]:
+            - article [ref=f3e28]:
+              - paragraph [ref=f3e29]: 11/2024 - 10/2026
+              - generic [ref=f3e30]:
+                - heading "@Jimmy Technologies · PWC USA" [level=3] [ref=f3e31]
+                - paragraph [ref=f3e32]: Senior developer
+                - paragraph [ref=f3e33]: Senior developer for PwC USA. Built the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.
+                - paragraph [ref=f3e34]: React, Next.js, Node.js, NestJS.
+                - link "Visit project" [ref=f3e35] [cursor=pointer]:
+                  - /url: https://www.fromjimmy.com/
+            - article [ref=f3e36]:
+              - paragraph [ref=f3e37]: 03/2025 - Now
+              - generic [ref=f3e38]:
+                - heading "@BimboMap" [level=3] [ref=f3e39]
+                - paragraph [ref=f3e40]: Fouder
+                - paragraph [ref=f3e41]: Built BimboMap, a personal React Native project for finding, reviewing, and sharing baby-friendly places. It includes native widgets and quick actions, enhanced GPS features, map clustering, in-app purchases and subscriptions, an admin portal, and a website. Reached 3,000 users in two weeks and 8,000 in two months.
+                - paragraph [ref=f3e42]: React Native (Expo), Firestore, Firebase Functions, RevenueCat, Next.js, Tailwind CSS.
+                - link "Visit project" [ref=f3e43] [cursor=pointer]:
+                  - /url: https://bimbomap.it
+            - article [ref=f3e44]:
+              - paragraph [ref=f3e45]: 01/2026 - 10/2026
+              - generic [ref=f3e46]:
+                - heading "@Facile.it" [level=3] [ref=f3e47]
+                - paragraph [ref=f3e48]: Full-stack developer
+                - paragraph [ref=f3e49]: Full-stack developer on a seven-person team at Italy's leading energy comparison website, with millions of visits each week. Monitored user journeys, resolved issues, delivered features for A/B tests, carried out end-to-end testing, and supported company-wide AI adoption.
+                - paragraph [ref=f3e50]: React, Next.js, Playwright.
+                - link "Visit project" [ref=f3e51] [cursor=pointer]:
+                  - /url: https://www.facile.it/
+            - article [ref=f3e52]:
+              - paragraph [ref=f3e53]: 11/2024 - Now
+              - generic [ref=f3e54]:
+                - heading "@Jimmy Technologies, Prague" [level=3] [ref=f3e55]
+                - paragraph [ref=f3e56]: Senior developer
+                - paragraph [ref=f3e57]: Freelance senior developer delivering client projects in automotive and data analytics. Work includes full-stack development of a car-commerce platform and Firebase services for mobile push certifications. Google Cloud Developer certified.
+                - paragraph [ref=f3e58]: React, Next.js, React Native, Strapi, Firebase, Node.js, Google Cloud Platform.
+                - link "Visit project" [ref=f3e59] [cursor=pointer]:
+                  - /url: https://www.fromjimmy.com/
+            - article [ref=f3e60]:
+              - paragraph [ref=f3e61]: 12/2024 - 02/2025
+              - generic [ref=f3e62]:
+                - heading "@Freelance · Terminal One" [level=3] [ref=f3e63]
+                - paragraph [ref=f3e64]: Full-stack developer
+                - paragraph [ref=f3e65]: Built a full-stack web service for booking parking spaces, integrated with a legacy ERP and Strapi.
+                - paragraph [ref=f3e66]: React, Next.js, Firebase, Strapi.
+                - link "Visit project" [ref=f3e67] [cursor=pointer]:
+                  - /url: https://booking.terminalone.it/
+            - article [ref=f3e68]:
+              - paragraph [ref=f3e69]: 09/2023 - 11/2024
+              - generic [ref=f3e70]:
+                - heading "@Davinci Salute, Milan · Elty" [level=3] [ref=f3e71]
+                - paragraph [ref=f3e72]: Senior developer
+                - paragraph [ref=f3e73]: Senior freelance developer on an Expo app connecting patients with their family doctor. Built its chat, authentication, and navigation infrastructure; automated deployments and testing; and developed the GraphQL backend. The product serves around one million users each month.
+                - paragraph [ref=f3e74]: React Native (Expo), TypeScript, React Context, Zustand, Jest, GraphQL, NestJS.
+                - link "Visit project" [ref=f3e75] [cursor=pointer]:
+                  - /url: https://elty.it/
+            - article [ref=f3e76]:
+              - paragraph [ref=f3e77]: 01/2021 - 05/2024
+              - generic [ref=f3e78]:
+                - heading "@Levuro AG, Zurich" [level=3] [ref=f3e79]
+                - paragraph [ref=f3e80]: Senior frontend developer
+                - paragraph [ref=f3e81]: Senior frontend developer for a social media and video-streaming management platform. Worked on frontend architecture and developer experience with Storybook, and built the React Native mobile app while sharing Redux business logic.
+                - paragraph [ref=f3e82]: React, React Native, TypeScript, Less, Redux-Saga, Jest, Storybook.
+                - link "Visit project" [ref=f3e83] [cursor=pointer]:
+                  - /url: https://levuro.com
+            - article [ref=f3e84]:
+              - paragraph [ref=f3e85]: 03/2022 - 05/2023
+              - generic [ref=f3e86]:
+                - heading "@Freelance · Tuttosport / Corriere dello Sport" [level=3] [ref=f3e87]
+                - paragraph [ref=f3e88]: Head of frontend architecture
+                - paragraph [ref=f3e89]: Led frontend architecture and a five-person team building iOS and Android sports-news apps. Features included articles, photo and video galleries, live matches, notifications, white-label releases, and advertising management. Bridged native and React Native code and implemented analytics for user journeys. The apps reached around 200,000 daily users.
+                - paragraph [ref=f3e90]: React Native, TypeScript, Redux Toolkit, Jest.
+                - link "Visit project" [ref=f3e91] [cursor=pointer]:
+                  - /url: https://www.tuttosport.com/
+            - article [ref=f3e92]:
+              - paragraph [ref=f3e93]: 02-05/2022 · 02-04/2023 · 01-03/2024
+              - generic [ref=f3e94]:
+                - heading "Teacher" [level=3] [ref=f3e95]
+                - paragraph [ref=f3e96]: Taught 50-hour React courses in 2022 and 2024, plus a 30-hour HTML and CSS course in 2023.
+                - paragraph [ref=f3e97]: React, HTML, CSS.
+            - article [ref=f3e98]:
+              - paragraph [ref=f3e99]: 03/2021 - 09/2021
+              - generic [ref=f3e100]:
+                - heading "@Freelance · Pixelismo AR Experience" [level=3] [ref=f3e101]
+                - paragraph [ref=f3e102]: Head of development
+                - paragraph [ref=f3e103]: Led development of Pixelismo AR Experience Caduti - Alberi e Soldati, an iOS and Android app for augmented-reality storytelling and gamification.
+                - paragraph [ref=f3e104]: React Native, Redux Toolkit, Viro.
+            - article [ref=f3e105]:
+              - paragraph [ref=f3e106]: 01/2020 - 12/2021
+              - generic [ref=f3e107]:
+                - heading "@Smart Warehouse project" [level=3] [ref=f3e108]
+                - paragraph [ref=f3e109]: Head of development
+                - paragraph [ref=f3e110]: Led development of smart-warehouse software, building a hybrid cloud and Raspberry Pi solution along with a licensing service. It served hundreds of users and handled more than 1,500 movements per day.
+                - paragraph [ref=f3e111]: React, Node.js, TypeScript, Socket.IO.
+            - article [ref=f3e112]:
+              - paragraph [ref=f3e113]: 02/2019 - 12/2020
+              - generic [ref=f3e114]:
+                - heading "@Visup, Gemona del Friuli" [level=3] [ref=f3e115]
+                - paragraph [ref=f3e116]: Frontend developer
+                - paragraph [ref=f3e117]: Built a data-visualization component framework and delivered web and React Native apps. Also developed an Industry 4.0 platform, maintained its Node.js and MongoDB backend, and led mobile app projects.
+                - paragraph [ref=f3e118]: Angular, React, React Native, Lit HTML, D3.js, TypeScript, Sass, Node.js, MongoDB.
+                - link "Visit project" [ref=f3e119] [cursor=pointer]:
+                  - /url: https://visup.co
+            - article [ref=f3e120]:
+              - paragraph [ref=f3e121]: 06/2016 - 02/2019
+              - generic [ref=f3e122]:
+                - heading "@Wolters Kluwer, Bassano del Grappa" [level=3] [ref=f3e123]
+                - paragraph [ref=f3e124]: Developer
+                - paragraph [ref=f3e125]: Analyzed, built, and optimized cross-device ERP billing solutions. Developed a TypeScript virtual DOM frontend framework and integrated data-driven components, dashboards, widgets, and visualizations.
+                - paragraph [ref=f3e126]: TypeScript, C#, SQL, React, web standards.
+            - article [ref=f3e127]:
+              - paragraph [ref=f3e128]: 05/2012 - 06/2016
+              - generic [ref=f3e129]:
+                - heading "@Biotec SRL, Dueville" [level=3] [ref=f3e130]
+                - paragraph [ref=f3e131]: IT and developer
+                - paragraph [ref=f3e132]: Built web portals for attendance, sales agents, purchasing, marketing SMS, remote plant management, and a machine-integrated MES. Developed C# services for shipment tracking, machine data, and SMS, and maintained MS SQL databases.
+                - paragraph [ref=f3e133]: HTML5, JavaScript, CSS, PHP (Slim), C#, MS SQL.
+                - link "Visit project" [ref=f3e134] [cursor=pointer]:
+                  - /url: https://www.btk.dental/
+      - region "About me." [ref=f3e135]:
+        - generic [ref=f3e136]:
+          - heading "About me." [level=2] [ref=f3e137]
+          - generic [ref=f3e139]:
+            - paragraph [ref=f3e140]: I put the people using what I build first. I enjoy building products around their needs and keeping up with new technology.
+            - paragraph [ref=f3e141]: I've played bass guitar since I was 15. I'm passionate about music and collect vinyl records. Proud dachshund owner and dog lover. Captain and chief angler on my boat. I try to fit in a game of tennis. Rubber duck debugger. Above all, I'm dad to Gabriele and Camilla.
+            - generic [ref=f3e142]:
+              - generic [ref=f3e143]:
+                - heading "Preferred tech skills" [level=3] [ref=f3e144]
+                - list [ref=f3e145]:
+                  - listitem [ref=f3e146]: Web standards (HTML, CSS, JavaScript)
+                  - listitem [ref=f3e147]: React
+                  - listitem [ref=f3e148]: TypeScript
+                  - listitem [ref=f3e149]: Node.js
+                  - listitem [ref=f3e150]: React Native
+                  - listitem [ref=f3e151]: Google Cloud Platform / Firebase
+              - generic [ref=f3e152]:
+                - heading "Frameworks & libraries" [level=3] [ref=f3e153]
+                - list [ref=f3e154]:
+                  - listitem [ref=f3e155]: Next.js
+                  - listitem [ref=f3e156]: Angular
+                  - listitem [ref=f3e157]: Expo
+                  - listitem [ref=f3e158]: NestJS
+                  - listitem [ref=f3e159]: Strapi
+                  - listitem [ref=f3e160]: GraphQL
+                  - listitem [ref=f3e161]: Redux
+                  - listitem [ref=f3e162]: Redux Toolkit
+                  - listitem [ref=f3e163]: Redux-Saga
+                  - listitem [ref=f3e164]: Zustand
+                  - listitem [ref=f3e165]: Lit HTML
+                  - listitem [ref=f3e166]: Web Components
+                  - listitem [ref=f3e167]: RxJS
+                  - listitem [ref=f3e168]: D3.js
+                  - listitem [ref=f3e169]: Viro AR
+              - generic [ref=f3e170]:
+                - heading "Testing, data & services" [level=3] [ref=f3e171]
+                - list [ref=f3e172]:
+                  - listitem [ref=f3e173]: Jest
+                  - listitem [ref=f3e174]: Playwright
+                  - listitem [ref=f3e175]: Storybook
+                  - listitem [ref=f3e176]: CI/CD
+                  - listitem [ref=f3e177]: Firestore
+                  - listitem [ref=f3e178]: Firebase Functions
+                  - listitem [ref=f3e179]: RevenueCat
+                  - listitem [ref=f3e180]: MongoDB
+                  - listitem [ref=f3e181]: SQL / MS SQL
+                  - listitem [ref=f3e182]: C#
+                  - listitem [ref=f3e183]: PHP (Slim)
+                  - listitem [ref=f3e184]: Socket.IO
+              - generic [ref=f3e185]:
+                - heading "AI & adoption" [level=3] [ref=f3e186]
+                - list [ref=f3e187]:
+                  - listitem [ref=f3e188]: AI early adoption (PWC)
+                  - listitem [ref=f3e189]: Company-wide AI adoption (Facile.it)
+                  - listitem [ref=f3e190]: Anthropic AI certificates
+      - region "Get in touch." [ref=f3e191]:
+        - generic [ref=f3e192]:
+          - heading "Get in touch." [level=2] [ref=f3e193]
+          - generic [ref=f3e194]:
+            - paragraph [ref=f3e195]: I’m available for product work and collaborations.
+            - navigation "Contact Marco" [ref=f3e196]:
+              - link "Email" [ref=f3e197] [cursor=pointer]:
+                - /url: mailto:marco.burrometo@gmail.com
+              - link "LinkedIn" [ref=f3e198] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/marco-burrometo/
+              - link "Instagram" [ref=f3e199] [cursor=pointer]:
+                - /url: https://www.instagram.com/marcoburrometo/
+              - link "GitHub" [ref=f3e200] [cursor=pointer]:
+                - /url: https://github.com/marcoburrometo
+              - link "Download CV" [ref=f3e201] [cursor=pointer]:
+                - /url: /cv-marco-burrometo.pdf
+            - paragraph [ref=f3e205]: 2026 © Marco Burrometo - VAT. 01214220319
+    - navigation "CV panel navigation" [ref=f3e206]:
+      - paragraph [ref=f3e207]:
+        - generic [ref=f3e208]: "01"
+        - generic [aria-hidden] [ref=f3e209]: / 04
+      - generic [ref=f3e210]:
+        - link "Go to Profile" [ref=f3e211] [cursor=pointer]:
+          - /url: "#profile"
+        - link "Go to Experience" [ref=f3e212] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Go to About" [ref=f3e213] [cursor=pointer]:
+          - /url: "#about"
+        - link "Go to Contact" [ref=f3e214] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=f3e215]: SCROLL TO EXPLORE
+  - region "Privacy choices" [ref=f3e216]:
+    - generic [ref=f3e217]:
+      - heading "Privacy choices" [level=2] [ref=f3e218]
+      - paragraph [ref=f3e219]: Optional Google Analytics stays off until you allow it.
+    - generic [ref=f3e220]:
+      - button "Decline" [ref=f3e221] [cursor=pointer]
+      - button "Allow analytics" [ref=f3e222] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=f3e228] [cursor=pointer]

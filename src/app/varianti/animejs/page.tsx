@@ -271,6 +271,9 @@ function ContactActions({ ariaLabel }: { ariaLabel: string }) {
       })}
       <a className={styles.downloadAction} download="marco-burrometo-cv.pdf" href={cvPdfHref}>
         Download CV
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M12 4v13m-6-5.5 6 6 6-6M5 21h14" />
+        </svg>
       </a>
     </nav>
   );
@@ -281,6 +284,19 @@ export default function AnimeJsVariantPage() {
 
   return (
     <AnimeMotionRoot className={styles.page}>
+      <div aria-hidden="true" className={styles.backdrop}>
+        <div className={`${styles.glowSlot} ${styles.glowCobalt}`}>
+          <div className={styles.glow} />
+        </div>
+        <div className={`${styles.glowSlot} ${styles.glowSignal}`}>
+          <div className={styles.glow} />
+        </div>
+        <div className={`${styles.glowSlot} ${styles.glowAcid}`}>
+          <div className={styles.glow} />
+        </div>
+        <div className={styles.halo} />
+        <div className={styles.vignette} />
+      </div>
       <header className={styles.masthead}>
         <Link aria-label="MB, Marco Burrometo home" className={styles.wordmark} href="/">
           MB

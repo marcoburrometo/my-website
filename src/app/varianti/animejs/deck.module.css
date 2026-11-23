@@ -31,6 +31,223 @@
   color-scheme: dark;
 }
 
+.page {
+  --bg-grid: color-mix(in srgb, var(--ink) 5%, transparent);
+  --bg-ring: color-mix(in srgb, var(--ink) 8%, transparent);
+  --bg-arm: color-mix(in srgb, var(--cobalt) 22%, transparent);
+  --bg-vignette: rgba(6, 7, 10, 0.5);
+  --glow-cobalt: color-mix(in srgb, var(--cobalt) 26%, transparent);
+  --glow-signal: color-mix(in srgb, var(--signal) 17%, transparent);
+  --glow-acid: color-mix(in srgb, var(--acid) 15%, transparent);
+  --grain-opacity: 0.16;
+}
+
+:global(.light) .page {
+  --bg-grid: color-mix(in srgb, var(--ink) 7%, transparent);
+  --bg-ring: color-mix(in srgb, var(--ink) 10%, transparent);
+  --bg-arm: color-mix(in srgb, var(--cobalt) 18%, transparent);
+  --bg-vignette: color-mix(in srgb, var(--ink) 10%, transparent);
+  --glow-cobalt: color-mix(in srgb, var(--cobalt) 13%, transparent);
+  --glow-signal: color-mix(in srgb, var(--signal) 10%, transparent);
+  --glow-acid: color-mix(in srgb, var(--acid) 10%, transparent);
+  --grain-opacity: 0.28;
+}
+
+.backdrop {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Blueprint hairline grid, fading toward the edges. */
+.backdrop::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background:
+    repeating-linear-gradient(to right, var(--bg-grid) 0 1px, transparent 1px 76px),
+    repeating-linear-gradient(to bottom, var(--bg-grid) 0 1px, transparent 1px 76px);
+  mask-image: radial-gradient(130% 120% at 50% 42%, #000 32%, transparent 86%);
+}
+
+/* Film grain. */
+.backdrop::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  mix-blend-mode: soft-light;
+  opacity: var(--grain-opacity);
+}
+
+.vignette {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  background: radial-gradient(
+    125% 110% at 50% 46%,
+    transparent 54%,
+    var(--bg-vignette) 128%
+  );
+}
+
+/* Scene-reactive atmospheres: slots are repositioned per panel, the inner
+   glow drifts on its own slow loop. */
+.glowSlot {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  transition:
+    transform 2800ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 2200ms ease;
+}
+
+.glow {
+  position: absolute;
+  width: 95vmax;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: glow-drift 44s ease-in-out infinite;
+}
+
+.glowCobalt {
+  opacity: 0.85;
+}
+
+.glowCobalt .glow {
+  top: -34%;
+  right: -22%;
+  background: radial-gradient(circle closest-side, var(--glow-cobalt), transparent 70%);
+}
+
+.glowSignal {
+  opacity: 0.45;
+}
+
+.glowSignal .glow {
+  bottom: -48%;
+  left: -28%;
+  background: radial-gradient(circle closest-side, var(--glow-signal), transparent 70%);
+  animation-duration: 52s;
+  animation-delay: -18s;
+}
+
+.glowAcid {
+  opacity: 0;
+}
+
+.glowAcid .glow {
+  top: -52%;
+  left: 18%;
+  background: radial-gradient(circle closest-side, var(--glow-acid), transparent 70%);
+  animation-duration: 61s;
+  animation-delay: -32s;
+}
+
+.page[data-anime-scene="experience"] .glowCobalt {
+  transform: translate3d(12%, 20%, 0);
+  opacity: 0.4;
+}
+
+.page[data-anime-scene="experience"] .glowSignal {
+  transform: translate3d(10%, -14%, 0);
+  opacity: 0.75;
+}
+
+.page[data-anime-scene="about"] .glowCobalt {
+  transform: translate3d(-10%, 26%, 0);
+  opacity: 0.35;
+}
+
+.page[data-anime-scene="about"] .glowSignal {
+  transform: translate3d(16%, -6%, 0);
+  opacity: 0.25;
+}
+
+.page[data-anime-scene="about"] .glowAcid {
+  transform: translate3d(-6%, 22%, 0);
+  opacity: 0.65;
+}
+
+.page[data-anime-scene="contact"] .glowCobalt {
+  transform: translate3d(10%, -12%, 0);
+  opacity: 0.4;
+}
+
+.page[data-anime-scene="contact"] .glowSignal {
+  transform: translate3d(-6%, -24%, 0);
+  opacity: 0.8;
+}
+
+.page[data-anime-scene="contact"] .glowAcid {
+  transform: translate3d(8%, -16%, 0);
+  opacity: 0.25;
+}
+
+/* Ghost mega-rings concentric with the instrument, plus a slow radar sweep. */
+.halo {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: clamp(0rem, 3vw, 3.5rem);
+  display: grid;
+  width: min(60vw, 70vh, 680px);
+  aspect-ratio: 1;
+  place-items: center;
+  transform: translateY(-50%);
+}
+
+.halo::before,
+.halo::after {
+  content: "";
+  position: absolute;
+  width: 320%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.halo::before {
+  background: repeating-radial-gradient(
+    circle,
+    var(--bg-ring) 0 1px,
+    transparent 1px 9.5%
+  );
+  mask-image: radial-gradient(circle, transparent 30%, #000 38%, transparent 70%);
+}
+
+.halo::after {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0turn 0.7turn,
+    var(--bg-arm) 0.96turn,
+    transparent 1turn
+  );
+  mask-image: radial-gradient(circle, transparent 31%, #000 42%, transparent 66%);
+  animation: sweep-turn 80s linear infinite;
+}
+
+@keyframes glow-drift {
+  0%,
+  100% {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(5%, 4%, 0) scale(1.14);
+  }
+}
+
+@keyframes sweep-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .masthead {
   position: absolute;
   z-index: 10;
@@ -204,19 +421,85 @@
   padding: 0 0.9rem;
 }
 
+.primaryAction,
+.socialAction,
+.downloadAction {
+  background-repeat: no-repeat;
+  transition:
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 160ms ease,
+    border-color 160ms ease,
+    text-decoration-color 160ms ease,
+    transform 90ms ease;
+}
+
+.primaryAction:active,
+.socialAction:active,
+.downloadAction:active {
+  transform: translateY(1px);
+}
+
 .socialAction {
   display: inline-flex;
   min-height: 2.75rem;
   align-items: center;
+  margin-inline: -0.3rem;
+  padding-inline: 0.3rem;
 }
 
 .primaryAction {
-  background: var(--signal);
+  background-color: var(--signal);
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-position: 0 50%;
+  background-size: 0% 100%;
   color: var(--paper);
+}
+
+.primaryAction:hover,
+.primaryAction:focus-visible {
+  background-size: 100% 100%;
+}
+
+.socialAction {
+  background-image: linear-gradient(var(--cobalt), var(--cobalt));
+  background-position: 0 50%;
+  background-size: 0% 100%;
+}
+
+.socialAction:hover,
+.socialAction:focus-visible {
+  background-size: 100% 100%;
+  color: var(--paper);
+  text-decoration-color: color-mix(in srgb, var(--paper) 55%, transparent);
 }
 
 .downloadAction {
   border: 1px solid var(--rule);
+  gap: 0.5rem;
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-position: 0 0;
+  background-size: 100% 0%;
+}
+
+.downloadAction:hover,
+.downloadAction:focus-visible {
+  border-color: var(--ink);
+  background-size: 100% 100%;
+  color: var(--paper);
+}
+
+.downloadAction svg {
+  width: 0.8em;
+  height: 0.8em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.downloadAction:hover svg,
+.downloadAction:focus-visible svg {
+  transform: translateY(0.14em);
 }
 
 .socialAction,
@@ -736,6 +1019,12 @@
     opacity: 0.34;
   }
 
+  .halo {
+    right: -14%;
+    width: min(86vw, 70vh, 650px);
+    opacity: 0.6;
+  }
+
   .instrument[data-anime-scene="experience"] {
     right: calc(1.25rem - min(21.5vw, 17.5vh, 162.5px));
   }
@@ -750,6 +1039,10 @@
     top: 0.85rem;
     right: 1.1rem;
     left: 1.1rem;
+  }
+
+  .halo {
+    display: none;
   }
 
   .wordmark {
@@ -943,6 +1236,11 @@
   }
 
   .orbitAccent {
+    animation: none;
+  }
+
+  .glow,
+  .halo::after {
     animation: none;
   }
 

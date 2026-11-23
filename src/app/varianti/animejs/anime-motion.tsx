@@ -96,6 +96,8 @@ export function AnimeMotionRoot({
       let cycleTimer = 0;
       let cycleIndex = 0;
       let chainLock = 0;
+      let roleAutoScrollTimer = 0;
+      let roleAutoScrollUntil = 0;
 
       // At a scroller's boundary, hand the wheel gesture to the deck so the
       // next or previous panel takes over instead of trapping the scroll.
@@ -161,6 +163,71 @@ export function AnimeMotionRoot({
 
       roleScroller?.addEventListener("scroll", onRoleScroll, { passive: true });
 
+      const stopRoleAutoScroll = () => {
+        if (roleAutoScrollTimer) {
+          window.clearTimeout(roleAutoScrollTimer);
+          roleAutoScrollTimer = 0;
+        }
+      };
+
+      // While the experience panel is idle, advance to the next role every
+      // 5 seconds, wrapping back to the first one at the end of the list.
+      const scheduleRoleAutoScroll = () => {
+        stopRoleAutoScroll();
+        if (reducedMotion || !roleScroller || !roleEntries || roleEntries.length < 2) {
+          return;
+        }
+
+        roleAutoScrollTimer = window.setTimeout(() => {
+          roleAutoScrollTimer = 0;
+          if (!roleScroller || activeSlide?.id !== "experience") {
+            return;
+          }
+
+          const scrollerTop = roleScroller.getBoundingClientRect().top;
+          const maxScroll = roleScroller.scrollHeight - roleScroller.clientHeight;
+          const atEnd = roleScroller.scrollTop >= maxScroll - 2;
+          const target = atEnd
+            ? roleEntries[0]
+            : Array.from(roleEntries).find(
+                (entry) => entry.getBoundingClientRect().top - scrollerTop > 4,
+              ) ?? roleEntries[0];
+
+          // Mark the resulting scroll events as programmatic so they do not
+          // reset the idle timer.
+          roleAutoScrollUntil = Date.now() + 1200;
+          roleScroller.scrollTo({
+            top:
+              target.getBoundingClientRect().top -
+              scrollerTop +
+              roleScroller.scrollTop,
+            behavior: "smooth",
+          });
+          scheduleRoleAutoScroll();
+        }, 5000);
+      };
+
+      const onRoleActivity = () => {
+        if (Date.now() < roleAutoScrollUntil) {
+          return;
+        }
+
+        if (activeSlide?.id === "experience") {
+          scheduleRoleAutoScroll();
+        } else {
+          stopRoleAutoScroll();
+        }
+      };
+
+      roleScroller?.addEventListener("scroll", onRoleActivity, { passive: true });
+      roleScroller?.addEventListener("wheel", onRoleActivity, { passive: true });
+      roleScroller?.addEventListener("pointerdown", onRoleActivity, {
+        passive: true,
+      });
+      roleScroller?.addEventListener("touchstart", onRoleActivity, {
+        passive: true,
+      });
+
       const stopWordCycle = () => {
         if (cycleTimer) {
           window.clearInterval(cycleTimer);
@@ -224,10 +291,19 @@ export function AnimeMotionRoot({
           instrument.dataset.animeStep = index % 2 === 0 ? "even" : "odd";
         }
 
+        // Drive the scene-reactive backdrop atmospheres.
+        rootElement.dataset.animeScene = slide.id;
+
         if (slide.id === "about") {
           startWordCycle();
         } else {
           stopWordCycle();
+        }
+
+        if (slide.id === "experience") {
+          scheduleRoleAutoScroll();
+        } else {
+          stopRoleAutoScroll();
         }
 
         if (reducedMotion) {
@@ -352,11 +428,17 @@ export function AnimeMotionRoot({
           scroller.removeEventListener("wheel", onScrollerWheel);
         });
         roleScroller?.removeEventListener("scroll", onRoleScroll);
+        roleScroller?.removeEventListener("scroll", onRoleActivity);
+        roleScroller?.removeEventListener("wheel", onRoleActivity);
+        roleScroller?.removeEventListener("pointerdown", onRoleActivity);
+        roleScroller?.removeEventListener("touchstart", onRoleActivity);
+        stopRoleAutoScroll();
         if (roleScrollFrame) {
           cancelAnimationFrame(roleScrollFrame);
         }
         stopWordCycle();
         rootElement.removeAttribute("data-motion-ready");
+        rootElement.removeAttribute("data-anime-scene");
         activeSlide?.removeAttribute("data-anime-active");
       };
     });
