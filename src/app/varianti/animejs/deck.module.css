@@ -47,10 +47,14 @@
   pointer-events: auto;
 }
 
+.masthead > button {
+  flex: 0 0 2.75rem;
+}
+
 .wordmark {
   display: inline-flex;
-  width: 2.7rem;
-  height: 2.7rem;
+  width: 2.75rem;
+  height: 2.75rem;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
@@ -66,9 +70,9 @@
 .edition {
   margin: 0 auto 0 0;
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
 }
 
 .deck {
@@ -115,6 +119,7 @@
   max-height: 100%;
   flex-direction: column;
   width: min(100%, 42rem);
+  container-type: inline-size;
 }
 
 .slideContent {
@@ -133,10 +138,11 @@
 
 .slideTitle {
   max-width: 10ch;
-  margin: 0;
+  margin: -0.2em 0;
+  padding: 0.2em 0;
   flex-shrink: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(3rem, 5.4vw, 5.5rem);
+  font-size: min(clamp(3rem, 5.4vw, 5.5rem), 12cqi);
   font-weight: 800;
   letter-spacing: -0.055em;
   line-height: 0.9;
@@ -144,23 +150,27 @@
 }
 
 .slide:first-of-type .slideTitle {
-  font-size: clamp(2rem, 5.2vw, 5.25rem);
+  font-size: min(clamp(2rem, 5.2vw, 5.25rem), 12cqi);
+}
+
+.slide[id="experience"] .slideTitle {
+  font-size: min(clamp(3rem, 5.4vw, 5.5rem), 10cqi);
 }
 
 .summary {
   max-width: 58ch;
   margin: 1.4rem 0 0;
   color: var(--muted);
-  font-size: clamp(0.94rem, 1.1vw, 1.08rem);
+  font-size: clamp(1rem, 1.1vw, 1.08rem);
   line-height: 1.7;
 }
 
 .role {
   margin: 1.6rem 0 0;
   color: var(--signal);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -178,7 +188,7 @@
 .projectLink,
 .footer a {
   color: var(--ink);
-  font-size: 0.68rem;
+  font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -189,9 +199,15 @@
 .primaryAction,
 .downloadAction {
   display: inline-flex;
-  min-height: 2.65rem;
+  min-height: 2.75rem;
   align-items: center;
   padding: 0 0.9rem;
+}
+
+.socialAction {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
 }
 
 .primaryAction {
@@ -407,8 +423,7 @@
   filter: grayscale(1) contrast(1.06);
 }
 
-.instrumentWords,
-.instrumentCounter {
+.instrumentWords {
   color: var(--ink);
   font-family: var(--font-display), sans-serif;
   font-weight: 800;
@@ -451,26 +466,36 @@
   opacity: 1;
 }
 
-.instrumentCounter {
+.instrumentRole {
   display: grid;
-  grid-template-columns: auto auto auto;
-  align-items: center;
-  gap: 0.15em;
-  font-size: clamp(1.75rem, 13cqw, 6rem);
+  max-width: 100%;
+  justify-items: center;
+  gap: 0.65rem;
+  text-align: center;
 }
 
-.instrumentCounter span {
+.instrumentCompany {
+  max-width: 100%;
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(0.65rem, calc(5cqw * var(--role-label-scale, 1)), 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.instrumentJob {
+  max-width: 100%;
   color: var(--signal);
-  font-size: 0.45em;
+  font-size: clamp(0.65rem, 2.4cqw, 1rem);
+  font-weight: 800;
+  line-height: 1.3;
+  text-wrap: balance;
 }
 
-.instrumentCounter small {
-  grid-column: 1 / -1;
-  margin-top: 0.8rem;
-  color: var(--muted);
-  font-family: var(--font-body), sans-serif;
-  font-size: 0.5rem;
-  letter-spacing: 0.18em;
+.instrumentJob:empty {
+  display: none;
 }
 
 .aboutContent {
@@ -487,20 +512,25 @@
   margin-top: 1.3rem;
 }
 
-.roleList .role {
+.roleList .roleItem {
   display: grid;
   grid-template-columns: minmax(8rem, 0.4fr) minmax(0, 1.6fr);
   gap: clamp(1rem, 2.5vw, 2.5rem);
+  min-width: 0;
   margin: 0;
   border-top: 1px solid var(--rule);
   padding: 0.85rem 0 0.95rem;
+}
+
+.roleDetails {
+  min-width: 0;
 }
 
 .period {
   margin: 0.25rem 0 0;
   color: var(--signal);
   font-family: var(--font-body), sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   line-height: 1.5;
@@ -517,28 +547,37 @@
   line-height: 1.2;
 }
 
+.jobTitle {
+  margin: 0.35rem 0 0;
+  color: var(--signal);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .description {
   max-width: 62ch;
   margin: 0.45rem 0 0;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 1rem;
   line-height: 1.55;
 }
 
 .technologies {
   margin: 0.5rem 0 0;
   color: var(--cobalt);
-  font-size: 0.59rem;
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   line-height: 1.5;
   text-transform: uppercase;
 }
 
 .projectLink {
   display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   margin-top: 0.45rem;
-  font-size: 0.58rem;
 }
 
 .skillGroups {
@@ -558,7 +597,7 @@
 .skillGroup h3 {
   margin: 0;
   color: var(--signal);
-  font-size: 0.64rem;
+  font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   line-height: 1.5;
@@ -576,7 +615,7 @@
 
 .skillGroup li {
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1.55;
 }
 
@@ -591,11 +630,13 @@
 .footer p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 0.875rem;
 }
 
 .footer a {
-  font-size: 0.6rem;
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
 }
 
 .deckNavigation {
@@ -615,7 +656,7 @@
   margin: 0;
   color: var(--muted);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.67rem;
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -634,7 +675,7 @@
   position: relative;
   display: block;
   min-width: 0.55rem;
-  height: 1.5rem;
+  height: 2.75rem;
   flex: 1 1 1rem;
   text-decoration: none;
 }
@@ -660,7 +701,7 @@
 
 .navigationHint {
   color: var(--muted);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.12em;
 }
@@ -695,7 +736,11 @@
     opacity: 0.34;
   }
 
-  .roleList .role {
+  .instrument[data-anime-scene="experience"] {
+    right: calc(1.25rem - min(21.5vw, 17.5vh, 162.5px));
+  }
+
+  .roleList .roleItem {
     grid-template-columns: minmax(7rem, 0.42fr) minmax(0, 1.58fr);
   }
 }
@@ -708,20 +753,20 @@
   }
 
   .wordmark {
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
   .edition {
-    font-size: 0.55rem;
-    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
   }
 
   .slide {
     height: 100svh;
     align-content: start;
     align-items: start;
-    padding: 6rem 1.25rem 3.5rem;
+    padding: 7rem 1.25rem 3.5rem;
   }
 
   .slideContent [data-anime-scroller] {
@@ -730,20 +775,20 @@
 
   .slideTitle {
     max-width: 9ch;
-    font-size: clamp(2.7rem, 12vw, 4.2rem);
+    font-size: min(clamp(2.7rem, 12vw, 4.2rem), 12cqi);
   }
 
   .slide:first-of-type .slideTitle {
-    font-size: clamp(1.5rem, 7vw, 3rem);
+    font-size: min(clamp(1.5rem, 7vw, 3rem), 12cqi);
   }
 
   .summary {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .role {
     margin-top: 1rem;
-    font-size: 0.62rem;
+    font-size: 0.875rem;
   }
 
   .instrument {
@@ -751,6 +796,10 @@
     right: -36%;
     width: min(112vw, 62vh, 520px);
     opacity: 0.2;
+  }
+
+  .instrument[data-anime-scene="experience"] {
+    right: calc(1.25rem - min(19.5vw, 80px));
   }
 
   .portraitCore {
@@ -762,7 +811,7 @@
     margin-top: 1rem;
   }
 
-  .roleList .role {
+  .roleList .roleItem {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.35rem;
     padding: 0.65rem 0 0.75rem;
@@ -770,7 +819,7 @@
 
   .period {
     margin-top: 0;
-    font-size: 0.56rem;
+    font-size: 0.875rem;
   }
 
   .roleDetails h3 {
@@ -779,12 +828,12 @@
 
   .description {
     margin-top: 0.3rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 
   .technologies {
     margin-top: 0.35rem;
-    font-size: 0.53rem;
+    font-size: 0.875rem;
   }
 
   .projectLink {
@@ -802,23 +851,23 @@
   }
 
   .skillGroup h3 {
-    font-size: 0.58rem;
+    font-size: 0.875rem;
   }
 
   .skillGroup li {
-    font-size: 0.68rem;
+    font-size: 1rem;
   }
 
   .deckNavigation {
-    top: 3.55rem;
+    top: 4rem;
     right: 1.25rem;
     bottom: auto;
-    width: min(52vw, 13rem);
+    width: min(72vw, 17rem);
     gap: 0.6rem;
   }
 
   .panelCounter {
-    font-size: 0.58rem;
+    font-size: 0.75rem;
   }
 
   .panelMarks {
@@ -855,17 +904,36 @@
     margin-top: 0.8rem;
   }
 
-  .roleList .role {
+  .roleList .roleItem {
     padding-top: 0.55rem;
     padding-bottom: 0.6rem;
   }
 
   .description {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 
   .codePanel {
     bottom: 4rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .slide {
+    padding-top: 5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .slideCopy {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-color: var(--rule) transparent;
+    scrollbar-width: thin;
+  }
+
+  .deckNavigation {
+    top: auto;
+    bottom: 1rem;
   }
 }
 

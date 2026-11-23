@@ -18,6 +18,51 @@ export function AnimeMotionRoot({
       return;
     }
 
+    const roleCurrent = rootElement.querySelector<HTMLElement>(
+      "[data-anime-role-current]",
+    );
+    const jobCurrent = rootElement.querySelector<HTMLElement>(
+      "[data-anime-job-current]",
+    );
+    const roleScroller = rootElement.querySelector<HTMLElement>(
+      "#experience [data-anime-scroller]",
+    );
+    const roleEntries = roleScroller?.querySelectorAll<HTMLElement>("article");
+    const syncRoleLabel = () => {
+      if (!roleScroller || !roleEntries?.length || !roleCurrent || !jobCurrent) {
+        return;
+      }
+
+      const maxScroll = roleScroller.scrollHeight - roleScroller.clientHeight;
+      const marker = roleScroller.getBoundingClientRect().top + roleScroller.clientHeight * 0.25;
+      const currentEntry =
+        maxScroll > 0 && roleScroller.scrollTop >= maxScroll - 1
+          ? roleEntries[roleEntries.length - 1]
+          : Array.from(roleEntries).find(
+              (entry) => entry.getBoundingClientRect().bottom > marker,
+            ) ?? roleEntries[roleEntries.length - 1];
+      const currentName = currentEntry.querySelector("h3")?.textContent?.trim()
+        .replace(/^@\s*/, "");
+      const currentJob = currentEntry.querySelector("[data-anime-job]")?.textContent?.trim() ?? "";
+
+      if (currentName) {
+        roleCurrent.style.setProperty(
+          "--role-label-scale",
+          String(Math.min(1, 18 / currentName.length)),
+        );
+      }
+
+      if (currentName && roleCurrent.textContent !== currentName) {
+        roleCurrent.textContent = currentName;
+      }
+      if (jobCurrent.textContent !== currentJob) {
+        jobCurrent.textContent = currentJob;
+      }
+    };
+
+    roleScroller?.addEventListener("scroll", syncRoleLabel, { passive: true });
+    syncRoleLabel();
+
     const scope = createScope({
       root,
       mediaQueries: {
@@ -43,12 +88,7 @@ export function AnimeMotionRoot({
       const cores = instrument?.querySelectorAll<HTMLElement>("[data-anime-core]");
       const rings = instrument?.querySelectorAll<SVGGElement>("[data-anime-ring]");
       const dots = instrument?.querySelectorAll<SVGElement>("[data-anime-dot]");
-      const roleCurrent = instrument?.querySelector<HTMLElement>("[data-anime-role-current]");
       const cycleItems = instrument?.querySelectorAll<HTMLElement>("[data-anime-cycle-item]");
-      const roleScroller = rootElement.querySelector<HTMLElement>(
-        "#experience [data-anime-scroller]",
-      );
-      const roleEntries = roleScroller?.querySelectorAll<HTMLElement>("article");
       const scrollers = rootElement.querySelectorAll<HTMLElement>("[data-anime-scroller]");
       const reducedMotion = scope.matches.reduceMotion;
       let activeSlide: HTMLElement | null = null;
@@ -96,20 +136,12 @@ export function AnimeMotionRoot({
 
       const syncRoleProgress = () => {
         roleScrollFrame = 0;
-        if (!roleScroller || !roleEntries?.length) {
+        if (!roleScroller) {
           return;
         }
 
         const maxScroll = roleScroller.scrollHeight - roleScroller.clientHeight;
         const progress = maxScroll > 0 ? roleScroller.scrollTop / maxScroll : 0;
-        const currentRole = Math.min(
-          roleEntries.length,
-          Math.max(1, Math.round(progress * (roleEntries.length - 1)) + 1),
-        );
-
-        if (roleCurrent) {
-          roleCurrent.textContent = String(currentRole).padStart(2, "0");
-        }
 
         if (!reducedMotion && rotor && instrument?.dataset.animeScene === "experience") {
           utils.remove(rotor);
@@ -118,6 +150,10 @@ export function AnimeMotionRoot({
       };
 
       const onRoleScroll = () => {
+        if (reducedMotion) {
+          return;
+        }
+
         if (!roleScrollFrame) {
           roleScrollFrame = requestAnimationFrame(syncRoleProgress);
         }
@@ -325,7 +361,10 @@ export function AnimeMotionRoot({
       };
     });
 
-    return () => scope.revert();
+    return () => {
+      roleScroller?.removeEventListener("scroll", syncRoleLabel);
+      scope.revert();
+    };
   }, []);
 
   return (

@@ -59,7 +59,7 @@
 .actions .accept {
     border-color: var(--accent-neon);
     background: var(--accent-neon);
-    color: var(--foreground);
+    color: #0f172a;
 }
 
 .actions button:hover,

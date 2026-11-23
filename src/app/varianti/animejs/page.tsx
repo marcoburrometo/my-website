@@ -11,6 +11,7 @@ import styles from "./deck.module.css";
 
 type Experience = {
   period: string;
+  role: string;
   description: string;
   place: string;
   link?: string;
@@ -170,11 +171,13 @@ function MotionInstrument() {
           </span>
         </figure>
         <div aria-hidden="true" className={styles.sceneCore} data-anime-core="experience">
-          <div className={styles.instrumentCounter}>
-            <strong data-anime-role-current>01</strong>
-            <span>/</span>
-            <strong>{String(typedExperiences.length).padStart(2, "0")}</strong>
-            <small>ROLES / 2016 → NOW</small>
+          <div className={styles.instrumentRole}>
+            <span className={styles.instrumentCompany} data-anime-role-current>
+              {typedExperiences[0].place.replace(/^@\s*/, "")}
+            </span>
+            <span className={styles.instrumentJob} data-anime-job-current>
+              {typedExperiences[0].role}
+            </span>
           </div>
         </div>
         <div aria-hidden="true" className={styles.sceneCore} data-anime-core="about">
@@ -279,7 +282,7 @@ export default function AnimeJsVariantPage() {
   return (
     <AnimeMotionRoot className={styles.page}>
       <header className={styles.masthead}>
-        <Link aria-label="Marco Burrometo home" className={styles.wordmark} href="/">
+        <Link aria-label="MB, Marco Burrometo home" className={styles.wordmark} href="/">
           MB
         </Link>
         <p className={styles.edition}>ENGINEERING / PORTFOLIO / {year}</p>
@@ -306,17 +309,20 @@ export default function AnimeJsVariantPage() {
           <ContactActions ariaLabel="Contact and profiles" />
         </DeckPanel>
 
-        <DeckPanel id="experience" index={1} label="EXPERIENCE" title="Selected work.">
+        <DeckPanel id="experience" index={1} label="EXPERIENCE" title="Experiences.">
           <div className={styles.roleList} data-anime-scroller>
             {typedExperiences.map((experience, roleIndex) => (
               <article
-                className={styles.role}
+                className={styles.roleItem}
                 data-anime-enter
                 key={`${experience.period}-${roleIndex}`}
               >
                 <p className={styles.period}>{experience.period}</p>
                 <div className={styles.roleDetails}>
                   <h3>{experience.place || "Freelance Projects"}</h3>
+                  {experience.role !== experience.place && (
+                    <p className={styles.jobTitle} data-anime-job>{experience.role}</p>
+                  )}
                   <p className={styles.description}>{experience.description}</p>
                   <p className={styles.technologies}>{experience.technologies}</p>
                   {experience.link ? (
@@ -367,7 +373,6 @@ export default function AnimeJsVariantPage() {
           <ContactActions ariaLabel="Contact Marco" />
           <footer className={styles.footer} data-anime-enter>
             <p>{footerText.replace("{year}", String(year))}</p>
-            <Link href="/varianti">Other CV variants</Link>
           </footer>
         </DeckPanel>
       </main>
