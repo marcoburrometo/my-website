@@ -67,8 +67,7 @@ export default async function SignalBloomVariantPage() {
               <span>Senior Software Engineer</span>
             </div>
             <p className={styles.lead}>
-              I build web and mobile products across high-traffic platforms. My
-              BimboMap side project reached 8k users in two months.
+              I build web and mobile products across high-traffic platforms.
             </p>
             <div className={styles.actions}>
               <a className={styles.download} download="marco-burrometo-cv.pdf" href={cvPdfHref}>
@@ -95,7 +94,6 @@ export default async function SignalBloomVariantPage() {
           <section aria-labelledby="impact-heading" className={styles.impactSection}>
             <h2 id="impact-heading">Selected impact</h2>
             <ul className={styles.impactList}>
-              <li>BimboMap reached 3k users in two weeks and 8k in two months.</li>
               <li>Delivers features at Facile.it, a platform with millions of weekly visits.</li>
               <li>Led frontend architecture for sports apps serving around 200k daily users.</li>
             </ul>

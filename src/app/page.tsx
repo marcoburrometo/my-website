@@ -1,9 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { connection } from "next/server";
+import * as motion from "motion/react-client";
 import experiences from "@/data/experiences.json";
-import { aboutParagraphs, footerText, socials } from "@/data/profile";
+import { footerText, socials } from "@/data/profile";
 import skills from "@/data/skills.json";
+import { MotionProvider } from "@/components/motion-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 type Experience = {
@@ -33,13 +34,14 @@ export default async function Home() {
     "signal-bloom": () => import("./varianti/signal-bloom/page"),
     televideo: () => import("./varianti/televideo/page"),
   };
-  const defaultVariant = process.env.DEFAULT_CV_VARIANT;
-  const loadDefaultVariant = defaultVariant
-    ? defaultVariantLoaders[defaultVariant as keyof typeof defaultVariantLoaders]
-    : undefined;
+  const selectedVariant = process.env.DEFAULT_CV_VARIANT ?? "default";
+  const loadSelectedVariant =
+    selectedVariant === "default"
+      ? undefined
+      : defaultVariantLoaders[selectedVariant as keyof typeof defaultVariantLoaders];
 
-  if (loadDefaultVariant) {
-    const { default: SelectedVariant } = await loadDefaultVariant();
+  if (loadSelectedVariant) {
+    const { default: SelectedVariant } = await loadSelectedVariant();
     return <SelectedVariant />;
   }
 
@@ -50,20 +52,42 @@ export default async function Home() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_15%,rgba(43,255,224,0.2)_0,transparent_35%),radial-gradient(circle_at_85%_20%,rgba(255,42,109,0.22)_0,transparent_38%),radial-gradient(circle_at_50%_80%,rgba(174,255,0,0.18)_0,transparent_40%)]" />
 
       <header className="mx-auto flex w-full max-w-6xl items-start justify-between gap-3 px-5 pt-6 sm:items-center md:px-8">
-        <p className="font-display text-lg font-semibold tracking-wide md:text-xl">
-          Marco Burrometo
+        <p aria-hidden="true" className="font-display text-lg font-semibold tracking-[0.18em] md:text-xl">
+          MB
         </p>
         <ThemeToggle />
       </header>
 
       <main className="mx-auto grid w-full max-w-6xl gap-8 px-5 pt-5 md:gap-10 md:px-8 md:pt-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <section className="glass-panel min-w-0 space-y-8 p-6 md:p-9">
-          <div className="space-y-4 animate-rise">
+        <MotionProvider>
+        <section className="glass-panel flex min-w-0 flex-col gap-8 p-6 md:p-9">
+          <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.28em] text-(--accent-neon)">
-              Frontend Engineer · Product Mindset
+              Full-Stack Engineer · Frontend Focus
             </p>
-            <h1 className="font-display text-3xl leading-[1.02] break-words sm:text-4xl md:text-6xl">
-              Building digital products that feel alive.
+            <h1
+              aria-label="Marco Burrometo"
+              className="font-display text-3xl leading-[1.02] break-words sm:text-4xl md:text-6xl"
+            >
+              <motion.span
+                aria-hidden="true"
+                animate={{ y: 0 }}
+                className="inline-block"
+                initial={{ y: 10 }}
+                transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
+              >
+                Marco
+              </motion.span>
+              {" "}
+              <motion.span
+                aria-hidden="true"
+                animate={{ y: 0 }}
+                className="inline-block"
+                initial={{ y: 10 }}
+                transition={{ delay: 0.1, duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
+              >
+                Burrometo
+              </motion.span>
             </h1>
             <p className="max-w-2xl text-sm leading-relaxed text-(--text-soft) md:text-base">
               I design and develop high-impact interfaces with a strong focus on
@@ -71,42 +95,43 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 animate-rise-delay-1">
-            {aboutParagraphs.map((line) => (
-              <p
-                className="rounded-2xl border border-(--line) bg-(--surface-soft) p-4 text-sm leading-relaxed text-(--text-soft)"
-                key={line}
-              >
-                {line}
-              </p>
-            ))}
+          <div className="max-w-2xl space-y-3 text-sm leading-relaxed text-(--text-soft)">
+            <p>
+              Accomplished full-stack developer with extensive experience in
+              React, React Native, Node.js, and frontend architecture. I lead
+              teams and build reliable products used by hundreds of thousands
+              to millions of people.
+            </p>
+            <p>
+              Off the clock, I’m playing bass, producing music, collecting vinyl and vintage hi-fi equipment, or sailing
+              and fishing. I’m also a dachshund owner and dad to Gabriele and
+              Camilla.
+            </p>
           </div>
 
-          <div className="animate-rise-delay-2 flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3">
             {socials.map((social) => (
-              <a
-                className="group rounded-full border border-(--line) bg-(--surface) px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:border-(--accent-neon) hover:text-(--accent-neon)"
+              <motion.a
+                className="group rounded-full border border-(--line) bg-(--surface) px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-colors duration-200 hover:border-(--accent-neon) hover:text-(--accent-neon)"
                 data-ga-event="social_click"
                 data-ga-label={social.label}
                 href={social.href}
                 key={social.label}
                 rel="noreferrer"
                 target="_blank"
+                transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                whileFocus={{ y: -2 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {social.label}
-              </a>
+              </motion.a>
             ))}
-            <Link
-              className="group rounded-full border border-(--line) bg-(--surface) px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:border-(--accent-hot) hover:text-(--accent-hot)"
-              href="/varianti"
-            >
-              Varianti Design
-            </Link>
           </div>
         </section>
 
         <aside className="min-w-0 space-y-8">
-          <section className="glass-panel p-6 md:p-8 animate-rise-delay-1">
+          <section className="glass-panel p-6 md:p-8">
             <div className="relative mb-5 aspect-4/3 overflow-hidden rounded-3xl border border-(--line)">
               <Image
                 alt="Marco Burrometo portrait"
@@ -123,7 +148,7 @@ export default async function Home() {
             </p>
           </section>
 
-          <section className="glass-panel p-6 md:p-8 animate-rise-delay-2">
+          <section className="glass-panel p-6 md:p-8">
             <h2 className="font-display text-2xl">Tech Stack</h2>
             <div className="mt-5 space-y-5">
               {typedSkillGroups.map((group) => (
@@ -146,6 +171,7 @@ export default async function Home() {
             </div>
           </section>
         </aside>
+        </MotionProvider>
       </main>
 
       <section className="mx-auto mt-8 w-full max-w-6xl px-5 md:px-8">

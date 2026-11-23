@@ -26,7 +26,7 @@ Visitors arrive on the public website, review the profile and career history, fo
 
 - The site is a web CV and portfolio built with Next.js, React, TypeScript, and Tailwind CSS.
 - The five variants are available at `/varianti/hypercard`, `/varianti/editorial-pop`, `/varianti/mono-terminal`, `/varianti/antigravity`, and `/varianti/signal-bloom`; `/varianti` lists them.
-- `DEFAULT_CV_VARIANT` can select a supported variant for `/`. Without a valid selection, the standard homepage is shown.
+- `DEFAULT_CV_VARIANT` can select a supported variant for `/`. Set it to `default` (or leave it unset) to show the standard homepage.
 - Variants share factual profile, skills, experience, social links, portrait assets, and the downloadable CV. Keep these facts consistent across variants; preserve each variant as a distinct design direction.
 - Visitors can switch between light and dark themes.
 - Optional Google Analytics stays disabled unless a visitor grants consent; visitors can change their choice later.
