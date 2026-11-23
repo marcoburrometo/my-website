@@ -303,8 +303,8 @@ export default function AnimeJsVariantPage() {
           </p>
           <p className={styles.summary} data-anime-enter>
             I’m a senior full-stack engineer with a frontend focus, based in
-            Northern Italy. I build web and mobile products that feel intuitive,
-            perform well, and deliver measurable results.
+            Northern Italy. I build web and mobile products with a focus on
+            usability and performance.
           </p>
           <ContactActions ariaLabel="Contact and profiles" />
         </DeckPanel>
@@ -343,7 +343,7 @@ export default function AnimeJsVariantPage() {
           </div>
         </DeckPanel>
 
-        <DeckPanel id="about" index={2} label="ABOUT" title="People first, in every build.">
+        <DeckPanel id="about" index={2} label="ABOUT" title="About me.">
           <div className={styles.aboutContent} data-anime-scroller>
             <p className={styles.summary} data-anime-enter>
               {aboutParagraphs[3]}
@@ -366,9 +366,9 @@ export default function AnimeJsVariantPage() {
           </div>
         </DeckPanel>
 
-        <DeckPanel id="contact" index={3} label="CONTACT" title="Let’s build something useful.">
+        <DeckPanel id="contact" index={3} label="CONTACT" title="Get in touch.">
           <p className={styles.summary} data-anime-enter>
-            I’m available for thoughtful products, teams, and collaborations.
+            I’m available for product work and collaborations.
           </p>
           <ContactActions ariaLabel="Contact Marco" />
           <footer className={styles.footer} data-anime-enter>

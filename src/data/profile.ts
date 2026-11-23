@@ -2,7 +2,7 @@ export const aboutParagraphs = [
   "I'm Marco Burrometo. Nice to meet you!",
   "Born in 1992, based in Northern Italy, and a citizen of the world.",
   "Technology and music are two of my biggest passions.",
-  "I put the people using what I build first. I enjoy turning their needs into thoughtful products, creating things that feel unique, and keeping up with new technology.",
+  "I put the people using what I build first. I enjoy building products around their needs and keeping up with new technology.",
   "I've played bass guitar since I was 15.",
   "I'm passionate about music and collect vinyl records.",
   "Proud dachshund owner and dog lover.",
