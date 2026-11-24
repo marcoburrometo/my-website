@@ -349,6 +349,7 @@
   min-height: 0;
   overflow-y: auto;
   padding-right: 0.8rem;
+  overscroll-behavior: contain;
   scrollbar-color: var(--rule) transparent;
   scrollbar-width: thin;
 }

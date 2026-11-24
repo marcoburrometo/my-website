@@ -99,8 +99,26 @@ export function AnimeMotionRoot({
       let roleAutoScrollTimer = 0;
       let roleAutoScrollUntil = 0;
 
-      // At a scroller's boundary, hand the wheel gesture to the deck so the
-      // next or previous panel takes over instead of trapping the scroll.
+      // At a scroller's boundary, hand the gesture to the deck so the next
+      // or previous panel takes over instead of trapping the scroll.
+      const chainToPanel = (scroller: HTMLElement, forward: boolean) => {
+        const slide = scroller.closest<HTMLElement>("[data-anime-slide]");
+        const target = forward
+          ? slide?.nextElementSibling
+          : slide?.previousElementSibling;
+        if (!target) {
+          return false;
+        }
+
+        const now = Date.now();
+        if (now - chainLock > 700) {
+          chainLock = now;
+          target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+        }
+
+        return true;
+      };
+
       const onScrollerWheel = (event: WheelEvent) => {
         const scroller = event.currentTarget as HTMLElement;
         const atEnd =
@@ -112,24 +130,56 @@ export function AnimeMotionRoot({
           return;
         }
 
-        const slide = scroller.closest<HTMLElement>("[data-anime-slide]");
-        const target = forward
-          ? slide?.nextElementSibling
-          : slide?.previousElementSibling;
-        if (!target) {
+        if (chainToPanel(scroller, forward)) {
+          event.preventDefault();
+        }
+      };
+
+      // Touch equivalent: a swipe that starts while the scroller is already
+      // at a boundary moves the deck; a swipe that merely reaches the
+      // boundary stays contained (see overscroll-behavior in CSS), so the
+      // next distinct swipe turns the panel.
+      let touchStartY = 0;
+      let touchAtTop = false;
+      let touchAtEnd = false;
+      let touchChained = false;
+
+      const onScrollerTouchStart = (event: TouchEvent) => {
+        const scroller = event.currentTarget as HTMLElement;
+        touchStartY = event.touches[0]?.clientY ?? 0;
+        touchAtEnd =
+          scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 2;
+        touchAtTop = scroller.scrollTop <= 2;
+        touchChained = false;
+      };
+
+      const onScrollerTouchMove = (event: TouchEvent) => {
+        if (touchChained) {
           return;
         }
 
-        event.preventDefault();
-        const now = Date.now();
-        if (now - chainLock > 700) {
-          chainLock = now;
-          target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+        const scroller = event.currentTarget as HTMLElement;
+        const deltaY = touchStartY - (event.touches[0]?.clientY ?? touchStartY);
+        if (Math.abs(deltaY) < 28) {
+          return;
         }
+
+        const forward = deltaY > 0;
+        if ((forward && !touchAtEnd) || (!forward && !touchAtTop)) {
+          return;
+        }
+
+        touchChained = chainToPanel(scroller, forward);
       };
 
       scrollers.forEach((scroller) => {
         scroller.addEventListener("wheel", onScrollerWheel, { passive: false });
+        scroller.addEventListener("touchstart", onScrollerTouchStart, {
+          passive: true,
+        });
+        scroller.addEventListener("touchmove", onScrollerTouchMove, {
+          passive: true,
+        });
       });
 
       if (!reducedMotion) {
@@ -426,6 +476,8 @@ export function AnimeMotionRoot({
         observer.disconnect();
         scrollers.forEach((scroller) => {
           scroller.removeEventListener("wheel", onScrollerWheel);
+          scroller.removeEventListener("touchstart", onScrollerTouchStart);
+          scroller.removeEventListener("touchmove", onScrollerTouchMove);
         });
         roleScroller?.removeEventListener("scroll", onRoleScroll);
         roleScroller?.removeEventListener("scroll", onRoleActivity);
