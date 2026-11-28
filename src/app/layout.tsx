@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     default: "Marco Burrometo | Senior Frontend Developer",
     template: "%s | Marco Burrometo",
   },
-  description: "Senior frontend developer in northern Italy building web and mobile products with React, TypeScript, and React Native, with a focus on user experience.",
+  description: "Senior software engineer in northern Italy building web and mobile products with React, TypeScript, and React Native, with a focus on user experience.",
   applicationName: "Marco Burrometo CV",
   alternates: { canonical: "/" },
   creator: "Marco Burrometo",

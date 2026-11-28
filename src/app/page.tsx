@@ -64,7 +64,7 @@ export default async function Home() {
         <section className="glass-panel flex min-w-0 flex-col gap-8 p-6 md:p-9">
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.28em] text-(--accent-neon)">
-              Full-Stack Engineer · Frontend Focus
+              Senior Software Engineer · Frontend Architecture
             </p>
             <h1
               aria-label="Marco Burrometo"
@@ -98,10 +98,11 @@ export default async function Home() {
 
           <div className="max-w-2xl space-y-3 text-sm leading-relaxed text-(--text-soft)">
             <p>
-              Accomplished full-stack developer with extensive experience in
-              React, React Native, Node.js, and frontend architecture. I lead
-              teams and build reliable products used by hundreds of thousands
-              to millions of people.
+              Software engineer with 14+ years of experience across web and mobile
+              products. Hands-on in React, React Native, TypeScript, and
+              Node.js, with a background in frontend architecture, technical
+              leadership, and full-stack delivery. I work with international
+              teams on products used at scale.
             </p>
             <p>
               Off the clock, I’m playing bass, producing music, collecting vinyl and vintage hi-fi equipment, or sailing

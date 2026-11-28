@@ -1,15 +1,15 @@
 [
   {
-    "period": "11/2024 - 10/2026",
-    "role": "Senior developer",
-    "description": "Senior developer for PwC USA. Built the frontend of an internal CMS for collaboration teams, maintained its NestJS backend, improved the proprietary UI kit, and joined the AI early-adoption team.",
+    "period": "11/2024 - Now",
+    "role": "Senior Full Stack Engineer",
+    "description": "Senior full stack engineer on the PwC US engagement. Built React interfaces for an internal CMS portal, improved the shared UI kit, maintained NestJS backend services, and contributed to the team's early adoption of AI development tools.",
     "place": "@Jimmy Technologies · PWC USA",
     "link": "https://www.fromjimmy.com/",
     "technologies": "React, Next.js, Node.js, NestJS."
   },
   {
     "period": "03/2025 - Now",
-    "role": "Fouder",
+    "role": "Independent product developer",
     "description": "Built BimboMap, a personal React Native project for finding, reviewing, and sharing baby-friendly places. It includes native widgets and quick actions, enhanced GPS features, map clustering, in-app purchases and subscriptions, an admin portal, and a website. Reached 3,000 users in two weeks and 8,000 in two months.",
     "place": "@BimboMap",
     "link": "https://bimbomap.it",
@@ -17,24 +17,24 @@
   },
   {
     "period": "01/2026 - 10/2026",
-    "role": "Full-stack developer",
-    "description": "Full-stack developer on a seven-person team at Italy's leading energy comparison website, with millions of visits each week. Monitored user journeys, resolved issues, delivered features for A/B tests, carried out end-to-end testing, and supported company-wide AI adoption.",
+    "role": "Senior frontend engineer",
+    "description": "Senior frontend engineer on a seven-person team at a high-traffic comparison platform, with millions of visits each week. Implemented features and A/B tests, investigated user flows, and maintained Playwright end-to-end tests.",
     "place": "@Facile.it",
     "link": "https://www.facile.it/",
     "technologies": "React, Next.js, Playwright."
   },
   {
-    "period": "11/2024 - Now",
-    "role": "Senior developer",
-    "description": "Freelance senior developer delivering client projects in automotive and data analytics. Work includes full-stack development of a car-commerce platform and Firebase services for mobile push certifications. Google Cloud Developer certified.",
+    "period": "11/2024 - 07/2026",
+    "role": "Senior developer · Client projects",
+    "description": "Delivered automotive commerce and analytics work with Next.js, Strapi and Firebase, and built a mobile push-notification service. Google Cloud Developer certified.",
     "place": "@Jimmy Technologies, Prague",
     "link": "https://www.fromjimmy.com/",
     "technologies": "React, Next.js, React Native, Strapi, Firebase, Node.js, Google Cloud Platform."
   },
   {
     "period": "12/2024 - 02/2025",
-    "role": "Full-stack developer",
-    "description": "Built a full-stack web service for booking parking spaces, integrated with a legacy ERP and Strapi.",
+    "role": "Freelance full-stack developer",
+    "description": "Built a Next.js and Firebase parking reservation service with legacy ERP synchronization.",
     "place": "@Freelance · Terminal One",
     "link": "https://booking.terminalone.it/",
     "technologies": "React, Next.js, Firebase, Strapi."
@@ -65,9 +65,9 @@
   },
   {
     "period": "02-05/2022 · 02-04/2023 · 01-03/2024",
-    "role": "Teacher",
+    "role": "Technical instructor",
     "description": "Taught 50-hour React courses in 2022 and 2024, plus a 30-hour HTML and CSS course in 2023.",
-    "place": "Teacher",
+    "place": "@Freelance · React and web development courses",
     "technologies": "React, HTML, CSS."
   },
   {
