@@ -315,7 +315,7 @@ export default function AnimeJsVariantPage() {
       >
         <DeckPanel headingLevel={1} id="profile" index={0} label="PROFILE" title="Marco Burrometo">
           <p className={styles.role} data-anime-enter>
-            Full-Stack Engineer · Frontend Focus
+            Senior Software Engineer · Frontend Architecture
           </p>
           <p className={styles.summary} data-anime-enter>
             I’m a senior full-stack engineer with a frontend focus, based in
